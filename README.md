@@ -5,7 +5,7 @@ Público objetivo: Para publico general focalizando en un rango de edad de 20 a 
 Integrantes:
 Margarita Syddall. 28 años. Madre de dos, amante de las plantas.
 Melissa D'Huicque. 26 años. Estudiante, amante de compra online.
-Lionel Prats. 36 años. Amante del deporte, la música y la.
+Lionel Prats. 36 años. Amante del deporte, la música y la programación.
 
 Paginas web:
 https://colourpop.com
