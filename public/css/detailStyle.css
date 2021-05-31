@@ -1,0 +1,141 @@
+body{
+    background-color: whitesmoke;
+    color: #02361a;
+}
+main{
+    display: flex;
+    flex-wrap: wrap;
+    font-family: monospace;
+    border: solid 1px black;
+}    
+#producto{   
+    width: 50vh;
+}
+#prodrelac{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.prod{
+    border: solid 1px black;
+}
+
+.relacionados{
+    width: 25vh;
+    height: 30vh;
+}
+#titulo{
+    font-family: monospace;
+}
+#precio{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: flex-start;
+    font-family: monospace;
+    font-size: 18px;
+
+}
+
+#cuotas{
+    font-family: monospace;
+    font-size: 14;
+}
+
+.titRelacionado{
+    font-family: monospace;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.precioRelac{
+    font-family: monospace;
+    font-size: 14px;
+    font-weight: normal;
+}
+.cuotasSn{
+    font-family: monospace;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+#prodrelac{
+    font-family: monospace;
+    font-size: 16px;
+    font-weight: bold;
+}
+#espacioCuota{
+    height: 100px;
+    width: 100px;
+}
+
+.favorito{
+    color: #b20b96;
+}
+
+.principal{
+    display: flex;
+    height: 100px;
+}
+#logo{
+    width: 100px;
+    height: 100px;
+    margin: auto;
+}
+.iconos{
+    display: flex;
+    flex-flow: row-reverse wrap;
+    justify-content: space-around;
+}
+
+header {
+    background-color: #f3f3f3;
+    border: solid 1px rgba(54, 46, 46, 0.534);
+    display: flex;
+    align-items: center;     
+    width: 100vw; 
+    margin: auto;
+}
+footer {
+    background-color: rgba(54, 46, 46, 0.534);
+    border-top: 1px solid rgb(43, 35, 35);
+    font-size: 12px;
+    padding: 20px 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+footer img {
+    width: 72px;
+    height: 60px;
+    margin-right: 5px;
+    border: 1px solid rgb(43, 35, 35);
+    border-radius: 100%;
+
+}
+
+footer label {
+    display: block;
+}
+
+
+.contacto {
+    text-align: center;
+    font-weight: bold;   
+}
+
+.redes {
+    text-align: center;
+}
+
+.footer-titulos {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.footer-items {
+    font-weight: bold;
+    margin-bottom: 10px;
+}

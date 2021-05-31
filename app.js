@@ -8,8 +8,8 @@ app.listen(3000, () => {
 app.get('/' , (req,res) => {
     res.sendFile(path.resolve(__dirname , './views/index.html'))
 });
-app.get('/prodDetail' , (req,res) => {
-    res.sendFile(path.resolve(__dirname , './views/prodDetail.html'))
+app.get('/prodetail' , (req,res) => {
+    res.sendFile(path.resolve(__dirname , './views/prodetail.html'))
 });
 
 app.get('/carrito' , (req,res) => {
@@ -19,8 +19,8 @@ app.get('/carrito' , (req,res) => {
 app.get('/login' , (req,res) => {
     res.sendFile(path.resolve(__dirname , './views/login.html'))
 });
-app.get('/signUp' , (req,res) => {
-    res.sendFile(path.resolve(__dirname , './views/signUp.html'))
+app.get('/signup' , (req,res) => {
+    res.sendFile(path.resolve(__dirname , './views/signup.html'))
 });
  
 app.use(express.static(path.resolve(__dirname , './public')));
