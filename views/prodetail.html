@@ -6,42 +6,53 @@
         <script src="https://kit.fontawesome.com/77ea5851fe.js" crossorigin="anonymous"></script>
     </head>
     <body>
-        <header class="principal">
-            <i class="fas fa-ellipsis-v menu"></i>
-            <i class="fas fa-search buscador"></i>
-            <img src="/imagenes/logo.jpg" width="100px" id='logo'>
-            <i class="far fa-user-circle iconos"></i>
-            <i class="fas fa-shopping-cart iconos"></i>
-            <i class="far fa-heart favorito iconos"> </i>
-            </div>
+        <header>
+
+            <span class="left-menu">
+                <i class="fas fa-th iconos"></i>
+                <i class="fas fa-search iconos"></i>
+            </span>
+            <span class="cont-logo">
+                <img class="logo" src="./imagenes/logo.JPG" alt="logo"> 
+            </span>       
+            <span class="right-menu">
+                <i class="fas fa-user iconos"></i>
+                <i class="fas fa-shopping-cart iconos"></i>
+            </span>
+
         </header>
+
         <main>
             <h1 id='titulo'>MACETA TERRACOTA BEMBA </h1>
-            <br>
-            <img src="/imagenes/detalleProducto1.jpg" id='producto'>
-            <br>
-            <div id='precio'>$2500</div>
-            <br id='espacioCuota'>
-            <div id='cuotas'> 6 cuotas sin interes de $416.67</div>
-            <br id='espacioCuota'>
-            <div> Tamaño  
+            <div>
+                <img src="/imagenes/detalleProducto1.jpg" id='producto'>
                 <br>
-                <input type="radio" value="mini" name='tamaño'> Mini </input>
-                <br>
-                <input type="radio" value="medio" name='tamaño'> Medio </input>
-                <br>
-                <input type="radio" value="grande" name='tamaño'> Grande </input>
-            </div>
-            <br id='espacioCuota'>
-            <p> Agregar al carrito
-                <button type="submit"> <i class="fas fa-shopping-cart"></i> </button>
-            </p>
-            <div class='descrip'>
-                <p> Maceta de terracota divertidísima. Ideal para ponerle una planta de pelo y otras en la boca</p>
-                <img src="/imagenes/medidasDetailProd.jpg" id='medida'>
-                <p class="nota"> La imagen es solo a modo ilustrativo. Cada planta es única. Además, las plantas, al tratarse de seres vivos que requieren de nuestro cuidado, una vez adquiridas no tendrán cambio o devolución!
-                </p>
-            </div>
+                <div id="det">
+                    <br>
+                    <div id='precio'>$2500</div>
+                    <br id='espacioCuota'>
+                    <div id='cuotas'> 6 cuotas sin interes de $416.67</div>
+                    <br id='espacioCuota'>
+                    <div> Tamaño  
+                        <br>
+                        <input type="radio" value="mini" name='tamaño'> Mini </input>
+                        <br>
+                        <input type="radio" value="medio" name='tamaño'> Medio </input>
+                        <br>
+                        <input type="radio" value="grande" name='tamaño'> Grande </input>
+                    </div>
+                </div>
+                <div id="fav">
+                    <button type="submit"> <i class="fas fa-shopping-cart"></i> </button>
+                    <i class="far fa-heart"></i>
+                </div>
+                <div class='descrip'>
+                    <p> Maceta de terracota divertidísima. Ideal para ponerle una planta de pelo y otras en la boca</p>
+                    <img src="/imagenes/medidasDetailProd.jpg" id='medida'>
+                    <p class="nota"> La imagen es solo a modo ilustrativo. Cada planta es única. Además, las plantas, al tratarse de seres vivos que requieren de nuestro cuidado, una vez adquiridas no tendrán cambio o devolución!
+                    </p>
+                </div>
+            </div>    
                 <div> Productos relacionados</div>
                 <div id="prodrelac">
                     <span class="prod">
