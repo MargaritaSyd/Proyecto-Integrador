@@ -2,3 +2,9 @@ Review Sprint 1:
 Luego de transitar nuestro primer sprint resolvimos que estamos satisfechos con nuestro equipo. 
 Al principios encontramos fallas en la comunicación que supimos resolver con nuevos medios de comunicación. 
 Supimos resolver conflictos llegando a acuerdos respetando las distintas opiniones, buscando una mejor relación en el equipo de trabajo. 
+
+Review sprint 2:
+Estamos satisfechos con el trabajo presentado.
+Tomamos nota de los puntos a mejorar.
+Ya estamos trabajando para lograr un resultado optimo.
+Nos consolidamos como equipo, nos resulta facil ponernos de acuerdo.
