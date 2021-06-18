@@ -1,0 +1,136 @@
+.prodFormLabel {
+    width: 25%;
+    display: block;
+}
+
+.prodFormInput {
+    width: 25%;
+}
+
+.prodFormContainer {
+    width: 90%;
+    max-width: 580px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border: solid 1px rgb(43, 35, 35);
+    border-radius: 10px;
+}
+
+.productForm {   
+    height: 400px;
+    margin: auto;
+    margin-top: 10px;   
+}
+
+.ProductFormFirstLine {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 15px;
+}
+
+.prodFormName {
+    width: 40%;
+    text-align: center;
+    
+}
+.prodFormCategory {
+    width: 40%;
+    text-align: center;
+    
+}
+
+.prodFormName label,
+.prodFormName input {
+    width: 100%;
+}
+
+.prodFormCategory label,
+.prodFormCategory select {
+    width: 100%;
+}
+
+.ProductFormSecondLine {
+   margin-bottom: 15px;
+}
+
+.prodFormPrice {
+    width: 40%;
+    margin: auto;
+}
+
+.prodFormPrice label,
+.prodFormPrice input {
+    width: 100%;
+    text-align: center;
+}
+
+.productFormThirdLine {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+
+.productFormThirdLineEl {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.productFormThirdLineEl select,
+.prodFormInputInterest {
+    width: 35%;
+}
+
+/* estilo original de agregar imagenes */
+.prodFormButton{
+    background-color: #f0e8db;
+    width: 30%;
+    margin:auto;
+    display: block;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    padding: 5px 0;
+    border: solid 1px rgb(43, 35, 35);
+}
+
+/* vista crear producto/ boton para subir imagenes (from line 100 to 130)*/
+/* div contenedor */
+.new-product-button-add-image-div-container {
+    background-color: #f0e8db;
+    width: 30%;
+    margin:auto;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    padding: 5px 0;
+    border: solid 1px rgb(43, 35, 35);
+    position: relative;  
+}
+/*label*/
+.new-product-button-add-image-name {
+    display: block;
+    text-align: center;
+}
+/*input*/
+.new-product-button-add-image-input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; 
+}
+/* vista crear producto/ boton para subir imagenes (from line 100 to 130)*/
+
+.productFormFourthLine {
+    display: flex;
+    justify-content: space-evenly;
+}
+
