@@ -10,23 +10,8 @@
 
 </head>
 <body>
-<header>
-
-    <span class="left-menu">
-        <i class="fas fa-th iconos"></i>
-        <i class="fas fa-search iconos"></i>
-    </span>
-    <span class="cont-logo">
-        <img class="logo" src="./imagenes/logo.JPG" alt="logo"> 
-    </span>
-    <span class="right-menu">
-        <i class="fas fa-user iconos"></i>
-        <i class="fas fa-shopping-cart iconos"></i>
-    </span>
-
-</header>
+<%- include('./partials/header') %>
 <main>
-
     <div class= "carrousel">
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
@@ -115,26 +100,7 @@
 
     </div>
 </main>
-    <footer>
-        <span class="logo-footer">
-            <img src="./imagenes/logo.JPG" alt="logo"> 
-        </span>
-
-        <div class="contacto">
-            <label class="footer-titulos">Contactanos</label>
-            <label><i class="fas fa-phone-alt footer-items">5512-4097</i></label>
-            <label><i class="fab fa-whatsapp footer-items">11-2755-2867</i></label>
-            <label><i class="fas fa-map-marker-alt footer-items">Av. Lincoln 2445 - Cap. Fed.</i></label>
-        </div>
-
-        <div class="redes">
-            <label class="footer-titulos">MaMeLi en redes</label>
-            <label><i class="fab fa-instagram footer-items"></i></label>
-            <label><i class="fab fa-facebook footer-items"></i></label>
-            <label><i class="fab fa-pinterest-p footer-items"></i></label>
-        </div>
-
-    </footer>
+<%- include('./partials/footer') %>
 <script src="https://kit.fontawesome.com/17464b966e.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
