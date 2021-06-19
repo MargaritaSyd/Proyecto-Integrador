@@ -55,7 +55,14 @@ main {
 }
 .carrousel{
     display:flex;
+    width:100%;
+    heigth: auto;
+    justify-content:center;
     
+}
+.imgcarrousel{
+    width:100%;
+    heigth:auto;
 }
 .subtitulo{
     color:rgb(68, 196, 132);
@@ -64,7 +71,10 @@ main {
 .productosSugeridos{
     background-color:#FBEFFB;
     display:flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
+}
+.card{
+    box-shadow: black;
 }
 .card-title{
     color:rgb(68, 196, 132)
@@ -74,7 +84,7 @@ main {
 }
 .menuImagenes{
     display:flex;
-    justify-content: space-between;
+    justify-content: center;
     width:95vw;
 
 }
