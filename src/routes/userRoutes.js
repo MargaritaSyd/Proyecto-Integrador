@@ -2,9 +2,9 @@ const express = require('express');
 const router = express.Router();
 const userController = require('./../controllers/userController');
 
-router.get('/registro' , userController.registro);
+router.get('/register' , userController.register);
 
-router.get('/perfil' , userController.perfil);
+router.get('/profile' , userController.profile);
 
 router.get('/login' , userController.login);
 

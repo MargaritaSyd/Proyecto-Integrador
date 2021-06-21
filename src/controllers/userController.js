@@ -1,9 +1,9 @@
 let userController = {
-    registro: function(req,res){
-        res.render('users/registro');
+    register: function(req,res){
+        res.render('users/register');
     },
-    perfil: function(req,res){
-        res.render('users/perfil'); 
+    profile: function(req,res){
+        res.render('users/profile'); 
     },
 
     login: function(req,res){
