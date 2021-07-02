@@ -1,3 +1,15 @@
+let fs = require ('fs');
+let path = require ('path');
+let productListPath = path.join(__dirname, '../dataBase/productList.json');
+let datos = fs.readFileSync (productListPath, 'utf-8');
+let productListOl ;
+if (datos == "") {
+    productListOl = [];
+} 
+else { 
+    productListOl = JSON.parse(datos);
+};
+
 let productController = {
     create: function(req,res){
         res.render('products/createProduct');
@@ -14,7 +26,20 @@ let productController = {
         res.render('products/productList');
     },
     processForm: function(req,res){
-        res.send('funciona!!!!!!!!!');
+        let newProduct= {
+            name: req.body.name,
+            category: req.body.category,
+            price: req.body.price,
+            payWay: req.body.PayWay,
+            cuotas: req.body.cuotas,
+            interest: req.body.interest
+            
+        };
+        productListOl.push(newProduct);
+        let productListOlupdated= JSON.stringify(productListOl, null, "");
+        fs.writeFileSync(productListPath, productListOlupdated)
+        res.redirect('/')
+        
     }
 }
 
