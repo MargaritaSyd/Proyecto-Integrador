@@ -13,6 +13,9 @@ let productController = {
     list: function(req,res){
         res.render('products/productList');
     },
+    processForm: function(req,res){
+        res.send('funciona!!!!!!!!!');
+    }
 }
 
 module.exports = productController;
