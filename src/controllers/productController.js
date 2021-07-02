@@ -32,13 +32,19 @@ let productController = {
             price: req.body.price,
             payWay: req.body.PayWay,
             cuotas: req.body.cuotas,
-            interest: req.body.interest
+            interest: req.body.interest,
             
         };
+        
+        if(req.file){
+            newProduct.productImage = req.file.filename
+        }
+        console.log(req.file)
         productListOl.push(newProduct);
-        let productListOlupdated= JSON.stringify(productListOl, null, "");
+        let productListOlupdated= JSON.stringify(productListOl, null, " ");
         fs.writeFileSync(productListPath, productListOlupdated)
         res.redirect('/')
+        
         
     }
 }

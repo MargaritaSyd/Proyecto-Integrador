@@ -6,7 +6,7 @@ const multer = require ('multer');
 let multerDiskStorage = multer.diskStorage(
     {
         destination: (req, file, callback) =>
-        {let folder = path.join(__dirname, '../public/imagenes');
+        {let folder = path.join(__dirname, '../../public/imagenes/productImages');
         callback (null, folder)
         },
         filename: (req, file, callback) => {
@@ -22,7 +22,7 @@ let fileUpload = multer ({
     storage: multerDiskStorage
 })
 
-router.post('/create', fileUpload.array (
+router.post('/create', fileUpload.single(
     "productImage"), productController.processForm);
     
 router.get('/create' , productController.create);
