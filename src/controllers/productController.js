@@ -23,7 +23,7 @@ let productController = {
     },
 
     list: function(req,res){
-        res.render('products/productList');
+        res.render('products/productList', {productListOl});
     },
     processForm: function(req,res){
         let newProduct= {

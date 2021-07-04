@@ -14,20 +14,30 @@
     <body>
 
         <%- include('../partials/header') %>
+        <main class="productList-main">
+            <div class="products-list-container">
+                <h1 class="productsListTitle">Listado de productos</h1>
+                <%for(let i=0;i<productListOl.length;i++){%>
+                        <div class="product-container">
+                            <!-- aca ira a el detail correspondiente al ID -->
+                            <a class="productList-anchor" href="/products/<%=productListOl[i].id%>">
+                                <!-- aca ira el nombre e imagen correspondientes al i del OL -->
+                                <%=productListOl[i].name%>
+                                <br>
+                                <%if(productListOl[i].productImage){%>
+                                    <img src="/imagenes/productImages/<%=productListOl[i].productImage%> "> 
+                                <%} else{%>
+                                    <img src="/imagenes/logo.JPG">
+                                <%}%>        
+                                    
+                            </a>  
+                        </div>          
+                <%}%>               
+            </div>
+            <a class="productList-anchor newProduct-anchor" href="/products/create">Crear un nuevo producto</a>
 
-        <h1>product/list</h1>
-        <h1>product/list</h1>
-        <h1>product/list</h1>
-        <h1>product/list</h1>
-        <h1>product/list</h1>
-        <h1>product/list</h1>
-        <h1>product/list</h1>
-        <h1>product/list</h1>
-        <h1>product/list</h1>
-        <h1>product/list</h1>
-        <h1>product/list</h1>
-        <h1>product/list</h1>
-        <h3>product/list</h3>
+
+       
 
 
         </main>
