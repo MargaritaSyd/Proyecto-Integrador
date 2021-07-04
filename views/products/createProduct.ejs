@@ -19,7 +19,7 @@
                 <i id="icono" class="fas fa-leaf"></i> 
             </div>
             <label id="bienvenida" class="labels-formulario">Nuevo producto</label>
-            <form class="productForm" action="/product/create" method="POST" enctype="multipart/form-data"> 
+            <form class="productForm" action="/products/create" method="POST" enctype="multipart/form-data"> 
                 <div  class="ProductFormFirstLine">
                     <div class="prodFormName">
                         <label class="prodFormLabel" for="">Nombre</label>
@@ -27,12 +27,12 @@
                     </div>
                     <div class="prodFormCategory">
                         <label class="prodFormLabel" for="">Categoría</label>
-                        <select name="category" id="category">
-                            <option value="" selected>Pots</option>
-                            <option value="">Big Pots</option>
-                            <option value="">Plant Stands</option>
-                            <option value="">Plantas</option>
-                            <option value="">Terrarios</option>
+                        <select name="" id="">
+                            <option value="pots" selected>Pots</option>
+                            <option value="bigPots">Big Pots</option>
+                            <option value=plantStands">Plant Stands</option>
+                            <option value="plantas">Plantas</option>
+                            <option value="terrarios">Terrarios</option>
                         </select>
                     </div>
                 </div>
@@ -47,14 +47,17 @@
                 <div class="productFormThirdLine">
                     <div class="productFormThirdLineEl">
                         <label class="prodFormLabel" for="">Efectivo</label>
-                        <input class="prodFormInput" type="radio" name="PayWay" checked>
-                        <label class="prodFormLabel" for="">Tarjeta</label>
-                        <input class="prodFormInput" type="radio" name="PayWay">
+                        <input class="prodFormInput" type="checkbox" name="payWay">
+                        <label class="prodFormLabel" for="">Débito</label>
+                        <input class="prodFormInput" type="checkbox" name="payWay">
+                        <label class="prodFormLabel" for="">Crédito</label>
+                        <input class="prodFormInput" type="checkbox" name="payWay">
                     </div>
                     <div class="productFormThirdLineEl"> 
                         <label class="prodFormLabel" for="">Cuotas</label>
-                        <select name="cuotas" id="cuotas">
-                            <option value="" selected>3</option>
+                        <select name="" id="">
+                            <option value="" selected>-</option>
+                            <option value="">3</option>
                             <option value="">6</option>
                             <option value="">9</option>
                             <option value="">12</option>
@@ -62,18 +65,27 @@
                     </div>
                     <div class="productFormThirdLineEl">
                         <label class="prodFormLabelInterest" for="">Interés(%)</label>
-                        <input class="prodFormInputInterest" type="number" min="0" max="100" name="interest">
+                        <input class="prodFormInputInterest" type="number" name="interest" min="0" max="100">
                     </div>
+                </div>
+
+                <!-- <div class="prodFormPrice"> -->
+                <div class="textArea-description">
+                    <!-- <label class="prodFormLabel" for="">Descripción</label> -->
+                    <label style="margin:auto" class="prodFormLabel" for="">Descripción</label>
+                    <textarea class="prodFormInputInterest" name="description" id="" cols="30" rows="10"></textarea>
                 </div>
                 
                 <div class="new-product-button-add-image-div-container">   
                     <label class="new-product-button-add-image-name">Agregar imágenes</label>
-                    <input type="file" name="productImage" accept=".jpg" class="new-product-button-add-image-input">
+                    <input type="file" name="productImages" class="new-product-button-add-image-input">
                 </div>
                 
                 <div class="productFormFourthLine">
-                    <button class="prodFormButton">Vista previa</button>
-                    <button class="prodFormButton" type="submit">Confirmar</button>
+                    <a class="prodFormButton" 
+                    style="text-decoration: none; color: black; text-align: center;" 
+                    href="/products">Cancelar</a>
+                    <input class="prodFormButton" type="submit" value="Confirmar">
                 </div>
             </form> 
         </div>   
