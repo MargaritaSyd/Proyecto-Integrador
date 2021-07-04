@@ -22,6 +22,8 @@ let fileUpload = multer ({
     storage: multerDiskStorage
 })
 
+router.get('/' , productController.list);
+
 router.post('/create', fileUpload.single(
     "productImage"), productController.processForm);
     
@@ -31,7 +33,7 @@ router.get('/detail' , productController.detail);
 
 router.get('/edit' , productController.edit);
 
-router.get('/list' , productController.list);
+
 
 
 module.exports = router;

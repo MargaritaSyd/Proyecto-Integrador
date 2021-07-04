@@ -35,7 +35,6 @@ let productController = {
             cuotas: req.body.cuotas,
             interest: req.body.interest,
             description: req.body.description
-            
         };
         
         if(req.file){
