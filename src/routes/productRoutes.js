@@ -31,7 +31,13 @@ router.get('/create' , productController.create);
 
 router.get('/detail/:id' , productController.detail);
 
-router.get('/edit' , productController.edit);
+router.get('/edit/:id' , productController.edit);
+
+// accion de editar un producto
+router.put('/:id' , fileUpload.single(
+    "productImage"),productController.update);
+
+
 
 
 

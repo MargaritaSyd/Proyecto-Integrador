@@ -32,8 +32,12 @@ let productController = {
         
     },
 
-    edit: function(req, res){
-        res.render('products/editProduct');
+    edit: function(req,res){
+        let idProduct= req.params.id;
+        let product= productListOl.find(element=>element.id==idProduct);
+        //console.log(product);
+        //let product= productListOl[idProduct-1]
+        res.render('products/editProduct',{product});
     },
 
     list: function(req,res){
@@ -61,6 +65,41 @@ let productController = {
         res.redirect('/')
         
         
+    },
+    update:(req,res)=>{
+        idProduct= req.params.id;
+        let productToMidyfy= productListOl.find(element=>element.id==idProduct);
+        let modifiedProduct={
+            id: idProduct,
+            name: req.body.name,
+            category: req.body.category,
+            price: req.body.price,
+            payWay: req.body.payWay,
+            cuotas: req.body.cuotas,
+            interest: req.body.interest,
+            description: req.body.description
+        }
+        if(req.file){
+            modifiedProduct.productImage=req.file.filename;
+        } else if (req.body.deleteImage=='on'){
+            modifiedProduct.productImage='';
+        } else{
+            modifiedProduct.productImage=productToMidyfy.productImage;
+        }
+        modifiedProduct.inStock= true;
+        //splice sirve si no se borra nunca ningun producto del json
+        //productListOl.splice((idProduct-1),1,modifiedProduct);
+        //splice sirve si no se borra nunca ningun producto del json
+        for(let i=0; i<productListOl.length;i++){
+            if(productListOl[i].id==modifiedProduct.id){
+                productListOl[i]=modifiedProduct;
+                break;
+            }
+        }
+        console.log(req.body.deleteImage);
+        let productListOlupdated= JSON.stringify(productListOl, null, " ");
+        fs.writeFileSync(productListPath, productListOlupdated)
+        res.redirect('/product');
     }
 }
 
