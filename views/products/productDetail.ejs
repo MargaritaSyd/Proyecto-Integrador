@@ -8,16 +8,16 @@
     <body>
         <%- include('../partials/header') %>
 
-        <main>
-            <h1 id='titulo'>MACETA TERRACOTA BEMBA </h1>
+        <main>           
+            <h1 id='titulo'><%=productD.name%></h1>
             <div>
-                <img src="/imagenes/detalleProducto1.jpg" id='producto'>
+                <img id='producto' src="/imagenes/productImages/<%=productD.productImage%>"> 
                 <br>
                 <div id="det">
                     <br>
-                    <div id='precio'>$2500</div>
+                    <div id='precio'>$<%=productD.price%></div>
                     <br id='espacioCuota'>
-                    <div id='cuotas'> 6 cuotas sin interes de $416.67</div>
+                    <div id='cuotas'> 6 cuotas sin interes de $<%=(productD.price)/6%></div>
                     <br id='espacioCuota'>
                     <div> Tamaño  
                         <br>
@@ -29,67 +29,36 @@
                     </div>
                 </div>
                 <div id="fav">
-                    <button type="submit"> <i class="fas fa-shopping-cart"></i> </button>
+                    <a href="/cart"><i class="fas fa-shopping-cart"></i> </a>
                     <i class="far fa-heart"></i>
                 </div>
                 <div class='descrip'>
-                    <p> Maceta de terracota divertidísima. Ideal para ponerle una planta de pelo y otras en la boca</p>
-                    <img src="/imagenes/medidasDetailProd.jpg" id='medida'>
+                    <p> <%=productD.description%></p>
                     <p class="nota"> La imagen es solo a modo ilustrativo. Cada planta es única. Además, las plantas, al tratarse de seres vivos que requieren de nuestro cuidado, una vez adquiridas no tendrán cambio o devolución!
                     </p>
                 </div>
             </div>    
-                <div> Productos relacionados</div>
-                <div id="prodrelac">
-                    <span class="prod">
-                        <img src="/imagenes/otrosProd1.jpg" class='relacionados'>
-                        <h2 class= 'titRelacionado'>
-                            Maceta Singer
-                        </h2>
-                        <h2 class="precioRelac">
-                            $2.500
-                        </h2>
-                        <h2 class='cuotasSn'> <i class="far fa-credit-card"></i>
-                            6 cuotas s/i $416.67
-                        </h2>
-                    </span>
-                    <span class="prod">
-                        <img src="/imagenes/otrosProd2.jpg" class='relacionados'>
-                        <h2 class= 'titRelacionado'>
-                            Maceta Llama Chica
-                        </h2>
-                        <h2 class="precioRelac">
-                            $700
-                        </h2>
-                        <h2 class='cuotasSn'> <i class="far fa-credit-card"></i>
-                            6 cuotas s/i $116.67
-                        </h2>
-                    </span>
-                    <span class="prod">
-                        <img src="/imagenes/otrosProd3.jpg" class='relacionados'>
-                        <h2 class= 'titRelacionado'>
-                            Maceta Balloon
-                        </h2>
-                        <h2 class="precioRelac">
-                        $3.200
-                        </h2>
-                        <h2 class='cuotasSn'> <i class="far fa-credit-card"></i>
-                        6 cuotas s/i $533.33
-                        </h2>
-                    </span>
-                    <span class="prod">
-                        <img src="/imagenes/otrosProd4.jpg" class='relacionados'>
-                        <h2 class= 'titRelacionado'>
-                            Maceta Prisma
-                        </h2>
-                        <h2 class="precioRelac">
-                            $3.500
-                        </h2>
-                        <h2 class='cuotasSn'> <i class="far fa-credit-card"></i>
-                            6 cuotas s/i $553.33
-                        </h2>
-                    </span>
-                </div>
+                <h2>Productos relacionados</h2>
+                <div id="relacionados"> 
+                <br>
+                <% for(let i=0; i<relatedProduct.length; i++){ %>
+                <% if(relatedProduct[i] != productD) {%>
+
+                        <span class="prod">
+                            <img src="/imagenes/productImages/<%=relatedProduct[i].productImage%>" class='relacionados'>
+                            <h2 class= 'titRelacionado'>
+                                <%=relatedProduct[i].name%>
+                            </h2>
+                            <h2 class="precioRelac">
+                                $<%=relatedProduct[i].price%>
+                            </h2>
+                            <h2 class='cuotasSn'> <i class="far fa-credit-card"></i>
+                                6 cuotas s/i $<%=relatedProduct[i].price/6 %>
+                            </h2>
+                        </span>
+                <%}%>
+                <%}%>
+                </div>     
         </main>
         <%- include('../partials/footer') %>
         <script src="https://kit.fontawesome.com/17464b966e.js" crossorigin="anonymous"></script>

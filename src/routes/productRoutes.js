@@ -29,7 +29,7 @@ router.post('/create', fileUpload.single(
     
 router.get('/create' , productController.create);
 
-router.get('/detail' , productController.detail);
+router.get('/detail/:id' , productController.detail);
 
 router.get('/edit' , productController.edit);
 
