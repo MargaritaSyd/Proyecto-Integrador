@@ -9,37 +9,38 @@
         <link rel="stylesheet" href="/css/shop.css">
         <link rel="stylesheet" href="/css/login.css">
         <link rel="stylesheet" href="/css/productForm.css">
-    </head> 
-  
+    </head>
     <body>
 
         <%- include('../partials/header') %>
         <main class="productList-main">
-            <div class="products-list-container">
-                <h1 class="productsListTitle">Listado de productos</h1>
-                <%for(let i=0;i<productListOl.length;i++){%>
-                        <div class="product-container">
-                            <!-- aca ira a el detail correspondiente al ID -->
-                            <a class="productList-anchor" href="/products/<%=productListOl[i].id%>">
-                                <!-- aca ira el nombre e imagen correspondientes al i del OL -->
-                                <%=productListOl[i].name%>
-                                <br>
-                                <%if(productListOl[i].productImage){%>
-                                    <img src="/imagenes/productImages/<%=productListOl[i].productImage%> "> 
-                                <%} else{%>
-                                    <img src="/imagenes/logo.JPG">
-                                <%}%>        
-                                    
-                            </a>  
-                        </div>          
-                <%}%>               
-            </div>
-            <a class="productList-anchor newProduct-anchor" href="/products/create">Crear un nuevo producto</a>
+            <%if(productsStockOn.length==0){%>
+                <h1 style="padding: 150px 0; text-align: center;">No hay productos disponibles</h1>
+            <%}else{%>  
+                <div class="products-list-container">
+                    <h1 class="productsListTitle">Listado de productos</h1>
+                    <%for(let i=0;i<productsStockOn.length;i++){%>
+                            <div class="product-container">
+                                <!-- aca ira a el detail correspondiente al ID -->
+                                <a class="productList-anchor" href="/product/<%=productsStockOn[i].id%>">
+                                    <!-- aca ira el nombre e imagen correspondientes al i del OL -->
+                                    <%=productsStockOn[i].name%>
+                                    <br>
+                                    <%if(productsStockOn[i].productImage){%>
+                                        <img src="/imagenes/productImages/<%=productsStockOn[i].productImage%>"> 
+                                    <%} else{%>
+                                        <img src="/imagenes/logo.JPG">
+                                    <%}%>        
+                                </a>  
+                            </div>          
+                    <%}%>               
+                </div>
+            <%}%> 
 
+            <a class="productList-anchor newProduct-anchor" href="/product/create">Crear un nuevo producto</a>
 
-       
-
-
+            <a class="productList-anchor newProduct-anchor" href="/product/nostock">Stock</a>
+            
         </main>
     
         <%- include('../partials/footer') %>

@@ -41,7 +41,8 @@ let productController = {
     },
 
     list: function(req,res){
-        res.render('products/productList', {productListOl});
+        let productsStockOn=productListOl.filter((element)=>{return element.inStock==true})
+        res.render('products/productList', {productsStockOn});
     },
     processForm: function(req,res){
         let newProduct= {
@@ -54,15 +55,20 @@ let productController = {
             interest: req.body.interest,
             description: req.body.description
         };
-        
+
         if(req.file){
             newProduct.productImage=req.file.filename;
+        } else{
+            newProduct.productImage='';
         }
-        console.log(req.file)
+        newProduct.inStock= true;
+
+
+        //console.log(req.file)
         productListOl.push(newProduct);
         let productListOlupdated= JSON.stringify(productListOl, null, " ");
         fs.writeFileSync(productListPath, productListOlupdated)
-        res.redirect('/')
+        res.redirect('/product')
         
         
     },
@@ -100,6 +106,32 @@ let productController = {
         let productListOlupdated= JSON.stringify(productListOl, null, " ");
         fs.writeFileSync(productListPath, productListOlupdated)
         res.redirect('/product');
+    },
+    destroy: function(req,res){
+        let id= req.params.id;
+        for(let i=0; i<productListOl.length; i++){
+            if(productListOl[i].id==id){
+                productListOl[i].inStock= false;
+
+                // bloque de codigo para borrar fisicamente el registro en el json
+                /*if(productListOl[i].productImage){
+                    var imageToDelete= productListOl[i].productImage;
+                }
+                productListOl.splice(i,1);*/
+                // bloque de codigo para borrar fisicamente el registro en el json
+                
+            }
+            break;
+        };
+
+        // bloque de codigo para borrar la imagen fisicamente
+        /*if(imageToDelete){
+            fs.unlinkSync(path.join(__dirname, '../../public/imagenes/productImages/')+imageToDelete);
+        }*/
+        // bloque de codigo para borrar la imagen fisicamente
+
+        fs.writeFileSync(productListPath,  JSON.stringify(productListOl, null, " "));
+        res.redirect('/product');   
     }
 }
 
