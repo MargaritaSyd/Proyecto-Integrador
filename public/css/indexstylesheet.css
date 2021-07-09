@@ -73,6 +73,14 @@ main {
     display:flex;
     justify-content: space-around;
 }
+    
+#relacionadosIndex {
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+        font-weight: bold;
+}
+
 .card{
     box-shadow: black;
 }

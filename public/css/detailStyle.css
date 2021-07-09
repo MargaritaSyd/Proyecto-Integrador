@@ -193,3 +193,9 @@ footer label {
     font-weight: bold;
     margin-bottom: 10px;
 }
+    #relacionados {
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+        font-weight: bold;
+}

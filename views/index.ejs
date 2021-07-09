@@ -50,41 +50,18 @@
     <div class= "subtitulo">
       <h3>Nuestros productos más vendidos... </h3>
     </div>
-
-    <div class="productosSugeridos">
+    <div id="relacionadosIndex">
+    <%for(let i=0;i<productsStockOn.length;i++){%>
+    
         <div class="card productoSugerido text-center" style="width: 18rem;">
-            <img src="/imagenes/macetaBetty.jpg" class="card-img-top img-thumbnail" alt="macetaBetty">
+            <img src="/imagenes/productImages/<%=productsStockOn[i].productImage%>" class="card-img-top img-thumbnail" alt="macetaBetty">
             <div class="card-body">
-              <h5 class="card-title">Maceta Betty</h5>
-              <p class="card-text">Maceta de cerámica veteada, con un tamaño ideal para darle un toque verde a un estante, mesa ratona o escritorio.</p>
-              <a href="#" class="btn btn-outline-info">Ver más</a>
+              <h5 class="card-title"><%=productsStockOn[i].name%></h5>
+              <p class="card-text"><%=productsStockOn[i].description%></p>
+              <a class="productList-anchor" href="/product/detail/<%=productsStockOn[i].id%>"class="btn btn-outline-info">Ver más</a>
             </div>
-          </div>
-          <div class="card productoSugerido text-center" style="width: 18rem;">
-            <img src="/imagenes/monstera.jpg" class="card-img-top img-thumbnail" alt="monstera">
-            <div class="card-body">
-              <h5 class="card-title">Monstera</h5>
-              <p class="card-text">Si tenés un espacio bien iluminado de manera indirecta, la Monstera es para vos! Le gusta mucho la humedad ambiental.</p>
-              <a href="#" class="btn btn-outline-info">Ver más</a>
-            </div>
-          </div>
-          <div class="card productoSugerido text-center" style="width: 18rem;">
-            <img src="imagenes/standMadera.jpg" class="card-img-top img-thumbnail" alt="standMadera">
-            <div class="card-body">
-              <h5 class="card-title">Stand de Madera</h5>
-              <p class="card-text">Maceta de plastico premium de 27 cm de diametro y pie de eucalipto hidrolaqueado para decorar cualquier espacio.</p>
-              <a href="#" class="btn btn-outline-info">Ver más</a>
-            </div>
-          </div>
-          <div class="card productoSugerido text-center" style="width: 18rem;">
-              <img src="imagenes/combomacetas.jpg" class="card-img-top img-thumbnail" alt="combomacetas">
-              <div class="card-body">
-                <h5 class="card-title">Combo Macetas</h5>
-                <p class="card-text">La colección más cool de terracota completa. Lleváte a Bemba, Singer y Zen y armá tu rincón botánico.</p>
-                <a href="#" class="btn btn-outline-info">Ver más</a>
-              </div>  
-          </div>  
-
+        </div>
+    <%}%>
     </div>
     
    

@@ -38,14 +38,15 @@
                     </p>
                 </div>
             </div>    
-                <h2>Productos relacionados</h2>
+            <h2>Productos relacionados</h2>
+            <br>
                 <div id="relacionados"> 
-                <br>
                 <% for(let i=0; i<relatedProduct.length; i++){ %>
                 <% if(relatedProduct[i] != productD) {%>
-
-                        <span class="prod">
-                            <img src="/imagenes/productImages/<%=relatedProduct[i].productImage%>" class='relacionados'>
+                        <span class="prod">  
+                            <a class="productList-anchor" href="/product/detail/<%=relatedProduct[i].id%>">           
+                                <img src="/imagenes/productImages/<%=relatedProduct[i].productImage%>" class='relacionados'>
+                            </a>
                             <h2 class= 'titRelacionado'>
                                 <%=relatedProduct[i].name%>
                             </h2>
