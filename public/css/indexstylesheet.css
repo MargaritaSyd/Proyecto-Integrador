@@ -56,13 +56,13 @@ main {
 .carrousel{
     display:flex;
     width:100%;
-    heigth: auto;
+    /* height: auto; */
     justify-content:center;
     
 }
 .imgcarrousel{
     width:100%;
-    heigth:auto;
+    /* height:auto; */
 }
 .subtitulo{
     color:rgb(68, 196, 132);

@@ -47,12 +47,12 @@
                 <h2>Productos relacionados</h2>
                 <div id="relacionados"> 
                 <br>
-                <% for(let i=0; i<5; i++){ %>
+                <% for(let i=0; i<relatedProduct.length; i++){ %>
                 <% if(relatedProduct[i] != productD) {%>
                         <span class="prod">  
-                            <a class="productList-anchor" href="/product/detail/<%=relatedProduct[i].id%>">           
+                             <a class="productList-anchor" href="/product/detail/<%=relatedProduct[i].id %>">            
                                 <img src="/imagenes/productImages/<%=relatedProduct[i].productImage%>" class='relacionados'>
-                            </a>
+                             </a> 
                             <h2 class= 'titRelacionado'>
                                 <%=relatedProduct[i].name%>
                             </h2>
