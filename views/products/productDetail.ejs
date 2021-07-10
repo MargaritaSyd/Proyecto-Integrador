@@ -10,11 +10,15 @@
 
         <main>           
             <h1 id='titulo'><%=productD.name%></h1>
+            <br>
             <div>
-                <img id='producto' src="/imagenes/productImages/<%=productD.productImage%>"> 
+            <div class= "productDetaill">
+                
+                <img id='producto' src="/imagenes/productImages/<%=productD.productImage%>" class= "prodDetailImg"> 
                 <br>
                 <div id="det">
                     <br>
+                    <div class= "productInfo">
                     <div id='precio'>$<%=productD.price%></div>
                     <br id='espacioCuota'>
                     <div id='cuotas'> 6 cuotas sin interes de $<%=(productD.price)/6%></div>
@@ -27,21 +31,23 @@
                         <br>
                         <input type="radio" value="grande" name='tamaño'> Grande </input>
                     </div>
-                </div>
+                    
+                
                 <div id="fav">
                     <a href="/cart"><i class="fas fa-shopping-cart"></i> </a>
                     <i class="far fa-heart"></i>
                 </div>
                 <div class='descrip'>
                     <p> <%=productD.description%></p>
+                </div> </div> </div> </div>
                     <p class="nota"> La imagen es solo a modo ilustrativo. Cada planta es única. Además, las plantas, al tratarse de seres vivos que requieren de nuestro cuidado, una vez adquiridas no tendrán cambio o devolución!
                     </p>
                 </div>
-            </div>    
-            <h2>Productos relacionados</h2>
-            <br>
+               
+                <h2>Productos relacionados</h2>
                 <div id="relacionados"> 
-                <% for(let i=0; i<relatedProduct.length; i++){ %>
+                <br>
+                <% for(let i=0; i<5; i++){ %>
                 <% if(relatedProduct[i] != productD) {%>
                         <span class="prod">  
                             <a class="productList-anchor" href="/product/detail/<%=relatedProduct[i].id%>">           
