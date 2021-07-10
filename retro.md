@@ -8,3 +8,6 @@ Estamos satisfechos con el trabajo presentado.
 Tomamos nota de los puntos a mejorar.
 Ya estamos trabajando para lograr un resultado optimo.
 Nos consolidamos como equipo, nos resulta facil ponernos de acuerdo.
+
+Review sprint 3:
+Excelente equipo de trabajo, nos complementamos como equipo. Todo fue resuelto en tiempo y forma. Queda mejorar vistas y css.  
