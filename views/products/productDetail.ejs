@@ -60,7 +60,7 @@
                                 $<%=relatedProduct[i].price%>
                             </h2>
                             <h2 class='cuotasSn'> <i class="far fa-credit-card"></i>
-                                6 cuotas s/i $<%=relatedProduct[i].price/6 %>
+                                6 cuotas s/i de $<%= Math.round(relatedProduct[i].price/6) %>
                             </h2>
                         </span>
                 <%}%>
