@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sign in - MaMeLi</title>
         <link rel="stylesheet" href="/css/signup.css">
+        <link rel="stylesheet" href="/css/productForm.css">
     </head>
     <body>
         <%- include('../partials/header') %>
@@ -15,7 +16,7 @@
                     <i id="icono" class="fas fa-user"></i>
                 </div>
                 <label id="bienvenida" class="labels-formulario">Registrate</label>
-                <form action="#" method="POST">
+                <form action="/users/register" method="POST" enctype="multipart/form-data">
                     <div class="div">
                         <label id="label-usuario" class="labels-formulario">Nombre</label>
                         <input type="text" name="user" id="input-usuario" > 
@@ -36,8 +37,11 @@
                         <label id="contraseña" class="labels-formulario">Confirmar contraseña</label>
                         <input type="password" name="password" id="password" >
                     </div>
-                    <button id="ingresar" type="submit">Ingresar</button>
-                    <button id="restablecer" type="submit">¿Reestablecer contraseña?</button>
+                    <div class="new-product-button-add-image-div-container"> 
+                        <label class="new-product-button-add-image-name">Agregar imágenes</label>
+                        <input type="file" name="userImage" accept=".jpg" class="new-product-button-add-image-input">
+                    </div>
+                    <button id="ingresar" type="submit">Registrar</button>
                 </form> 
             </div>
         </main>

@@ -18,7 +18,7 @@ body {
 }
 
 #contenedor-general {
-    width: 90%;
+    width: 90%; 
     max-width: 580px;
     margin: auto;
     margin-top: 50px;
@@ -96,3 +96,13 @@ form {
     font-weight: bold;
 } 
 
+#ancorRegistro {
+    background-color:transparent;
+    width: 78%;
+    margin: auto;
+    display: block;    
+    font-size: 14px;
+    border: none;
+    font-weight: bold;
+    text-align: center;
+}

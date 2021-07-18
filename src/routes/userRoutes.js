@@ -4,6 +4,8 @@ const userController = require('./../controllers/userController');
 
 router.get('/register' , userController.register);
 
+router.post('/register' , userController.storeRegister);
+
 router.get('/profile' , userController.profile);
 
 router.get('/login' , userController.login);
