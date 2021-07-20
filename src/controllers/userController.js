@@ -1,3 +1,16 @@
+let fs = require('fs');
+let path = require('path');
+let userListPath = path.join(__dirname,"../dataBase/userList.json");
+let userDatos = fs.readFileSync (userListPath, 'utf-8');
+let {validationResult} = require ('express-validator');
+let userListOl ;
+if (userDatos == "") {
+    userListOl = [];
+} 
+else { 
+    userListOl = JSON.parse(userDatos);
+};
+
 let userController = {
     register: function(req,res){
         res.render('users/register');
@@ -11,34 +24,30 @@ let userController = {
     },
 
     storeRegister: function(req,res){
+        let errors = validationResult(req);
+        if(!errors.isEmpty()){
+            return res.render('register' , {mensajeError : errors.mapped() , old:req.body})
+        }
 
-       
+        let newUser= {
+            id: userListOl.length+1,
+            user: req.body.user,
+            lastNameUser: req.body.lastNameUser,
+            email: req.body.email,
+            password: req.body.password //hashear!!
+        };
+        if(req.file){
+            newUser.userImage=req.file.filename;
+        } else{
+            newUser.userImage='';
+        }
+        userListOl.push(newUser);
+        let userListOlupdated= JSON.stringify(userListOl, null, " ");
+        fs.writeFileSync(userListPath, userListOlupdated)
+        res.redirect('/')
+   
+
     }
-    // processForm: function(req,res){
-    //     let newProduct= {
-    //         id: productListOl.length+1,
-    //         name: req.body.name,
-    //         category: req.body.category,
-    //         price: req.body.price,
-    //         payWay: req.body.PayWay,
-    //         cuotas: req.body.cuotas,
-    //         interest: req.body.interest,
-    //         description: req.body.description
-    //     };
-
-    //     if(req.file){
-    //         newProduct.productImage=req.file.filename;
-    //     } else{
-    //         newProduct.productImage='';
-    //     }
-    //     newProduct.inStock= true;
-
-
-    //     //console.log(req.file)
-    //     productListOl.push(newProduct);
-    //     let productListOlupdated= JSON.stringify(productListOl, null, " ");
-    //     fs.writeFileSync(productListPath, productListOlupdated)
-    //     res.redirect('/product')
     
 }
 

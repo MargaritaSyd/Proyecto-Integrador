@@ -10,6 +10,11 @@
     </head>
     <body>
         <%- include('../partials/header') %>
+        <% if(locals.mensajeError){%>
+            <%for(let i=0; i<mensajeError.length; i++){%>
+                <%= mensajeError[i].msg %>
+            <%}%>
+        <%}%>
         <main id="main">
             <div id="contenedor-general">
                 <div id="div-icono">
@@ -19,15 +24,15 @@
                 <form action="/users/register" method="POST" enctype="multipart/form-data">
                     <div class="div">
                         <label id="label-usuario" class="labels-formulario">Nombre</label>
-                        <input type="text" name="user" id="input-usuario" > 
+                        <input type="text" name="user" id="input-usuario" value= <%= locals.old ? old.user : null %>  > 
                     </div>
                     <div class="div">
                         <label id="label-usuario" class="labels-formulario">Apellido</label>
-                        <input type="text" name="user" id="input-usuario" > 
+                        <input type="text" name="lastNameUser" id="input-usuario" value= <%= locals.old ? old.lastNameUser : null %> > 
                     </div>
                     <div class="div">
                         <label id="label-usuario" class="labels-formulario">e-mail</label>
-                        <input type="email" name="user" id="input-usuario" > 
+                        <input type="text" name="email" id="input-usuario" value= <%= locals.old ? old.email : null %> > 
                     </div>
                     <div class="div">
                         <label id="contraseña" class="labels-formulario">Contraseña</label>
@@ -35,7 +40,7 @@
                     </div>
                     <div class="div">
                         <label id="contraseña" class="labels-formulario">Confirmar contraseña</label>
-                        <input type="password" name="password" id="password" >
+                        <input type="password" id="password" >
                     </div>
                     <div class="new-product-button-add-image-div-container"> 
                         <label class="new-product-button-add-image-name">Agregar imágenes</label>

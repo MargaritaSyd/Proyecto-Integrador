@@ -63,8 +63,6 @@ let productController = {
         }
         newProduct.inStock= true;
 
-
-        //console.log(req.file)
         productListOl.push(newProduct);
         let productListOlupdated= JSON.stringify(productListOl, null, " ");
         fs.writeFileSync(productListPath, productListOlupdated)

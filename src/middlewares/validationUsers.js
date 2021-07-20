@@ -1,9 +1,10 @@
 const {body} = require ('express-validator');
 const validations = [
-    body('user').notEmpty().withMessage('Ingresá un nombre'),
+    body('user').notEmpty().withMessage('Ingresá tu nombre'),
+    body('lastNameUser').notEmpty().withMessage('Ingresá tu apellido'),
     body('email').isEmail().withMessage('Ingresá tu mail'),
-    body('password').isLength({min:8}),
-    body('userImage').custom((value , {req}) => {
+    body('password').isLength({min:8})
+    /*body('userImage').custom((value , {req}) => {
         let file = req.file;
         let acceptedExtensions = ['.jpg'];
         let fileExtension = path.extname(file.originalname);
@@ -12,4 +13,7 @@ const validations = [
         }
         return true
     })
+    */
 ]
+
+module.exports = validations
