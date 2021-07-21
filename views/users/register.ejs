@@ -10,10 +10,11 @@
     </head>
     <body>
         <%- include('../partials/header') %>
+        
         <% if(locals.mensajeError){%>
             <%for(let i=0; i<mensajeError.length; i++){%>
-                <%= mensajeError[i].msg %>
-            <%}%>
+           <p>     <%= mensajeError[i].msg %> </p>
+            <%}%> 
         <%}%>
         <main id="main">
             <div id="contenedor-general">
