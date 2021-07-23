@@ -1,2 +1,10 @@
 [
+ {
+  "id": 1,
+  "user": "m",
+  "lastNameUser": "a",
+  "email": "m@g.com",
+  "password": "$2a$10$cy30ODkHSslbhcSCgBiwPO8wxPnteLGPhGktQiSPoAH8rfEWcM2GW",
+  "userImage": "1627012930067.jpg"
+ }
 ]

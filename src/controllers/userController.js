@@ -24,6 +24,20 @@ let userController = {
         res.render('users/login'); 
     },
 
+    loginProcess: function(req,res){
+   //     console.log(req.body)
+   //     res.send ('hola')
+    
+
+        for(let i=0; i<userListOl.length; i++){
+
+            if((req.body.email == userListOl[i].email)&&(bcryptjs.compareSync(req.body.password , userListOl[i].password))
+            ){ res.send('Datos correctos')
+    } else {
+        res.send('Datos incorrectos')
+    }}},
+
+
     storeRegister: function(req,res){
         let errors = validationResult(req);
         if(!errors.isEmpty()){

@@ -14,5 +14,7 @@ router.get('/profile' , userController.profile);
 
 router.get('/login' , userController.login);
 
+router.post('/login' , fileUpload.single('userImage')  , validationUser , userController.loginProcess);
+
 
 module.exports = router;
