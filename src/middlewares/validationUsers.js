@@ -14,6 +14,8 @@ const validations = [
             throw new Error ('La imagen debe ser .jpg'); 
         }
         return true
+    } else {
+        return true
     }
     })
 ]

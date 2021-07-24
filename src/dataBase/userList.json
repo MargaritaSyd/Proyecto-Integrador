@@ -6,5 +6,13 @@
   "email": "m@g.com",
   "password": "$2a$10$cy30ODkHSslbhcSCgBiwPO8wxPnteLGPhGktQiSPoAH8rfEWcM2GW",
   "userImage": "1627012930067.jpg"
+ },
+ {
+  "id": 2,
+  "user": "a",
+  "lastNameUser": "s",
+  "email": "a@s.com",
+  "password": "$2a$10$JVgPMJTmnoIYgpd1G/AdGuxwt2SA1CbgYAQerSCtQoLrot1fVZXpC",
+  "userImage": ""
  }
 ]

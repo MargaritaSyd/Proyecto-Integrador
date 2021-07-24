@@ -11,3 +11,6 @@ Nos consolidamos como equipo, nos resulta facil ponernos de acuerdo.
 
 Review sprint 3:
 Excelente equipo de trabajo, nos complementamos como equipo. Todo fue resuelto en tiempo y forma. Queda mejorar vistas y css.  
+
+Review sprint 4:
+Revisando nuestra experiencia en el sprint 4 entendemos que necesitamos dedicarle más tiempo al desarrollo del proyecto en conjunto y nos comprometemos a realizar el sprint 5 de esa manera. 
