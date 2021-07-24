@@ -13,6 +13,11 @@ const methodOverride= require('method-override');
 app.listen(process.env.PORT || 3000, function(){
     console.log('Servidor corriendo en puerto 3000');
 });
+
+app.use(express.urlencoded({ extended: false }));
+
+app.use(express.json());
+
 app.use(express.static(path.resolve(__dirname , './public')));
 
 app.use(methodOverride('_method'));
