@@ -14,5 +14,21 @@
   "email": "a@s.com",
   "password": "$2a$10$JVgPMJTmnoIYgpd1G/AdGuxwt2SA1CbgYAQerSCtQoLrot1fVZXpC",
   "userImage": ""
+ },
+ {
+  "id": 3,
+  "user": "Maggie",
+  "lastNameUser": "Sydall",
+  "email": "maggie@finlandia.com",
+  "password": "$2a$10$A3oAcWooTsSOASHH1bvjt.EraXDkI3TJ/oifxcu9EDeZ/gn5gCw6.",
+  "userImage": "1627178309079.jpg"
+ },
+ {
+  "id": 4,
+  "user": "Melissa",
+  "lastNameUser": "D'uiqhe",
+  "email": "melisa@portugal.com",
+  "password": "$2a$10$sW10IxDR/a83uhszn8CB5uVD.3BlTKW5I0uXu2EmIsohuocHungBu",
+  "userImage": ""
  }
 ]

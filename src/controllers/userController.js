@@ -19,7 +19,14 @@ let userController = {
         res.render('users/register');
     },
     profile: function(req,res){
-        res.render('users/profile'); 
+        //comprobacion de como funcionan las cookies
+        /*if(req.cookies.userEmail){
+            console.log(req.cookies.userEmail);
+        } else {
+            console.log('No hay cookie');
+        }*/
+        //comprobacion de como funcionan las cookies
+        res.render('users/profile',{user:req.session.userLogged}); 
     },
 
     login: function(req,res){
@@ -38,7 +45,12 @@ let userController = {
         if(passwordOk){ 
             delete userToLogin.password;
             req.session.userLogged= userToLogin;
-            console.log(req.session.userLogged)
+
+
+            if(req.body.remember_user){
+                res.cookie('userEmail',req.body.email, {maxAge: 1000*15});
+            }
+            
             return res.redirect('/users/profile');
         }
         return res.render('users/login',{errorMessage});
@@ -90,9 +102,10 @@ let userController = {
     },
 
     logout: function(req , res){
+        res.clearCookie('userEmail');
         req.session.destroy()
-            res.redirect('/')
-    }    
+        res.redirect('/')
+    }   
     
 }
 

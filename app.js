@@ -7,6 +7,10 @@ const userRoutes = require('./src/routes/userRoutes');
 const methodOverride= require('method-override');
 const session = require('express-session');
 
+const cookies= require('cookie-parser');
+
+const cookieLogin = require('./src/middlewares/cookieLogin');
+
 // app.listen(3000, () => {
 //     console.log('Servidor 3000 corriendo');
 // })
@@ -20,6 +24,10 @@ app.use(session({
 	resave: false,
 	saveUninitialized: false,
 }));
+
+app.use(cookies());
+
+app.use(cookieLogin);
 
 app.use(express.urlencoded({ extended: false }));
 
