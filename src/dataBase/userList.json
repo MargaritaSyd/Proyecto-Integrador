@@ -1,22 +1,6 @@
 [
  {
   "id": 1,
-  "user": "m",
-  "lastNameUser": "a",
-  "email": "m@g.com",
-  "password": "$2a$10$cy30ODkHSslbhcSCgBiwPO8wxPnteLGPhGktQiSPoAH8rfEWcM2GW",
-  "userImage": "1627012930067.jpg"
- },
- {
-  "id": 2,
-  "user": "a",
-  "lastNameUser": "s",
-  "email": "a@s.com",
-  "password": "$2a$10$JVgPMJTmnoIYgpd1G/AdGuxwt2SA1CbgYAQerSCtQoLrot1fVZXpC",
-  "userImage": ""
- },
- {
-  "id": 3,
   "user": "Maggie",
   "lastNameUser": "Sydall",
   "email": "maggie@finlandia.com",
@@ -24,11 +8,43 @@
   "userImage": "1627178309079.jpg"
  },
  {
-  "id": 4,
+  "id": 2,
   "user": "Melissa",
   "lastNameUser": "D'uiqhe",
   "email": "melisa@portugal.com",
   "password": "$2a$10$sW10IxDR/a83uhszn8CB5uVD.3BlTKW5I0uXu2EmIsohuocHungBu",
   "userImage": ""
+ },
+ {
+  "id": 3,
+  "user": "Guille",
+  "lastNameUser": "Francella",
+  "email": "guille@fran.com",
+  "password": "$2a$10$w.iiWpU6vsQ2TradzRsP/eilWEoCmxb44MnCGDT2eKrKPOgn9WHbW",
+  "userImage": "1627183657313.jpg"
+ },
+ {
+  "id": 4,
+  "user": "Sussi",
+  "lastNameUser": "Gimenez",
+  "email": "sussi@gimenez.com",
+  "password": "$2a$10$qyEySGbLlbkZ5PhdbvFd3uNlo8UScWp1SOq0RwRVGnOtWJx8jooJC",
+  "userImage": "1627183736965.jpg"
+ },
+ {
+  "id": 5,
+  "user": "Ori",
+  "lastNameUser": "Junco",
+  "email": "ori@junco.com",
+  "password": "$2a$10$MeQJ.YRC9vjPfy56ifD38OMDQmIO5r3Q0521gxd9T.y8NFI2mSVKm",
+  "userImage": "1627183812864.jpg"
+ },
+ {
+  "id": 6,
+  "user": "Riqui",
+  "lastNameUser": "Darin",
+  "email": "riqui@darin.com",
+  "password": "$2a$10$GacW/rQAUlwXCnx4Ox8vs.qX0YSwm2RSVrTEtWQh0XBgz/T8ad4lW",
+  "userImage": "1627183957578.jpg"
  }
 ]

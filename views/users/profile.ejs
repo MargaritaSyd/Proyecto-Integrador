@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,20 +13,39 @@
     </head> 
   
     <body>
+        
 
         <%- include('../partials/header') %>
-
-        <h1>Bienvenido <%=user.user%> <%=user.lastNameUser%>!!</h1> 
-
-        <%if(user.userImage){%>
-            <img src="/imagenes/userImages/<%=user.userImage%>" alt=""> 
-        <%} else{%>
-            <img src="/imagenes/userImages/default.JPG" alt="">
-        <%}%> 
-        
-        <a href="/users/logout" style="font-size: 30px; font-weight: bold; text-decoration: none; color: orangered;">Cerrar sesion</a>
-
+        <main id="login-main">
+            <div id="contenedor-general">
+                <div id="div-icono">
+                    Bienvenid@ <%=user.user%> <%=user.lastNameUser%>!!   
+                </div>
+                <label id="bienvenida" class="labels-formulario"> 
+                    <%if(user.userImage != ""){%>
+                        <img src="/imagenes/userImages/<%=user.userImage%>"> 
+                            <%} else{%>
+                        <img src="/imagenes/logo.JPG">
+                    <%}%> 
+                </label>
+            <div class="div">
+            
+                <label id="label-usuario" class="labels-formulario"><%= user.email %></label>
+            </div>
+            <div class="div">
+                <label id="label-usuario" class="labels-formulario">Tus favoritos <i class="far fa-heart"></i></label>
+                <!-- tags de js para vista de favoritos -->
+            </div>
+            <div class='div'>
+                <label id="label-usuario" class="labels-formulario">Tu carrito de compras</label>
+                <a href="/cart" <i class="fas fa-shopping-cart iconos"></i></a>
+            </div>
+            <form action="/users/logout" method="GET">           
+                <button id="ingresar" type="submit">Cerrar sesión</button>
+            </form> 
         </main>
+       
+
     
         <%- include('../partials/footer') %>
 
