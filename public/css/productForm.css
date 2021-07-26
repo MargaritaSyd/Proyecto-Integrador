@@ -98,6 +98,25 @@
     padding: 5px 0;
     border: solid 1px rgb(43, 35, 35);
 }
+.cajaMensajeError{
+    display:flex;
+    justify-content: center;
+    padding-top:10px;
+}
+.mensajeError{
+
+    width:250px;
+    color:red;
+    padding:10px;
+    text-align: center;
+    border-width: 2px;
+    border-style:solid;
+    border-color:red;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
 
 /* vista crear producto/ boton para subir imagenes (from line 100 to 130)*/
 /* div contenedor */
