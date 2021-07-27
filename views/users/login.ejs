@@ -12,6 +12,14 @@
     <body>
 
         <%- include('../partials/header') %>
+       
+        <% if(locals.errorMessage != "undefined"){%>
+            <div class="cajaMensajeError">
+                <div class="mensajeError"> <p style= "color:red"> Credenciales Inválidas </p>
+                 </div>
+            </div>
+            <%}%>
+        
 
         <main id="login-main">
             <div id="contenedor-general">
