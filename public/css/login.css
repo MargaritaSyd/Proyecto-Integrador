@@ -17,6 +17,13 @@ body {
     font-size: 15px;
 }
 
+.profileImg{
+    width: 60%; 
+    height: auto;
+    
+    
+}
+
 #contenedor-general {
     width: 90%; 
     max-width: 580px;
