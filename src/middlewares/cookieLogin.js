@@ -12,12 +12,12 @@ function cookieLogin(req, res, next) {
         delete userFromCookie.password;
         req.session.userLogged=userFromCookie;
     
-        console.log(userFromCookie.user+' está logueado y cookeado');
+        //console.log(userFromCookie.user+' está logueado y cookeado');
         
     } else if(req.session.userLogged){
-        console.log(req.session.userLogged.user + ' está logueado pero no cookeado');
+        //console.log(req.session.userLogged.user + ' está logueado pero no cookeado');
     } else {
-        console.log('No hay ningún usuario logueado');
+        //console.log('No hay ningún usuario logueado');
     }
 
 	next();
