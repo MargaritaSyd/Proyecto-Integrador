@@ -20,11 +20,11 @@ let userController = {
     },
     profile: function(req,res){
         //comprobacion de como funcionan las cookies
-        if(req.cookies.userEmail){
-            console.log(req.cookies.userEmail);
-        } else {
-            console.log('No hay cookie');
-        }
+       // if(req.cookies.userEmail){
+       //     console.log(req.cookies.userEmail);
+       // } else {
+       //     console.log('No hay cookie');
+       // }
         //comprobacion de como funcionan las cookies
         res.render('users/profile',{user:req.session.userLogged}); 
     },
@@ -34,7 +34,7 @@ let userController = {
     },
 
     loginProcess: function(req,res){
-        console.log(req.body)
+       // console.log(req.body)
     let errorMessage= 'Las credenciales son inválidas';
     let userToLogin = userLogin.findByField('email', req.body.email);      
     if(userToLogin){
@@ -42,14 +42,14 @@ let userController = {
         let passwordOk= bcryptjs.compareSync(req.body.password,userToLogin.password);
         //return res.send(passwordOk)
          
-        //if(passwordOk){ 
+        if(passwordOk){ 
         //    delete userToLogin.password;
-        //    req.session.userLogged= userToLogin;
+            req.session.userLogged= userToLogin;
 
 
         //    if(req.body.remember_user){
         //        res.cookie('userEmail',req.body.email, {maxAge: 1000*15});
-        //    }
+            }
             
             return res.redirect('/users/profile');
         } else {
