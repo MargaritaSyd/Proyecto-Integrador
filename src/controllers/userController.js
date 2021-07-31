@@ -4,7 +4,7 @@ let userListPath = path.join(__dirname,"../dataBase/userList.json");
 let userDatos = fs.readFileSync (userListPath, 'utf-8');
 let {validationResult} = require ('express-validator');
 const bcryptjs = require('bcryptjs');
-const userLogin = require('../models/User')
+//const userLogin = require('../models/User')
 
 let userListOl ;
 if (userDatos == "") {
@@ -35,10 +35,25 @@ let userController = {
     },
 
     loginProcess: function(req,res){
-       // res.send ('funciona')
+      
         
-       // console.log(req.body)
     let errorMessage= 'Las credenciales son inválidas';
+    
+    for(let i=0; i<userListOl.length; i++){
+           if(req.body.email == userListOl[i].email){
+               let userToLog = userListOl[i] 
+               let passwordOk= bcryptjs.compareSync(req.body.password , userListOl[i].password)
+               if(passwordOk){ 
+                    req.session.userLogged= userToLog;
+               } else { 
+                    res.render('users/login',{errorMessage})
+               }//} else {
+            // res.render('users/login',{errorMessage})
+               }
+            }
+            return res.redirect('/users/profile')
+           
+    /*
     let userToLogin = userLogin.findByField('email', req.body.email);      
     if(userToLogin){
         //return res.send('Bienvenido señor '+ userToLogin.lastNameUser)
@@ -59,7 +74,7 @@ let userController = {
         return res.render('users/login',{errorMessage});
     }
     return res.render('users/login',{errorMessage});    
-    
+   */ 
 
     //    for(let i=0; i<userListOl.length; i++){
 
