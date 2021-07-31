@@ -59,13 +59,14 @@ let userController = {
     
 
 
-        for(let i=0; i<userListOl.length; i++){
+    //    for(let i=0; i<userListOl.length; i++){
 
-            if((req.body.email == userListOl[i].email)&&(bcryptjs.compareSync(req.body.password , userListOl[i].password))
-            ){ res.send('Datos correctos')
-    } else {
-        res.send('Datos incorrectos')
-}}},
+    //        if((req.body.email == userListOl[i].email)&&(bcryptjs.compareSync(req.body.password , userListOl[i].password))
+    //        ){ res.send('Datos correctos')
+    //} else {
+    //    res.send('Datos incorrectos')
+//}}
+},
 
 
     storeRegister: function(req,res){
