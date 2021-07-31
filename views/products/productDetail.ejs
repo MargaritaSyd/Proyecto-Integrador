@@ -13,16 +13,18 @@
             <br>
             <div>
             <div class= "productDetaill">
-                
-                <img id='producto' src="/imagenes/productImages/<%=productD.productImage%>" class= "prodDetailImg"> 
-                <br>
-                <div id="det">
+                <div>
+                    <div>
+                    <img id='producto' src="/imagenes/productImages/<%=productD.productImage%>" class= "prodDetailImg"> 
+                    </div>
                     <br>
-                    <div class= "productInfo">
-                    <div id='precio'>$<%=productD.price%></div>
-                    <br id='espacioCuota'>
-                    <div id='cuotas'> 6 cuotas sin interes de $<%=(productD.price)/6%></div>
-                    <br id='espacioCuota'>
+                    <div id="det">
+                        <br>
+                        <div class= "productInfo">
+                        <div id='precio'>$<%=productD.price%></div>
+                        <br id='espacioCuota'>
+                        <div id='cuotas'> 6 cuotas sin interes de $<%=(productD.price)/6%></div>
+                        <br id='espacioCuota'>
                     <div> Tamaño  
                         <br>
                         <input type="radio" value="mini" name='tamaño'> Mini </input>
@@ -31,19 +33,22 @@
                         <br>
                         <input type="radio" value="grande" name='tamaño'> Grande </input>
                     </div>
-                    
-                
-                <div id="fav">
-                    <a href="/cart"><i class="fas fa-shopping-cart"></i> </a>
-                    <i class="far fa-heart"></i>
+                    <div id="fav">
+                        <a href="/cart"><i class="fas fa-shopping-cart"></i> </a>
+                        <i class="far fa-heart"></i>
+                    </div>
                 </div>
                 <div class='descrip'>
                     <p> <%=productD.description%></p>
-                </div> </div> </div> </div>
-                    <p class="nota"> La imagen es solo a modo ilustrativo. Cada planta es única. Además, las plantas, al tratarse de seres vivos que requieren de nuestro cuidado, una vez adquiridas no tendrán cambio o devolución!
+                </div> 
+                <div>
+                    <p class="nota"> 
+                        La imagen es solo a modo ilustrativo. Cada planta es única. Además, las plantas, al tratarse de seres vivos que requieren de nuestro cuidado, una vez adquiridas no tendrán cambio o devolución!
                     </p>
                 </div>
-               
+            </div>
+               <br>
+            <div >
                 <h2>Productos relacionados</h2>
                 <div id="relacionados"> 
                 <br>
@@ -65,7 +70,8 @@
                         </span>
                 <%}%>
                 <%}%>
-                </div>     
+                </div> 
+            </div>    
         </main>
         <%- include('../partials/footer') %>
         <script src="https://kit.fontawesome.com/17464b966e.js" crossorigin="anonymous"></script>

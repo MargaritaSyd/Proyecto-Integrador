@@ -9,9 +9,12 @@ main{
     font-family: monospace;
     margin-left: 5%;
     padding-left: 5%;
-}  
+} 
+
+
 .productDetaill{
     display:flex;
+    flex-wrap: wrap;
 }
 .prodDetailImg{
     width: 150px,
@@ -25,7 +28,7 @@ main{
     flex-direction: column;
 }  
 #producto{   
-    width: 50vw;
+    width: 40vh;
 }
 #prodrelac{
     display: flex;
@@ -54,8 +57,12 @@ main{
 #relacionados{
     width: 90%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
+    text-align: center;
+    font-weight: bold;
 }
+
 #titulo{
     font-family: monospace;
 }
@@ -90,6 +97,7 @@ main{
     font-size: 12px;
     font-weight: normal;
 }
+
 
 #prodrelac{
     font-family: monospace;
@@ -167,6 +175,7 @@ header {
 
 footer {
     background-color: rgba(54, 46, 46, 0.534);
+    color: black;
     border-top: 1px solid rgb(43, 35, 35);
     font-size: 12px;
     padding: 20px 10px;
@@ -208,9 +217,4 @@ footer label {
     font-weight: bold;
     margin-bottom: 10px;
 }
-    #relacionados {
-        display: flex;
-        flex-wrap: wrap;
-        text-align: center;
-        font-weight: bold;
-}
+  
