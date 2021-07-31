@@ -8,9 +8,9 @@ const methodOverride= require('method-override');
 const session = require('express-session');
 //const session = require('cookie-session');
 
-const cookies= require('cookie-parser');
+//const cookies= require('cookie-parser');
 
-const cookieLogin = require('./src/middlewares/cookieLogin');
+//const cookieLogin = require('./src/middlewares/cookieLogin');
 
 // app.listen(3000, () => {
 //     console.log('Servidor 3000 corriendo');

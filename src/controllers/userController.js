@@ -35,8 +35,8 @@ let userController = {
     },
 
     loginProcess: function(req,res){
-        res.send ('funciona')
-        /*
+       // res.send ('funciona')
+        
        // console.log(req.body)
     let errorMessage= 'Las credenciales son inválidas';
     let userToLogin = userLogin.findByField('email', req.body.email);      
@@ -68,7 +68,7 @@ let userController = {
     //} else {
     //    res.send('Datos incorrectos')
 //}}
-*/
+
 },
 
 
