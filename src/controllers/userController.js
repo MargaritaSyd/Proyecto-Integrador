@@ -19,6 +19,8 @@ let userController = {
         res.render('users/register');
     },
     profile: function(req,res){
+        res.send ('funciona')
+        /*
         //comprobacion de como funcionan las cookies
        // if(req.cookies.userEmail){
        //     console.log(req.cookies.userEmail);
@@ -26,7 +28,7 @@ let userController = {
        //     console.log('No hay cookie');
        // }
         //comprobacion de como funcionan las cookies
-        res.render('users/profile',{user:req.session.userLogged}); 
+        res.render('users/profile',{user:req.session.userLogged}); */
     },
 
     login: function(req,res){
@@ -34,6 +36,7 @@ let userController = {
     },
 
     loginProcess: function(req,res){
+       
        // console.log(req.body)
     let errorMessage= 'Las credenciales son inválidas';
     let userToLogin = userLogin.findByField('email', req.body.email);      
@@ -57,7 +60,6 @@ let userController = {
     }
     return res.render('users/login',{errorMessage});    
     
-
 
     //    for(let i=0; i<userListOl.length; i++){
 
