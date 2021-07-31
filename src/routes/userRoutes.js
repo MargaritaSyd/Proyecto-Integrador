@@ -16,7 +16,7 @@ router.get('/profile' , guestUser , userController.profile);
 
 router.get('/login' , loggedUser , userController.login);
 
-//router.post('/login' , userController.loginProcess);
+router.post('/login' , userController.loginProcess);
 
 router.get('/logout' , guestUser , userController.logout)
 

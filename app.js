@@ -22,8 +22,8 @@ app.listen(process.env.PORT || 3000, function(){
 
 app.use(session({
 	secret: "It's a secret",
-//	resave: false,
-//	saveUninitialized: false,
+	resave: true,
+	saveUninitialized: true,
 }));
 
 app.use(cookies());

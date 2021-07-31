@@ -20,11 +20,11 @@ let userController = {
     },
     profile: function(req,res){
         //comprobacion de como funcionan las cookies
-        /*if(req.cookies.userEmail){
+        if(req.cookies.userEmail){
             console.log(req.cookies.userEmail);
         } else {
             console.log('No hay cookie');
-        }*/
+        }
         //comprobacion de como funcionan las cookies
         res.render('users/profile',{user:req.session.userLogged}); 
     },
@@ -33,7 +33,7 @@ let userController = {
         res.render('users/login'); 
     },
 
-  /*  loginProcess: function(req,res){
+    loginProcess: function(req,res){
         console.log(req.body)
     let errorMessage= 'Las credenciales son inválidas';
     let userToLogin = userLogin.findByField('email', req.body.email);      
@@ -56,7 +56,7 @@ let userController = {
         return res.render('users/login',{errorMessage});
     }
     return res.render('users/login',{errorMessage});    
-    },
+    
 
 
         for(let i=0; i<userListOl.length; i++){
@@ -67,7 +67,7 @@ let userController = {
         res.send('Datos incorrectos')
 }}},
 
-*/
+
     storeRegister: function(req,res){
         let errors = validationResult(req);
         if(!errors.isEmpty()){
