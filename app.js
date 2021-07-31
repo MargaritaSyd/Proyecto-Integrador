@@ -15,17 +15,23 @@ const session = require('express-session');
 // app.listen(3000, () => {
 //     console.log('Servidor 3000 corriendo');
 // })
-
-app.listen(process.env.PORT || 3000, function(){
-    console.log('Servidor corriendo en puerto 3000');
-});
-
 app.use(session({
 	secret: "It's a secret",
 	resave: false,
 	saveUninitialized: false,
 }));
 
+app.listen(process.env.PORT || 3000, function(){
+    console.log('Servidor corriendo en puerto 3000');
+});
+
+/*
+app.use(session({
+	secret: "It's a secret",
+	resave: false,
+	saveUninitialized: false,
+}));
+*/
 //app.use(cookies());
 
 //app.use(cookieLogin);
