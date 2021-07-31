@@ -5,8 +5,8 @@ const indexRoutes = require('./src/routes/indexRoutes');
 const productRoutes = require('./src/routes/productRoutes');
 const userRoutes = require('./src/routes/userRoutes');
 const methodOverride= require('method-override');
-//const session = require('express-session');
-const session = require('cookie-session');
+const session = require('express-session');
+//const session = require('cookie-session');
 
 const cookies= require('cookie-parser');
 
@@ -22,8 +22,8 @@ app.listen(process.env.PORT || 3000, function(){
 
 app.use(session({
 	secret: "It's a secret",
-	resave: false,
-	saveUninitialized: false,
+//	resave: false,
+//	saveUninitialized: false,
 }));
 
 app.use(cookies());
