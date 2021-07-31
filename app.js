@@ -22,13 +22,13 @@ app.listen(process.env.PORT || 3000, function(){
 
 app.use(session({
 	secret: "It's a secret",
-	resave: true,
-	saveUninitialized: true,
+	resave: false,
+	saveUninitialized: false,
 }));
 
-app.use(cookies());
+//app.use(cookies());
 
-app.use(cookieLogin);
+//app.use(cookieLogin);
 
 app.use(express.urlencoded({ extended: false }));
 

@@ -42,17 +42,17 @@ let userController = {
         let passwordOk= bcryptjs.compareSync(req.body.password,userToLogin.password);
         //return res.send(passwordOk)
          
-        if(passwordOk){ 
-            delete userToLogin.password;
-            req.session.userLogged= userToLogin;
+        //if(passwordOk){ 
+        //    delete userToLogin.password;
+        //    req.session.userLogged= userToLogin;
 
 
-            if(req.body.remember_user){
-                res.cookie('userEmail',req.body.email, {maxAge: 1000*15});
-            }
+        //    if(req.body.remember_user){
+        //        res.cookie('userEmail',req.body.email, {maxAge: 1000*15});
+        //    }
             
             return res.redirect('/users/profile');
-        }
+        } else {
         return res.render('users/login',{errorMessage});
     }
     return res.render('users/login',{errorMessage});    
@@ -102,7 +102,7 @@ let userController = {
     },
 
     logout: function(req , res){
-        res.clearCookie('userEmail');
+        //res.clearCookie('userEmail');
         req.session.destroy()
         res.redirect('/')
     }   
