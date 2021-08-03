@@ -1,8 +1,24 @@
 *{
-    font-family: monospace;
+    font-family: Trebuchet MS, sans-serif;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+.newHeader{
+    background-color: #B4CBB2;
+    height: 100px;
+
+}
+
+.container{
+    background-color: #B4CBB2;
+    
+
+}
+
+.botonHeader{
+    color:white;
+    font-size: 15px;
 }
 
 header{
@@ -52,12 +68,13 @@ main {
 
 .iconos{
     color: rgb(68, 196, 132);
+    
 }
 .carrousel{
     display:flex;
     width:100%;
-    /* height: auto; */
-    justify-content:center;
+    height: auto;
+    justify-content: center;
     
 }
 .imgcarrousel{
@@ -65,15 +82,26 @@ main {
     /* height:auto; */
 }
 .subtitulo{
-    color:rgb(68, 196, 132);
-    text-align:left;
+    color:#B4CBB2;
+    text-align:center;
 }
+
+.space{
+    height: 20px;
+
+}
+
 .productosSugeridos{
     background-color:#FBEFFB;
     display:flex;
     justify-content: space-around;
 }
-    
+
+.sugerenciasProd{
+    display:flex;
+    justify-content: center;
+
+}
 #relacionadosIndex {
         display: flex;
         flex-wrap: wrap;
@@ -90,6 +118,62 @@ main {
 .btn-primary{
     color:rgb(68, 196, 132);
 }
+
+.menuCategorias{
+    display:flex;
+    justify-content: space-around;
+    align-items:baseline;
+
+
+}
+.imagenCategoria{
+    display: block;
+    width: 100%;
+    height: auto;
+    padding:20px;
+  }
+.overlay{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #ae76a6;
+  }
+  
+.categoria:hover .overlay {
+    opacity: 1;
+  }
+  
+.text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+.row{
+    display: flex;
+}
+
+
+.categoria{
+    position: relative;
+    width: 50%;
+}
+
+.categorias{
+    display:flex;
+}
+
 .menuImagenes{
     display:flex;
     justify-content: center;
@@ -103,7 +187,7 @@ main {
 
 
 footer {
-    background-color: rgba(54, 46, 46, 0.534);
+    background-color: #B4CBB2;
     border-top: 1px solid rgb(43, 35, 35);
     font-size: 12px;
     padding: 20px 10px;
@@ -127,21 +211,25 @@ footer label {
 
 
 .contacto {
+    color: white;
     text-align: center;
     font-weight: bold;   
 }
 
 .redes {
+    color: white;
     text-align: center;
 }
 
 .footer-titulos {
+    color: white;
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 15px;
 }
 
 .footer-items {
+    color: white;
     font-weight: bold;
     margin-bottom: 10px;
 }
