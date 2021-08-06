@@ -46,5 +46,13 @@
   "email": "riqui@darin.com",
   "password": "$2a$10$GacW/rQAUlwXCnx4Ox8vs.qX0YSwm2RSVrTEtWQh0XBgz/T8ad4lW",
   "userImage": "1627183957578.jpg"
+ },
+ {
+  "id": 7,
+  "user": "Melissa",
+  "lastNameUser": "d'Huicque",
+  "email": "mel.dh7@gmail.com",
+  "password": "$2a$10$iKyz46Xnr.KUP8Krsr5dte8jj3WCzR2SLOzg7iwYFSVjIrv8V8a/C",
+  "userImage": "1628126415017.jpg"
  }
 ]
