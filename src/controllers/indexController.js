@@ -18,6 +18,12 @@ let indexController = {
     cart: function(req,res){
         res.render('cart');
     },
+    faqs: function(req,res){
+        res.render('faqs');
+    },
+    nosotros: function(req,res){
+        res.render('nosotros');
+    },
 }
 
 module.exports = indexController;
