@@ -4,7 +4,7 @@ module.exports=
   "development": {
     "username": "root",
     "password": null,
-    "database": "musimundos",
+    "database": "mameli_version_local",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
