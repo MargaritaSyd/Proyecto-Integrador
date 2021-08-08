@@ -3,6 +3,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    
 }
 .newHeader{
     background-color: #B4CBB2;
@@ -72,16 +73,21 @@ main {
 }
 .carrousel{
     display:flex;
-    width:100%;
-    height: auto;
-    justify-content: center;
+    max-width:100%;
+    max-height: auto;
+    justify-content: space-around;
     
 }
 .imgcarrousel{
-    width:100%;
-    /* height:auto; */
+    max-width:100%;
+    max-height:auto;
 }
 .subtitulo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width:100%;
+    height: auto;
     color:#B4CBB2;
     text-align:center;
 }
@@ -233,6 +239,62 @@ footer label {
     font-weight: bold;
     margin-bottom: 10px;
 }
+
+.container-bannerfaqs{
+    display: grid;
+    place-content: center;
+    padding-top: 5%;
+    
+
+}
+
+.banner-image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width:80%;
+    height: auto;
+    
+}
+
+.container-faqs{
+    display:flex;
+    justify-content: space-around;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.faqs{
+    border-color: #386641;
+    border-width: 2px;
+    border-style: solid;
+    margin-left: 10%;
+    margin-right: 10%;
+    
+}
+.faqs-middle{
+    border-color: white;
+    border-width: 2px;
+    border-style: solid;
+    
+    
+
+}
+
+.question{
+    font-size: medium;
+    font-weight: bold;
+    text-align: center;
+}
+
+.answer{
+    font-size: small;
+    text-align: center;
+    padding-left: 5%;
+    padding-right: 5%;
+
+}
+
 @media (max-width:361px){
     .productosSugeridos{
         display:block
