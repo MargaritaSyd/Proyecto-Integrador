@@ -28,12 +28,14 @@
                     </div>
                     <div class="prodFormCategory">
                         <label class="prodFormLabel" for="">Categoría</label>
+                        
                         <select name="category" id="category">
-                            <option value="Pots" selected>Pots</option>
-                            <option value="Big Pots">Big Pots</option>
-                            <option value="Plant Stands">Plant Stands</option>
-                            <option value="Plants">Plantas</option>
-                            <option value="Terrarios">Terrarios</option>
+                          
+
+                             <% for(let i=0; i<category.length; i++){ %>
+                            
+                                <option value="<%=category[i].id%>"><%=category[i].name%></option>
+                                <%}%> 
                         </select>
                     </div>
                 </div>
@@ -44,28 +46,13 @@
                         <input class="prodFormInput" type="text" name="price">
                     </div>
                 </div>
-
-                <div class="productFormThirdLine">
-                    <div class="productFormThirdLineEl">
-                        <label class="prodFormLabel" for="">Efectivo</label>
-                        <input class="prodFormInput" type="radio" name="PayWay" checked>
-                        <label class="prodFormLabel" for="">Tarjeta</label>
-                        <input class="prodFormInput" type="radio" name="PayWay">
-                    </div>
-                    <div class="productFormThirdLineEl"> 
-                        <label class="prodFormLabel" for="">Cuotas</label>
-                        <select name="cuotas" id="cuotas">
-                            <option value="3" selected>3</option>
-                            <option value="6">6</option>
-                            <option value="9">9</option>
-                            <option value="12">12</option>
-                        </select>
-                    </div>
-                    <div class="productFormThirdLineEl">
-                        <label class="prodFormLabelInterest" for="">Interés(%)</label>
-                        <input class="prodFormInputInterest" type="number" min="0" max="100" name="interest">
+                <div class="ProductFormThirdLine">
+                    <div class="prodFormPrice">
+                        <label class="prodFormLabel" for="">Stock disponible</label>
+                        <input class="prodFormInput" type="text" name="stock">
                     </div>
                 </div>
+                
                 
                 <div class="textArea-description">
                     <!-- <label class="prodFormLabel" for="">Descripción</label> -->
@@ -83,7 +70,8 @@
                     <button class="prodFormButton" type="submit">Confirmar</button>
                 </div>
             </form> 
-        </div>   
+        </div> 
+    </div>  
     </main>
    
     <%- include('../partials/footer') %>

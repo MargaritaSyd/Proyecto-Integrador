@@ -14,7 +14,12 @@ else {
 
 let productController = {
     create: function(req,res){
-        res.render('products/createProduct');
+        db.category.findAll()
+            .then(function(category){
+                res.render('products/createProduct', {category})
+            })
+
+        
     },
     detail: function(req,res){
         let idProd = req.params.id
@@ -53,35 +58,25 @@ let productController = {
             return res.render("products/productList", {productsStockOn});
 
         })
-
-        // let productsStockOn=productListOl.filter((element)=>{return element.inStock==true})
-        // res.render('products/productList', {productsStockOn});
     },
     processForm: function(req,res){
-        let newProduct= {
-            id: productListOl.length+1,
-            name: req.body.name,
-            category: req.body.category,
-            price: req.body.price,
-            payWay: req.body.PayWay,
-            cuotas: req.body.cuotas,
-            interest: req.body.interest,
-            description: req.body.description
-        };
-
+        let imageProduct;
         if(req.file){
-            newProduct.productImage=req.file.filename;
+            imageProduct=req.file.filename;
         } else{
-            newProduct.productImage='';
+            imageProduct='';
         }
-        newProduct.inStock= true;
-
-        productListOl.push(newProduct);
-        let productListOlupdated= JSON.stringify(productListOl, null, " ");
-        fs.writeFileSync(productListPath, productListOlupdated)
-        res.redirect('/product')
         
-        
+        db.product.create(
+            {
+            name: req.body.name,
+            id_category: req.body.category,
+            description: req.body.description,
+            stock: req.body.stock,
+            price: req.body.price,
+            image_product: imageProduct,
+        });
+        res.redirect("/product")
     },
     update:(req,res)=>{
         idProduct= req.params.id;
