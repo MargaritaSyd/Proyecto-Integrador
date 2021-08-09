@@ -1,6 +1,6 @@
 module.exports = function(sequelize, dataTypes)
  {
-     const alias = "product";
+     const alias = "order";
      const cols = {
          id: {
              type: dataTypes.INTEGER,
@@ -8,27 +8,15 @@ module.exports = function(sequelize, dataTypes)
              autoIncrement: true,
              allowNull: false
          },
-         name: {
-            type: dataTypes.STRING,
-            allowNull: false
-        },
-        id_category: {
+         unitary_price: {
             type: dataTypes.INTEGER,
             allowNull: false
         },
-        description: {
-            type: dataTypes.STRING,
-            allowNull: false
-        },
-        stock: {
+        quantity: {
             type: dataTypes.INTEGER,
             allowNull: false
         },
-        image_product: {
-            type: dataTypes.STRING,
-            allowNull: true
-        },
-        price: {
+        sale_price: {
             type: dataTypes.INTEGER,
             allowNull: false
         }
@@ -36,16 +24,25 @@ module.exports = function(sequelize, dataTypes)
          
      };
      const config = {
-         tableName: "product",
+         tableName: "user",
          timeStamps: true,
      };
      const product = sequelize.define(alias, cols, config);
-     product.associate = (models) => {
-         product.belongsTo(models.category, {
-             as: "category",
-             foreignKey: "id_category"
-         })
-     }
-     return product
+      order.associate = (models) => {
+          order.belongsTo(models.order, {
+              as: "user",
+              foreignKey: "id_user"
+          }),
+          order.belongsTo(models.order, {
+            as: "product",
+            foreignKey: "id_product"
+        }),
+        order.belongsTo(models.order, {
+            as: "invoice",
+            foreignKey: "id_invoice"
+        })
+
+      }
+     return order
 
  }

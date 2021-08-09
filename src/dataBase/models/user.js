@@ -1,6 +1,6 @@
 module.exports = function(sequelize, dataTypes)
  {
-     const alias = "product";
+     const alias = "user";
      const cols = {
          id: {
              type: dataTypes.INTEGER,
@@ -8,44 +8,48 @@ module.exports = function(sequelize, dataTypes)
              autoIncrement: true,
              allowNull: false
          },
-         name: {
+         email: {
             type: dataTypes.STRING,
             allowNull: false
         },
-        id_category: {
-            type: dataTypes.INTEGER,
-            allowNull: false
-        },
-        description: {
+        password: {
             type: dataTypes.STRING,
             allowNull: false
         },
-        stock: {
-            type: dataTypes.INTEGER,
+        user_name: {
+            type: dataTypes.STRING,
             allowNull: false
         },
-        image_product: {
+        lastNameUser: {
+            type: dataTypes.STRING,
+            allowNull: false
+        },
+        user_image: {
             type: dataTypes.STRING,
             allowNull: true
-        },
-        price: {
-            type: dataTypes.INTEGER,
-            allowNull: false
         }
          
          
      };
      const config = {
-         tableName: "product",
+         tableName: "user",
          timeStamps: true,
      };
      const product = sequelize.define(alias, cols, config);
-     product.associate = (models) => {
-         product.belongsTo(models.category, {
-             as: "category",
-             foreignKey: "id_category"
-         })
-     }
+      user.associate = (models) => {
+          user.hasMany(models.category, {
+              as: "order",
+              foreignKey: "id_user"
+          }),
+          user.hasMany(models.category, {
+            as: "invoice",
+            foreignKey: "id_user"
+        }),
+        user.hasMany(models.card, {
+            as: "card",
+            foreignKey: "id_card"
+        })
+      }
      return product
 
  }
