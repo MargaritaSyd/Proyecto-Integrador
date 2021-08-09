@@ -1,7 +1,9 @@
 let fs = require ('fs');
 let path = require ('path');
 let productListPath = path.join(__dirname, '../dataBase/productList.json');
-let datos = fs.readFileSync (productListPath, 'utf-8');
+let datos = fs.readFileSync (productListPath, 'utf-8'); 
+let db = require("../dataBase/models");
+let Op = db.Sequelize.Op;
 let productListOl ;
 if (datos == "") {
     productListOl = [];
@@ -41,8 +43,19 @@ let productController = {
     },
 
     list: function(req,res){
-        let productsStockOn=productListOl.filter((element)=>{return element.inStock==true})
-        res.render('products/productList', {productsStockOn});
+        db.product.findAll({
+            where: {
+                stock: { [Op.gt]: 0 }
+            }
+        })
+        .then(function(productsStockOn){
+            
+            return res.render("products/productList", {productsStockOn});
+
+        })
+
+        // let productsStockOn=productListOl.filter((element)=>{return element.inStock==true})
+        // res.render('products/productList', {productsStockOn});
     },
     processForm: function(req,res){
         let newProduct= {
