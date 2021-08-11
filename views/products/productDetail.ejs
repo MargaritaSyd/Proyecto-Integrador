@@ -58,8 +58,8 @@
                 <h2>Productos relacionados</h2>
                 <div id="relacionados"> 
                 <br>
-                
-                <% for(let i=0; i<relatedProduct.length; i++){ %>
+
+                <% for(let i=0; i<relatedProduct.length && i<4; i++){ %>
                 <% if(relatedProduct[i] != productD) {%>
                         <span class="prod">  
                              <a class="productList-anchor" href="/product/detail/<%=relatedProduct[i].id %>">            
@@ -81,8 +81,11 @@
                         </span>
                 <%}%>
                 <%}%>
-                <%}%>
+               
                 </div> 
+            <% } %>
+                            
+  
             </div>    
         </main>
         <%- include('../partials/footer') %>

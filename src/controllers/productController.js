@@ -1,3 +1,4 @@
+const { promiseImpl } = require('ejs');
 let fs = require ('fs');
 let path = require ('path');
 let productListPath = path.join(__dirname, '../dataBase/productList.json');
@@ -52,11 +53,17 @@ let productController = {
         // })
 
     edit: function(req,res){
-        let idProduct= req.params.id;
-        let product= productListOl.find(element=>element.id==idProduct);
-        //console.log(product);
-        //let product= productListOl[idProduct-1]
-        res.render('products/editProduct',{product});
+        let product = db.product.findByPk(req.params.id);
+        let category = db.category.findAll(); 
+        Promise.all([product, category])
+        .then(function([product, category]){
+            res.render('products/editProduct', {product, category})
+        })
+        // let idProduct= req.params.id;
+        // let product= productListOl.find(element=>element.id==idProduct);
+        // //console.log(product);
+        // //let product= productListOl[idProduct-1]
+        // res.render('products/editProduct',{product});
     },
 
     list: function(req,res){
@@ -91,6 +98,10 @@ let productController = {
         res.redirect("/product")
     },
     update:(req,res)=>{
+        // db.product.update({
+        //     name:
+        //     id_category:
+        //     description:
         idProduct= req.params.id;
         let productToMidyfy= productListOl.find(element=>element.id==idProduct);
         let modifiedProduct={

@@ -29,12 +29,23 @@
                     <div class="prodFormCategory">
                         <label class="prodFormLabel" for="">Categoría</label>
                         <select name="category" id="category">
-                            <option value="">Seleccione categoría</option>
+                            <% for(let i=0; i<category.length; i++){ %>
+                                <% if(category[i].id==product.id_category){ %>
+                                    <option value="<%=category[i].id%>" selected>
+                                        <% } else{ %> 
+                              
+                                     <option value="<%=category[i].id%>">
+                           <% } %>
+                           
+
+                           <%=category[i].name%></option>
+                           <% } %>
+                            <!-- <option value="">Seleccione categoría</option>
                             <option value="pots" <%=product.category=='pots'?'selected':''%> >Pots</option>
                             <option value="bigPots" <%=product.category=='bigPots'?'selected':''%>>Big Pots</option>
                             <option value="plantStands" <%=product.category=='stands'?'selected':''%>>Plant Stands</option>
                             <option value="plantas" <%=product.category=='plantas'?'selected':''%>>Plantas</option>
-                            <option value="terrarios" <%=product.category=='terrarios'?'selected':''%>>Terrarios</option>
+                            <option value="terrarios" <%=product.category=='terrarios'?'selected':''%>>Terrarios</option> -->
                         </select>
                     </div>
                 </div>
@@ -45,29 +56,14 @@
                         <input class="prodFormInput" type="text" name="price" value="<%=product.price%>">
                     </div>
                 </div>
-
-                <div class="productFormThirdLine">
-                    <div class="productFormThirdLineEl">
-                        <label class="prodFormLabel" for="">Efectivo</label>
-                        <input class="prodFormInput" type="radio" name="PayWay">
-                        <label class="prodFormLabel" for="">Tarjeta</label>
-                        <input class="prodFormInput" type="radio" name="PayWay">
-                    </div>
-                    <div class="productFormThirdLineEl"> 
-                        <label class="prodFormLabel" for="">Cuotas</label>
-                        <select name="cuotas" id="cuotas">
-                            <option value="">Cuotas</option>
-                            <option value="3" <%=product.cuotas=='3'?'selected':''%>>3</option>
-                            <option value="6" <%=product.cuotas=='6'?'selected':''%>>6</option>
-                            <option value="9" <%=product.cuotas=='9'?'selected':''%>>9</option>
-                            <option value="12" <%=product.cuotas=='12'?'selected':''%>>12</option>
-                        </select>
-                    </div>
-                    <div class="productFormThirdLineEl">
-                        <label class="prodFormLabelInterest" for="">Interés(%)</label>
-                        <input class="prodFormInputInterest" type="number" min="0" max="100" name="interest" value="<%=product.name%>">
+                <div class="ProductFormSecondLine">
+                    <div class="prodFormPrice">
+                        <label class="prodFormLabel" for="">Stock disponible</label>
+                        <input class="prodFormInput" type="text" name="price" value="<%=product.stock%>">
                     </div>
                 </div>
+
+               
                 
                 <div class="textArea-description">
                     <!-- <label class="prodFormLabel" for="">Descripción</label> -->
@@ -76,7 +72,7 @@
                 </div>
 
                 <div style="text-align: center; margin-top: 20px;">
-                    <%if(product.productImage!=''){%> 
+                    <%if(product.image_product!=''){%> 
                         <label for="">Borrar imagen actual</label>
                         <input type="checkbox" name="deleteImage">
                     <%}%> 
