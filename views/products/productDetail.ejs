@@ -16,7 +16,11 @@
             <div class= "productDetaill">
                 <div>
                     <div>
-                    <img id='producto' src="/imagenes/productImages/<%=productD.productImage%>" class= "prodDetailImg"> 
+                    <% if(productD.image_product){   %>
+                    <img id='producto' src="/imagenes/productImages/<%=productD.image_product%>" class= "prodDetailImg"> 
+                <% } else{  %>
+                    <img id='producto' src="/imagenes/logo.png" class= "prodDetailImg">
+                <% } %>
                     </div>
                     <br>
                     <div id="det">
@@ -50,14 +54,20 @@
             </div>
                <br>
             <div >
+                <% if(relatedProduct.length>1){ %>
                 <h2>Productos relacionados</h2>
                 <div id="relacionados"> 
                 <br>
+                
                 <% for(let i=0; i<relatedProduct.length; i++){ %>
                 <% if(relatedProduct[i] != productD) {%>
                         <span class="prod">  
                              <a class="productList-anchor" href="/product/detail/<%=relatedProduct[i].id %>">            
-                                <img src="/imagenes/productImages/<%=relatedProduct[i].productImage%>" class='relacionados'>
+                                <% if(relatedProduct.image_product){   %>
+                                <img src="/imagenes/productImages/<%=relatedProduct[i].image_product%>" class='relacionados'>
+                                <% } else{  %>
+                                    <img id='producto' src="/imagenes/logo.png" class= "relacionados">
+                                <% } %>
                              </a> 
                             <h2 class= 'titRelacionado'>
                                 <%=relatedProduct[i].name%>
@@ -69,6 +79,7 @@
                                 6 cuotas s/i de $<%= Math.round(relatedProduct[i].price/6) %>
                             </h2>
                         </span>
+                <%}%>
                 <%}%>
                 <%}%>
                 </div> 

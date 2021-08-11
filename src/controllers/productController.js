@@ -22,22 +22,34 @@ let productController = {
         
     },
     detail: function(req,res){
-        let idProd = req.params.id
-        let productD = ''
-
-        for(let i=0; i<productListOl.length; i++){
-            if(productListOl[i].id == idProd){
-                productD = productListOl[i]
+        db.product.findAll()
+        .then(function(product){
+            let validUrl= false;
+            if(req.params.id>=1 && req.params.id<=product.length){
+                validUrl=true
             }
-        }
-
-            let relatedProduct = productListOl.filter((e)=>{
-                return e.category == productD.category
-        })
-    
-    res.render('products/productDetail', {productD , relatedProduct});
+            if(validUrl==true){
+                let productD = product.find(products=>
+                    products.id==req.params.id);
+                let relatedProduct = product.filter(products => {return products.id_category == productD.id_category})
+                
+                res.render('products/productDetail', {productD , relatedProduct})
+            }
         
+        })    
     },
+         // let idProd = req.params.id
+        // let productD = ''
+
+        // for(let i=0; i<productListOl.length; i++){
+        //     if(productListOl[i].id == idProd){
+        //         productD = productListOl[i]
+        //     }
+        // }
+
+        //     let relatedProduct = productListOl.filter((e)=>{
+        //         return e.category == productD.category
+        // })
 
     edit: function(req,res){
         let idProduct= req.params.id;
