@@ -31,10 +31,13 @@ module.exports = function(sequelize, dataTypes)
         price: {
             type: dataTypes.INTEGER,
             allowNull: false
+        },
+        showing: {
+            type: dataTypes.INTEGER,
+            allowNull: false
         }
-         
-         
-     };
+
+    };
      const config = {
          tableName: "product",
          timestamps: false

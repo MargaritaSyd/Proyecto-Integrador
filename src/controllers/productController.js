@@ -26,19 +26,25 @@ let productController = {
         db.product.findAll()
         .then(function(product){
             let validUrl= false;
-            if(req.params.id>=1 && req.params.id<=product.length){
+            if(req.params.id>=1 && req.params.id<=product.length && product.showing==1){
                 validUrl=true
             }
             if(validUrl==true){
                 let productD = product.find(products=>
-                    products.id==req.params.id);
+                    products.id==req.params.id,
+                    );
                 let relatedProduct = product.filter(products => {return products.id_category == productD.id_category})
                 
                 res.render('products/productDetail', {productD , relatedProduct})
             }
+            else {
+                let msjNotFound = "El producto no existe, maldito."
+                res.redirect("/")
+            }
         
         })    
     },
+    
          // let idProd = req.params.id
         // let productD = ''
 
@@ -69,7 +75,8 @@ let productController = {
     list: function(req,res){
         db.product.findAll({
             where: {
-                stock: { [Op.gt]: 0 }
+                stock: { [Op.gt]: 0 },
+                showing: { [Op.gt]: 0 }
             }
         })
         .then(function(productsStockOn){
@@ -184,31 +191,42 @@ let productController = {
     //     res.redirect('/product');
     // },
     destroy: function(req,res){
-        let id= req.params.id;
-        for(let i=0; i<productListOl.length; i++){
-            if(productListOl[i].id==id){
-                productListOl[i].inStock= false;
+    db.product.update({
+        showing: 0
+    }, {where : {id: req.params.id}
 
-                // bloque de codigo para borrar fisicamente el registro en el json
-                /*if(productListOl[i].productImage){
-                    var imageToDelete= productListOl[i].productImage;
-                }
-                productListOl.splice(i,1);*/
-                // bloque de codigo para borrar fisicamente el registro en el json
+    })
+    res.redirect('/product');
+
+}
+    
+    
+    // function(req,res){
+    //     let id= req.params.id;
+    //     for(let i=0; i<productListOl.length; i++){
+    //         if(productListOl[i].id==id){
+    //             productListOl[i].inStock= false;
+
+    //             // bloque de codigo para borrar fisicamente el registro en el json
+    //             /*if(productListOl[i].productImage){
+    //                 var imageToDelete= productListOl[i].productImage;
+    //             }
+    //             productListOl.splice(i,1);*/
+    //             // bloque de codigo para borrar fisicamente el registro en el json
                 
-            }
-            break;
-        };
+    //         }
+    //         break;
+    //     };
 
-        // bloque de codigo para borrar la imagen fisicamente
-        /*if(imageToDelete){
-            fs.unlinkSync(path.join(__dirname, '../../public/imagenes/productImages/')+imageToDelete);
-        }*/
-        // bloque de codigo para borrar la imagen fisicamente
+    //     // bloque de codigo para borrar la imagen fisicamente
+    //     /*if(imageToDelete){
+    //         fs.unlinkSync(path.join(__dirname, '../../public/imagenes/productImages/')+imageToDelete);
+    //     }*/
+    //     // bloque de codigo para borrar la imagen fisicamente
 
-        fs.writeFileSync(productListPath,  JSON.stringify(productListOl, null, " "));
-        res.redirect('/product');   
-    }
+    //     fs.writeFileSync(productListPath,  JSON.stringify(productListOl, null, " "));
+    //     res.redirect('/product');   
+    // }
 }
 
 module.exports = productController;
