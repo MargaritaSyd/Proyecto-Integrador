@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
@@ -91,10 +91,16 @@
     <div class="space"></div>
     <div class="sugerenciasProd">
     <div id="relacionadosIndex">
-    <%for(let i=0;i<productsStockOn.length;i++){%>
+    <%for(let i=0;i<5;i++){%>
     
         <div class="card productoSugerido text-center" style="width: 18rem;">
-            <img src="/imagenes/productImages/<%=productsStockOn[i].productImage%>" class="card-img-top img-thumbnail" alt="macetaBetty">
+          <% if(productsStockOn[i].image_product) { %>
+            <img src="/imagenes/productImages/<%=productsStockOn[i].image_product%>" class="card-img-top img-thumbnail">
+
+          <% } else {%>
+            <img src="/imagenes/logo.png" class="card-img-top img-thumbnail">
+            <% } %>
+            
             <div class="card-body">
               <h5 class="card-title"><%=productsStockOn[i].name%></h5>
               <p class="card-text"><%=productsStockOn[i].description%></p>

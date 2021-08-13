@@ -1,47 +1,107 @@
-body{
-    background-color: whitesmoke;
-    color: #02361a;
-}
+
 main{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    font-family: monospace;
-    margin-left: 5%;
-    padding-left: 5%;
+    
+    
 } 
 
+.space{
+    height: 20px;
+
+}
+
+.detailTittle{
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.contenedorDetalle{
+    display:flex;
+    justify-content: center;
+}
 
 .productDetaill{
     display:flex;
-    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-left: 15%;
+    padding-right: 15%;
+    
+
 }
+
 .prodDetailImg{
-    width: 150px,
+    width: 40vh;
+    height: auto;
 
 }
 .productInfo{
     display:block;
+    padding:2%;
+    font-size: medium;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 } 
+
+.descrip{
+    padding:2%;
+    
+}
+
 #det{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    border: 2px solid #386641;
+    width: 80vh;
+    align-self: center;
 }  
-#producto{   
-    width: 40vh;
-}
+
 #prodrelac{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     width: 90%;
 }
+
+.suggestedText{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    margin-top: 1%;
+    margin-bottom: 2.5%;
+}
+
 .prod{
     width: 80%;
     
     padding-right: 30px;
     
 }
+
+.productSuggestion{
+    display:flex;
+    justify-content: space-around;
+    margin-bottom: 3%;
+}
+
+.soldOut{
+    padding:1%;
+    border: 1px solid red;
+    background-color: #FFEDEB;
+    
+
+}
+
+.souldOutText{
+    font-size: smaller;
+    margin: 0.5%;
+    color: red;
+    text-align: center;
+
+}
+
 @media (min-width: 600px){
     .prod{
         width: 40%;
@@ -63,44 +123,59 @@ main{
     font-weight: bold;
 }
 
-#titulo{
-    font-family: monospace;
+.titulo{
+    font-family: Trebuchet MS, sans-serif;
+    font-size: x-large;
+    color:#386641;
+    margin-bottom: 2%;
+    text-align:center;
 }
+
 #precio{
-    font-family: monospace;
+    
     font-size: 18px;
+    text-align: center;
+    color: #AE76A6;
 
 }
 #fav{
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     padding-right: 10%;
+    
 }
+
+.detailIcon{
+    font-size: smaller;
+    margin:1%;
+
+}
+
 #cuotas{
-    font-family: monospace;
+    
     font-size: 14;
 }
 
 .titRelacionado{
-    font-family: monospace;
+    
     font-size: 14px;
     font-weight: normal;
 }
 
 .precioRelac{
-    font-family: monospace;
+    
     font-size: 14px;
     font-weight: normal;
 }
 .cuotasSn{
-    font-family: monospace;
+    
     font-size: 12px;
     font-weight: normal;
 }
 
 
 #prodrelac{
-    font-family: monospace;
+    
     font-size: 16px;
     font-weight: bold;
    
@@ -141,13 +216,7 @@ main{
     justify-content: space-between;
     margin-right: 7%;
 }
-header {
-    background-color: #f3f3f3;
-    border-bottom: solid 1px rgba(54, 46, 46, 0.534);
-    display: flex;
-    align-items: center;     
-    width: 100vw; 
-}
+
 
 .left-menu {
     display: inline-block;
@@ -173,16 +242,7 @@ header {
 }
 
 
-footer {
-    background-color: rgba(54, 46, 46, 0.534);
-    color: black;
-    border-top: 1px solid rgb(43, 35, 35);
-    font-size: 12px;
-    padding: 20px 10px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
+
 
 footer img {
     width: 72px;
