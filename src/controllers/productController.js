@@ -26,16 +26,23 @@ let productController = {
         db.product.findAll()
         .then(function(product){
             let validUrl= false;
-            if(req.params.id>=1 && req.params.id<=product.length && product.showing==1){
+            if(req.params.id>=1 && req.params.id<=product.length){
                 validUrl=true
+                
             }
+            
             if(validUrl==true){
                 let productD = product.find(products=>
                     products.id==req.params.id,
                     );
                 let relatedProduct = product.filter(products => {return products.id_category == productD.id_category})
-                
+                if(productD.showing==1){
                 res.render('products/productDetail', {productD , relatedProduct})
+                }
+                else {
+                    let msjNotFound = "El producto no existe, maldito."
+                    res.redirect("/")
+                }
             }
             else {
                 let msjNotFound = "El producto no existe, maldito."
@@ -75,7 +82,7 @@ let productController = {
     list: function(req,res){
         db.product.findAll({
             where: {
-                stock: { [Op.gt]: 0 },
+                
                 showing: { [Op.gt]: 0 }
             }
         })
@@ -117,6 +124,7 @@ let productController = {
             stock: req.body.stock,
             price: req.body.price,
             image_product: imageProduct,
+            
             }, {
                 where: {id:req.params.id}
             }) 

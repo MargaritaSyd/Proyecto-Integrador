@@ -40,8 +40,15 @@
                         <input type="radio" value="grande" name='tamaño'> Grande </input>
                     </div>
                     <div id="fav">
-                    
+                    <% if(productD.stock>0){ %>
                         <a href="/cart"><i class="fas fa-shopping-cart"></i> </a>
+                    <% } else{ %>
+                        <div class= "soldOut">
+                            <h1>Producto Agotado</h1>
+
+                        </div>
+                        <% } %>
+                    
                         <i class="far fa-heart"></i>
                     </div>
                 </div>
