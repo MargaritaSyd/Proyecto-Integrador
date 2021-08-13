@@ -98,44 +98,91 @@ let productController = {
         res.redirect("/product")
     },
     update:(req,res)=>{
-        // db.product.update({
-        //     name:
-        //     id_category:
-        //     description:
-        idProduct= req.params.id;
-        let productToMidyfy= productListOl.find(element=>element.id==idProduct);
-        let modifiedProduct={
-            id: idProduct,
-            name: req.body.name,
-            category: req.body.category,
-            price: req.body.price,
-            payWay: req.body.payWay,
-            cuotas: req.body.cuotas,
-            interest: req.body.interest,
-            description: req.body.description
-        }
+        let imageProduct;
         if(req.file){
-            modifiedProduct.productImage=req.file.filename;
-        } else if (req.body.deleteImage=='on'){
-            modifiedProduct.productImage='';
-        } else{
-            modifiedProduct.productImage=productToMidyfy.productImage;
+            imageProduct=req.file.filename;
+        };
+        if(imageProduct){
+            db.product.update({
+            name: req.body.name,
+            id_category: req.body.category,
+            description: req.body.description,
+            stock: req.body.stock,
+            price: req.body.price,
+            image_product: imageProduct,
+            }, {
+                where: {id:req.params.id}
+            }) 
+            
         }
-        modifiedProduct.inStock= true;
-        //splice sirve si no se borra nunca ningun producto del json
-        //productListOl.splice((idProduct-1),1,modifiedProduct);
-        //splice sirve si no se borra nunca ningun producto del json
-        for(let i=0; i<productListOl.length;i++){
-            if(productListOl[i].id==modifiedProduct.id){
-                productListOl[i]=modifiedProduct;
-                break;
-            }
+        
+        
+        else if (req.body.deleteImage) {
+            db.product.update({ 
+                name: req.body.name,
+                id_category: req.body.category,
+                description: req.body.description,
+                stock: req.body.stock,
+                price: req.body.price,
+                image_product: "",
+                },
+                {
+                    where: {id:req.params.id}
+                })
+            
+
+
         }
-        console.log(req.body.deleteImage);
-        let productListOlupdated= JSON.stringify(productListOl, null, " ");
-        fs.writeFileSync(productListPath, productListOlupdated)
-        res.redirect('/product');
-    },
+        else  {
+            db.product.update({ 
+            name: req.body.name,
+            id_category: req.body.category,
+            description: req.body.description,
+            stock: req.body.stock,
+            price: req.body.price,
+            },
+            {
+                where: {id:req.params.id}
+            })
+            
+        }
+        res.redirect('/product')
+
+        },
+    //     idProduct= req.params.id;
+    //     let productToMidyfy= productListOl.find(element=>element.id==idProduct);
+    //     let modifiedProduct={
+    //         id: idProduct,
+    //         name: req.body.name,
+    //         category: req.body.category,
+    //         price: req.body.price,
+    //         payWay: req.body.payWay,
+    //         cuotas: req.body.cuotas,
+    //         interest: req.body.interest,
+    //         description: req.body.description
+    //     }
+    //     if(req.file){
+    //         modifiedProduct.productImage=req.file.filename;
+    //     } else if (req.body.deleteImage=='on'){
+    //         modifiedProduct.productImage='';
+    //     } else{
+    //         modifiedProduct.productImage=productToMidyfy.productImage;
+    //     }
+    //     modifiedProduct.inStock= true;
+    //     //splice sirve si no se borra nunca ningun producto del json
+    //     //productListOl.splice((idProduct-1),1,modifiedProduct);
+    //     //splice sirve si no se borra nunca ningun producto del json
+    //     for(let i=0; i<productListOl.length;i++){
+    //         if(productListOl[i].id==modifiedProduct.id){
+    //             productListOl[i]=modifiedProduct;
+    //             break;
+    //         }
+    //     }
+    //     console.log(req.body.deleteImage);
+    //     let productListOlupdated= JSON.stringify(productListOl, null, " ");
+    //     fs.writeFileSync(productListPath, productListOlupdated)
+    //     res.redirect('/product');
+    // },
     destroy: function(req,res){
         let id= req.params.id;
         for(let i=0; i<productListOl.length; i++){
