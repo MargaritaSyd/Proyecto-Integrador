@@ -6,6 +6,9 @@ let {validationResult} = require ('express-validator');
 const bcryptjs = require('bcryptjs');
 //const userLogin = require('../models/User')
 
+let db = require("../dataBase/models");
+let Op = db.Sequelize.Op;
+
 let userListOl ;
 if (userDatos == "") {
     userListOl = [];
@@ -92,7 +95,43 @@ let userController = {
         if(!errors.isEmpty()){
             return res.render('users/register' , {mensajeError : errors.array() , old:req.body})
         };
+        db.user.findOne( {
+            where: {
+                email: req.body.email
+            }
+        })
+        .then(function(user){
+            if(user){
+                return res.render('users/register' , {mensajeError: [{msg:"Ya existe un usuario registrado con este email."}]})
+            } else {
+                let userImage;
+                if(req.file){
+                    userImage=req.file.filename;
+                } else{
+                    userImage='';
+                }
+                db.user.create(
+                    {
+                        email: req.body.email,
+                        password: bcryptjs.hashSync(req.body.password , 10),
+                        user_name: req.body.user,
+                        lastName_user: req.body.lastNameUser,
+                        user_image: userImage 
+                        
+                    });
+                res.redirect("/users/profile")
+            }
+            
+        })
 
+       
+        
+        
+
+
+
+
+        /*
         for(let i=0; i<userListOl.length; i++){
             if(req.body.email == userListOl[i].email){
                return res.render('users/register' , {mensajeError: [{msg:"Este mail es invalido"}]})
@@ -115,7 +154,8 @@ let userController = {
         userListOl.push(newUser);
         let userListOlupdated= JSON.stringify(userListOl, null, " ");
         fs.writeFileSync(userListPath, userListOlupdated)
-        res.redirect('/')
+        res.redirect('/users/profile')  
+    */
    
 
     },
