@@ -18,6 +18,6 @@ router.get('/login' , loggedUser , userController.login);
 
 router.post('/login' , userController.loginProcess);
 
-router.get('/logout' , guestUser , userController.logout)
+router.get('/logout' , guestUser , userController.logout);
 
 module.exports = router;

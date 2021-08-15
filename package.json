@@ -32,5 +32,6 @@
     "picnic": "^6.5.5",
     "sequelize": "^6.6.5",
     "sequelize-cli": "^6.2.0"
-  }
+  },
+  "devDependencies": {}
 }

@@ -37,11 +37,29 @@ let userController = {
         res.render('users/login'); 
     },
 
-    loginProcess: function(req,res){
-      
-        
+    loginProcess: function(req,res){   
     let errorMessage= 'Las credenciales son inválidas';
-    
+
+    db.user.findOne( {
+        where: {
+            email: req.body.email
+        }
+    })
+    .then(function(userToLog){
+        let passwordOk= bcryptjs.compareSync(req.body.password , userToLog.password)
+               if(passwordOk){ 
+                    req.session.userLogged= userToLog;   
+               } else { 
+                    res.render('users/login',{errorMessage})
+               }})
+    .then(function(){
+        res.redirect('/users/profile')
+    })         
+    .catch(function(e){
+        return res.render('users/login',{errorMessage})
+    })
+    },
+/*    
     for(let i=0; i<userListOl.length; i++){
            if(req.body.email == userListOl[i].email){
                let userToLog = userListOl[i] 
@@ -56,7 +74,7 @@ let userController = {
             }
             return res.redirect('/users/profile')
            
-    /*
+    
     let userToLogin = userLogin.findByField('email', req.body.email);      
     if(userToLogin){
         //return res.send('Bienvenido señor '+ userToLogin.lastNameUser)
@@ -77,8 +95,8 @@ let userController = {
         return res.render('users/login',{errorMessage});
     }
     return res.render('users/login',{errorMessage});    
-   */ 
-
+    
+*/
     //    for(let i=0; i<userListOl.length; i++){
 
     //        if((req.body.email == userListOl[i].email)&&(bcryptjs.compareSync(req.body.password , userListOl[i].password))
@@ -87,7 +105,7 @@ let userController = {
     //    res.send('Datos incorrectos')
 //}}
 
-},
+
 
 
     storeRegister: function(req,res){

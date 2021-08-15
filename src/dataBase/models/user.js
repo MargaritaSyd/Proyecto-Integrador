@@ -27,6 +27,10 @@ module.exports = function(sequelize, dataTypes)
         user_image: {
             type: dataTypes.STRING,
             allowNull: true
+        },
+        admin: {
+            type: dataTypes.INTEGER,
+            allowNull: false
         }
     };
      const config = {

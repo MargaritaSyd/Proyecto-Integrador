@@ -19,11 +19,11 @@
         <main id="login-main">
             <div id="contenedor-general">
                 <div id="div-icono">
-                    Bienvenid@ <%=user.user%> <%=user.lastNameUser%>!!   
+                    Bienvenid@ <%=user.user_name%> <%=user.lastName_user%>!!   
                 </div>
                 <label id="bienvenida" class="labels-formulario"> 
-                    <%if(user.userImage != ""){%>
-                        <img class="profileImg" src="/imagenes/userImages/<%=user.userImage%>"> 
+                    <%if(user.user_image != ""){%>
+                        <img class="profileImg" src="/imagenes/userImages/<%=user.user_image%>"> 
                             <%} else{%>
                         <img class="profileImg" src="/imagenes/logo.JPG">
                     <%}%> 
