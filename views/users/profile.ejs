@@ -32,6 +32,7 @@
             
                 <label id="label-usuario" class="labels-formulario"><%= user.email %></label>
             </div>
+            <%if(user.admin == 0){%>
             <div class="div">
                 <label id="label-usuario" class="labels-formulario">Tus favoritos <i class="far fa-heart"></i></label>
                 <!-- tags de js para vista de favoritos -->
@@ -40,6 +41,19 @@
                 <label id="label-usuario" class="labels-formulario">Tu carrito de compras</label>
                 <a href="/cart" <i class="fas fa-shopping-cart iconos"></i></a>
             </div>
+            <%}%>
+            <%if(user.admin == 1){%>
+            <div class='div'>
+                    <label id="label-usuario" class="labels-formulario">
+                    <a href="/product/create"> Crear producto</a>
+                    </label>
+            </div>
+            <div class='div'>
+                    <label id="label-usuario" class="labels-formulario">
+                    <a href="/product/create"> Editar producto</a>
+                    </label>
+            </div>
+            <%}%>
             <form action="/users/logout" method="GET">           
                 <button id="ingresar" type="submit">Cerrar sesión</button>
             </form> 

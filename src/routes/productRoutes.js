@@ -3,17 +3,18 @@ const path = require('path');
 const router = express.Router();
 const productController = require('./../controllers/productController');
 const fileUpload = require('../middlewares/productMulter');
+const adminUser = require('../middlewares/admin');
 
 router.get('/' , productController.list);
 
 router.post('/create', fileUpload.single(
     "productImage"), productController.processForm);
     
-router.get('/create' , productController.create);
+router.get('/create' , adminUser , productController.create);
 
 router.get('/detail/:id' , productController.detail);
 
-router.get('/edit/:id' , productController.edit);
+router.get('/edit/:id' , adminUser , productController.edit);
 
 // accion de editar un producto
 router.put('/:id' , fileUpload.single(

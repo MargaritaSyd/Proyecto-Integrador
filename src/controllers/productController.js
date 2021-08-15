@@ -93,6 +93,7 @@ let productController = {
         })
     },
     processForm: function(req,res){
+        
         let imageProduct;
         if(req.file){
             imageProduct=req.file.filename;
