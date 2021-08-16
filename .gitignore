@@ -1,7 +1,7 @@
 /node_modules
 /.DS_Store
 /public/imagenes/.DS_Store
-/src/dataBase/config/config.js
+
 
 //------lio-------
 /public/imagenes/userImages
