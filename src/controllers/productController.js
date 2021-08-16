@@ -35,9 +35,42 @@ let productController = {
                 let productD = product.find(products=>
                     products.id==req.params.id,
                     );
-                let relatedProduct = product.filter(products => {return products.id_category == productD.id_category})
+                let related_product_list = product.filter(products => {return products.id_category == productD.id_category})
                 if(productD.showing==1){
-                res.render('products/productDetail', {productD , relatedProduct})
+
+
+
+
+                    let related_product_list_less_productD = related_product_list.filter(products => {return products.id != productD.id})
+                let relatedProduct=[];
+                if(related_product_list_less_productD.length>=3){               
+                    for (let i=0; i<3;i++){
+                        let relatedProduct_random_position= Math.floor(Math.random()*related_product_list_less_productD.length);
+                        if(relatedProduct.length==0){
+                            relatedProduct.push(related_product_list_less_productD[relatedProduct_random_position]);
+                        } else {
+                            let is_inside= relatedProduct.find(product_founded=>
+                                product_founded.id==related_product_list_less_productD[relatedProduct_random_position].id
+                            )
+                            if(is_inside){
+                                i--
+                            } else {
+                                relatedProduct.push(related_product_list_less_productD[relatedProduct_random_position]);
+                            }
+                        }
+                    }
+                } else {
+                    relatedProduct= related_product_list_less_productD;  
+                }
+
+
+
+
+
+                    //console.log(productD);
+                    //return res.send(relatedProduct)
+
+                    res.render('products/productDetail', {productD , relatedProduct})
                 }
                 else {
                     let msjNotFound = "El producto no existe, maldito."
