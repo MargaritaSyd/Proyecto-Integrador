@@ -19,8 +19,6 @@ let productController = {
             .then(function(category){
                 res.render('products/createProduct', {category})
             })
-
-        
     },
     detail: function(req,res){
         db.product.findAll()
@@ -70,7 +68,7 @@ let productController = {
                     //console.log(productD);
                     //return res.send(relatedProduct)
 
-                    res.render('products/productDetail', {productD , relatedProduct})
+                    res.render('products/productDetail', {productD , relatedProduct , user:req.session.userLogged})
                 }
                 else {
                     let msjNotFound = "El producto no existe, maldito."

@@ -98,16 +98,20 @@
               <br>
               <input type="radio" value="grande" name='tamaño'> Grande </input>
             </div>
-            <div id="fav">
+            <%if(!user || user.admin == 0){%>
               <% if(productD.stock>0){ %>
-                <a href="/cart"><i class="fas fa-shopping-cart detailIcon"></i> </a>
-              <%}else{ %>
+                <div id="fav">
+                  <a href="/cart"><i class="fas fa-shopping-cart detailIcon"></i> </a>
+                </div>
+                <%}else{ %>
                 <div class= "soldOut">
                   <h1 class= "souldOutText">SOLD OUT!</h1>
                 </div>
-              <%}%>
-              <i class="far fa-heart detailIcon"></i>
-            </div>
+                <%}%>
+                <div id="fav">
+                <i class="far fa-heart detailIcon"></i>
+                </div>
+            <%}%>
           </div>
           <div class='descrip'>
             <p><%=productD.description%></p>
@@ -117,6 +121,12 @@
               La imagen es solo a modo ilustrativo. Cada planta es única. Además, las plantas, al tratarse de seres vivos que requieren de nuestro cuidado, una vez adquiridas no tendrán cambio o devolución!
             </p>
           </div>
+          <%if(!user || user.admin == 0){%>
+          <%}else{ %>
+          <div id="fav">
+            <a href="/product/edit/<%=productD.id%>"> Editar producto</a>
+          </div>
+          <%}%>
         </div>
       </div>      
       <br>
