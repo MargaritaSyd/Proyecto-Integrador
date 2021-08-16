@@ -14,3 +14,7 @@ Excelente equipo de trabajo, nos complementamos como equipo. Todo fue resuelto e
 
 Review sprint 4:
 Revisando nuestra experiencia en el sprint 4 entendemos que necesitamos dedicarle más tiempo al desarrollo del proyecto en conjunto y nos comprometemos a realizar el sprint 5 de esa manera. 
+
+Review sprint 5
+Luego de experimentar nuestros primeros conflictos entendimos que para tener un buen desarrollo de nuestro proyecto y aprendizaje debemos ser capaces de hablar cualquier inquietud y apoyarnos en nuestros compañeros.
+Seguimos sosteniendo que nos complementamos bien y seguimos cumpliendo en tiempo y forma con las entregas.
