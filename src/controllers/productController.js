@@ -124,14 +124,14 @@ let productController = {
         })
     },
     processForm: function(req,res){
-       /* 
+       
         let imageProduct;
         if(req.file){
             imageProduct=req.file.filename;
         } else{
             imageProduct='';
         }
-      */  
+      
         db.product.create(
             {
             name: req.body.name,
