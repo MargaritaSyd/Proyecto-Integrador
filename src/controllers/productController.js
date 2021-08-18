@@ -124,22 +124,22 @@ let productController = {
         })
     },
     processForm: function(req,res){
-       
-    //let imageProduct;
-    //    if(req.file){
-    //        imageProduct=req.file.filename;
-    //    };
-    //    if(imageProduct){
+       /*
+    let imageProduct;
+        if(req.file){
+            imageProduct=req.file.filename;
+        };
+        if(imageProduct){
             db.product.create({
             name: req.body.name,
             id_category: req.body.category,
             description: req.body.description,
             stock: req.body.stock,
             price: req.body.price,
-            image_product: imageProduct,
+            image_product: imageProduct
             
             }) 
-      /*  } else {
+        } else {
             db.product.create({ 
                 name: req.body.name,
                 id_category: req.body.category,
@@ -149,11 +149,11 @@ let productController = {
                 image_product: "",
                 })  
              }
-             */
+             
         res.redirect('/product')
 
-       
-      /*
+      */ 
+      
         let imageProduct;
         if(req.file){
             imageProduct=req.file.filename;
@@ -172,7 +172,7 @@ let productController = {
         });
         res.redirect("/product")
 
-    */
+    
     },
     update:(req,res)=>{
         let imageProduct;
