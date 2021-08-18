@@ -124,14 +124,14 @@ let productController = {
         })
     },
     processForm: function(req,res){
-        
+       /* 
         let imageProduct;
         if(req.file){
             imageProduct=req.file.filename;
         } else{
             imageProduct='';
         }
-        
+      */  
         db.product.create(
             {
             name: req.body.name,
@@ -139,7 +139,7 @@ let productController = {
             description: req.body.description,
             stock: req.body.stock,
             price: req.body.price,
-            image_product: imageProduct,
+         //   image_product: imageProduct,
         });
         res.redirect("/product")
     },
