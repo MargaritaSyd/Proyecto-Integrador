@@ -33,8 +33,7 @@ module.exports = function(sequelize, dataTypes)
             allowNull: false
         },
         showing: {
-            type: dataTypes.INTEGER,
-            allowNull: false
+            type: dataTypes.INTEGER
         }
 
     };
