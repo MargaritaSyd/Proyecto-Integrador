@@ -29,8 +29,8 @@ module.exports = function(sequelize, dataTypes)
             allowNull: true
         },
         admin: {
-            type: dataTypes.INTEGER,
-            allowNull: false
+            type: dataTypes.INTEGER
+            
         }
     };
      const config = {
