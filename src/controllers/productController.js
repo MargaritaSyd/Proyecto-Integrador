@@ -168,7 +168,7 @@ let productController = {
             description: req.body.description,
             stock: req.body.stock,
             price: req.body.price,
-         //   image_product: imageProduct,
+            image_product: imageProduct,
         });
         res.redirect("/product")
 
