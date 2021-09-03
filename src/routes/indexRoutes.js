@@ -10,4 +10,6 @@ router.get('/faqs' , indexController.faqs);
 
 router.get('/nosotros' , indexController.nosotros);
 
+router.get('/error', indexController.error);
+
 module.exports = router;

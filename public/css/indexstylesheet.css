@@ -301,6 +301,12 @@ footer label {
 
 }
 
+.errorImage{
+    display: flex;
+    justify-content: center;
+    
+}
+
 @media (max-width:361px){
     .productosSugeridos{
         display:block

@@ -72,12 +72,12 @@ let productController = {
                 }
                 else {
                     let msjNotFound = "El producto no existe, maldito."
-                    res.redirect("/")
+                    res.redirect("/error")
                 }
             }
             else {
                 let msjNotFound = "El producto no existe, maldito."
-                res.redirect("/")
+                res.redirect("/error")
             }
         
         })    

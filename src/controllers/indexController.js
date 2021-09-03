@@ -36,6 +36,9 @@ let indexController = {
     nosotros: function(req,res){
         res.render('nosotros');
     },
+    error: function(req,res) {
+        res.render('error');
+    }
 }
 
 module.exports = indexController;
