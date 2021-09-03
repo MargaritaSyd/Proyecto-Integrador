@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="/css/productForm.css">
     </head>
     <body>
+        
         <%- include('../partials/header') %>
         
         <% if(locals.mensajeError){%>
@@ -17,33 +18,35 @@
                 <div class="mensajeError"><p>   <%= mensajeError[i].msg %> </p></div>
             </div>
             <%}%> 
-        <%}%>
+        <%}%> 
+
+        <ul class="mensajeError"></ul>
         <main id="main">
             <div id="contenedor-general">
                 <div id="div-icono">
                     <i id="icono" class="fas fa-user"></i>
                 </div>
                 <label id="bienvenida" class="labels-formulario">Registrate</label>
-                <form action="/users/register" method="POST" enctype="multipart/form-data">
+                <form class='form' action="/users/register" method="POST" enctype="multipart/form-data">
                     <div class="div">
                         <label id="label-usuario" class="labels-formulario">Nombre</label>
-                        <input type="text" name="user" id="input-usuario" value= <%= locals.old ? old.user : null %>  > 
+                        <input type="text" name="user" id="input-usuario" class="inputName" value= <%= locals.old ? old.user : null %>  > 
                     </div>
                     <div class="div">
                         <label id="label-usuario" class="labels-formulario">Apellido</label>
-                        <input type="text" name="lastNameUser" id="input-usuario" value= <%= locals.old ? old.lastNameUser : null %> > 
+                        <input type="text" name="lastNameUser" id="input-usuario" class="inputName" value= <%= locals.old ? old.lastNameUser : null %> > 
                     </div>
                     <div class="div">
                         <label id="label-usuario" class="labels-formulario">e-mail</label>
-                        <input type="text" name="email" id="input-usuario" value= <%= locals.old ? old.email : null %> > 
+                        <input type="text" name="email" id="input-usuario" class="inputMail" value= <%= locals.old ? old.email : null %> > 
                     </div>
                     <div class="div">
                         <label id="contraseña" class="labels-formulario">Contraseña</label>
-                        <input type="password" name="password" id="password" >
+                        <input type="password" name="password" id="password" class="inputPassword">
                     </div>
                     <div class="div">
                         <label id="contraseña" class="labels-formulario">Confirmar contraseña</label>
-                        <input type="password" id="password" >
+                        <input type="password" id="password" class="inputPassword2" >
                     </div>
                     <div class="new-product-button-add-image-div-container"> 
                         <label class="new-product-button-add-image-name">Agregar imágenes</label>
@@ -56,5 +59,8 @@
         </main>
         <%- include('../partials/footer') %>
         <script src="https://kit.fontawesome.com/17464b966e.js" crossorigin="anonymous"></script>
+        <script src="/javascript/user.js">
+    
+        </script>
     </body>
 </html>
