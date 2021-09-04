@@ -130,7 +130,42 @@
         </div>
       </div>      
       <br>
-      <div>
+
+      <!-- version lio -->
+      <%if (relatedProduct.length>0){%>
+        <div >   
+            <h2>Productos relacionados</h2>
+            <div id="relacionados"> 
+                <br>
+                <% for(let i=0; i<relatedProduct.length; i++){ %>
+                    <span class="prod">  
+                        <a class="productList-anchor" href="/product/detail/<%=relatedProduct[i].id %>">            
+                            <%if(relatedProduct[i].image_product){%>
+                                <img src="/imagenes/productImages/<%=relatedProduct[i].image_product%>" class='relacionados'>
+                                
+                            <%}else{%>
+                                <img id='producto' src="/imagenes/logo.png" class= "relacionados">
+                            <%}%>
+                        </a> 
+                        <h2 class= 'titRelacionado'>
+                            <%=relatedProduct[i].name%>
+                        </h2>
+                        <h2 class="precioRelac">
+                            $<%=relatedProduct[i].price%>
+                        </h2>
+                        <h2 class='cuotasSn'> <i class="far fa-credit-card"></i>
+                            6 cuotas s/i de $<%= Math.round(relatedProduct[i].price/6) %>
+                        </h2>
+                    </span>
+                <%}%>
+            </div>  
+        </div> 
+      <%}%>
+      <!-- version lio -->
+
+
+      <!-- version anterior -->
+      <!-- <div>
         <% if(relatedProduct.length>0){ %>
           <div class="detailTittle">
             <div class='guarda'>
@@ -171,7 +206,10 @@
             <%}%>
           </div> 
         <% } %>
-      </div>    
+      </div>  -->
+      <!-- version anterior -->
+      
+
   </main>
 
   <%- include('../partials/footer') %>
