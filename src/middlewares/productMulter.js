@@ -1,5 +1,6 @@
 const path = require('path');
 const multer = require ('multer');
+
 let multerDiskStorage = multer.diskStorage(
     {
         destination: (req, file, callback) =>
@@ -13,10 +14,10 @@ let multerDiskStorage = multer.diskStorage(
             callback(null, imageName)
         }
 
-    }
-    )
-        let fileUpload = multer ({
-            storage: multerDiskStorage
-        })
+    })
+
+let fileUpload = multer ({
+    storage: multerDiskStorage
+})
 
 module.exports = fileUpload;

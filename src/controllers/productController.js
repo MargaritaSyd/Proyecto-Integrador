@@ -3,6 +3,9 @@ let fs = require ('fs');
 let path = require ('path');
 let productListPath = path.join(__dirname, '../dataBase/productList.json');
 let datos = fs.readFileSync (productListPath, 'utf-8'); 
+
+let {validationResult} = require ('express-validator');
+
 let db = require("../dataBase/models");
 let Op = db.Sequelize.Op;
 let productListOl ;
@@ -123,37 +126,40 @@ let productController = {
 
         })
     },
-    processForm: function(req,res){
-       /*
-    let imageProduct;
-        if(req.file){
-            imageProduct=req.file.filename;
-        };
-        if(imageProduct){
-            db.product.create({
-            name: req.body.name,
-            id_category: req.body.category,
-            description: req.body.description,
-            stock: req.body.stock,
-            price: req.body.price,
-            image_product: imageProduct
-            
-            }) 
-        } else {
-            db.product.create({ 
+    processForm: function(req,res){  
+        let errors = validationResult(req);
+        if(!errors.isEmpty()){
+            db.category.findAll()
+            .then(function(category){ 
+                return res.render('products/createProduct', {category, mensajeError: errors.mapped(), old:req.body})
+            })
+        }
+        else {
+            let imageProduct;
+            if(req.file){
+                imageProduct=req.file.filename;
+            } else{
+                imageProduct='';
+            }
+            let showing;
+            if(req.body.showing=='on'){
+                showing= 1;
+            } else{
+                showing= 0;
+            }
+            db.product.create(
+                {
                 name: req.body.name,
                 id_category: req.body.category,
                 description: req.body.description,
                 stock: req.body.stock,
                 price: req.body.price,
-                image_product: "",
-                })  
-             }
-             
-        res.redirect('/product')
-
-      */ 
-      
+                image_product: imageProduct,
+                showing: showing
+            });
+            res.redirect("/product")
+        }
+        /*
         let imageProduct;
         if(req.file){
             imageProduct=req.file.filename;
@@ -171,8 +177,7 @@ let productController = {
             image_product: imageProduct,
         });
         res.redirect("/product")
-
-    
+        */
     },
     update:(req,res)=>{
         let imageProduct;
@@ -187,14 +192,10 @@ let productController = {
             stock: req.body.stock,
             price: req.body.price,
             image_product: imageProduct,
-            
             }, {
                 where: {id:req.params.id}
-            }) 
-            
-        }
-        
-        
+            })           
+        }      
         else if (req.body.deleteImage) {
             db.product.update({ 
                 name: req.body.name,
@@ -207,9 +208,6 @@ let productController = {
                 {
                     where: {id:req.params.id}
                 })
-            
-
-
         }
         else  {
             db.product.update({ 
@@ -221,11 +219,9 @@ let productController = {
             },
             {
                 where: {id:req.params.id}
-            })
-            
+            })           
         }
         res.redirect('/product')
-
         },
     //     idProduct= req.params.id;
     //     let productToMidyfy= productListOl.find(element=>element.id==idProduct);
@@ -268,10 +264,7 @@ let productController = {
 
     })
     res.redirect('/product');
-
-}
-    
-    
+}   
     // function(req,res){
     //     let id= req.params.id;
     //     for(let i=0; i<productListOl.length; i++){
@@ -299,7 +292,6 @@ let productController = {
     //     res.redirect('/product');   
     // }
 }
-
 module.exports = productController;
 
 

@@ -5,10 +5,11 @@ const productController = require('./../controllers/productController');
 const fileUpload = require('../middlewares/productMulter');
 const adminUser = require('../middlewares/admin');
 
+const validationProduct = require('../middlewares/validationProduct');
+
 router.get('/' , productController.list);
 
-router.post('/create', fileUpload.single(
-    "productImage"), productController.processForm);
+router.post('/create', fileUpload.single("productImage"), validationProduct, productController.processForm);
     
 router.get('/create' , adminUser , productController.create);
 
