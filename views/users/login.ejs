@@ -26,21 +26,21 @@
             </div>
             <%}%>
         
-
+        <ul class="mensajeError"></ul>
         <main id="login-main">
             <div id="contenedor-general">
                 <div id="div-icono">
                     <i id="icono" class="fas fa-user"></i>    
                 </div>
                 <label id="bienvenida" class="labels-formulario">Iniciar sesión</label>
-                <form action="/users/login" method="POST">           
+                <form class='formLog' action="/users/login" method="POST">           
                     <div class="div">
                         <label id="label-usuario" class="labels-formulario">Usuario</label>
-                        <input type="text" name="email" class="input" > 
+                        <input type="text" name="email" class="input inputMailLog" > 
                     </div>
                     <div class="div">
                         <label id="contraseña" class="labels-formulario">Contraseña</label>
-                        <input type="password" name="password" class="input">
+                        <input type="password" name="password" class="input inputPasswordCheck">
                     </div>
                     <button id="ingresar" type="submit">Ingresar</button>
                     <button id="restablecer" type="submit">¿Reestablecer contraseña?</button>
@@ -57,5 +57,6 @@
         <%- include('../partials/footer.ejs') %>
         
         <script src="https://kit.fontawesome.com/17464b966e.js" crossorigin="anonymous"></script>
+        <script src="/javascript/user.js"></script>
     </body>
 </html>

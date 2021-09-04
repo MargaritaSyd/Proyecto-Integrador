@@ -30,6 +30,7 @@ window.addEventListener("load", function(){
         }
 
         if(error.length>0){
+            
              mensajeError.style.display = 'block';
              mensajeError.style.color = "blue";
              e.preventDefault()
@@ -47,4 +48,33 @@ window.addEventListener("load", function(){
     
 
 })
+
+// let formLog = document.querySelector('.formLog');
+// formLog.addEventListener('submit' , function(e){
+    
+//     let error = [];
+
+//     let mail = document.querySelector('.inputMailLog');
+//     let inputPasswordCheck = document.querySelector('.inputPasswordCheck');
+
+//     if(!mail.value.includes('@')){
+//         error.push("Debe ingresar un mail valido")
+//     }
+
+//     if(password.value.length<8){
+//         error.push("Ingresar una contraseña valida")
+//     }
+//     if(error.length>0){
+            
+//         mensajeError.style.display = 'block';
+//         mensajeError.style.color = "blue";
+//         e.preventDefault()
+//         for(let i=0; i<error.length; i++){
+//            mensajeError.innerHTML += "<li>" + error[i] + "</li>"
+//         }
+//        }
+
+
+// })
+
 })

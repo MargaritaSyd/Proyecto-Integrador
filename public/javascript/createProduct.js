@@ -1,3 +1,4 @@
+//let productForm= document.querySelector(".productForm");
 let productForm= document.querySelector(".productForm");
 
 productForm.addEventListener("submit", function(e){
