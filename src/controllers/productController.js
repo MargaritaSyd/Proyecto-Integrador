@@ -180,6 +180,84 @@ let productController = {
         */
     },
     update:(req,res)=>{
+
+        let product = db.product.findByPk(req.params.id);
+        let category = db.category.findAll(); 
+        Promise.all([product, category])
+            .then(function([product, category]){ 
+                //let productImages_path= path.join(__dirname+'../../../public/imagenes/productImages/');
+                let errors = validationResult(req);
+                if(!errors.isEmpty()){ 
+                    return res.render('products/editProduct', {product, category, mensajeError: errors.mapped(), old: req.body})                
+                }
+                else if(req.file){
+                    /* 
+                    if(product.image_product!=""){
+                        let imageToDelete_path= productImages_path + product.image_product;
+                        fs.unlinkSync(imageToDelete_path);  
+                    }
+                    */
+                    /*
+                    const objNewImage= req.files.productImage;
+                    let imageProduct_name= Date.now() + path.extname(objNewImage.name);
+                    objNewImage.mv(productImages_path+imageProduct_name,(err)=>{
+                        if (err) {
+                            // aqui deberia redirigir a la pagina de error
+                            return res.send("Hubo un error");
+                        }
+                    });
+                    */
+                    db.product.update({
+                        name: req.body.name,
+                        id_category: req.body.category,
+                        description: req.body.description,
+                        stock: req.body.stock,
+                        price: req.body.price,
+                        image_product: req.file.filename,
+                        }, {
+                            where: {id:req.params.id}
+                        })               
+                }      
+                else if (req.body.deleteImage) {
+                    /*
+                    if(product.image_product!=""){
+                        let imageToDelete_path= productImages_path + product.image_product;
+                        fs.unlinkSync(imageToDelete_path);  
+                    }
+                    */
+                    db.product.update({ 
+                        name: req.body.name,
+                        id_category: req.body.category,
+                        description: req.body.description,
+                        stock: req.body.stock,
+                        price: req.body.price,
+                        image_product: "",
+                        },
+                        {
+                            where: {id:req.params.id}
+                        })
+                }
+                else  {
+                    db.product.update({ 
+                    name: req.body.name,
+                    id_category: req.body.category,
+                    description: req.body.description,
+                    stock: req.body.stock,
+                    price: req.body.price,
+                    },
+                    {
+                        where: {id:req.params.id}
+                    })          
+                }
+                res.redirect('/product')
+                })
+
+
+
+
+
+
+        /*
         let imageProduct;
         if(req.file){
             imageProduct=req.file.filename;
@@ -222,6 +300,7 @@ let productController = {
             })           
         }
         res.redirect('/product')
+        */
         },
     //     idProduct= req.params.id;
     //     let productToMidyfy= productListOl.find(element=>element.id==idProduct);

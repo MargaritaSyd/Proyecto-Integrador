@@ -18,8 +18,7 @@ router.get('/detail/:id' , productController.detail);
 router.get('/edit/:id' , adminUser , productController.edit);
 
 // accion de editar un producto
-router.put('/:id' , fileUpload.single(
-    "productImage"),productController.update);
+router.put('/:id' , fileUpload.single ("productImage"), validationProduct, productController.update);
 
 // accion de eliminar un producto
 router.delete('/:id', productController.destroy); 
