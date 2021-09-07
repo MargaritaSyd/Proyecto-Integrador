@@ -6,6 +6,45 @@
 .prodFormInput {
     width: 25%;
 }
+.breadmenu{
+    font-size: small;
+}
+
+.breadcrumb{
+    margin-left: 5%;
+}
+
+
+.categoria-listado:hover .overlayList {
+    opacity: 1;
+  }
+
+.categoria-listado{
+    position: relative;
+    width: 50%;
+    
+}
+
+.overlayList{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #ae76a6;
+  }
+.boton-maceta{
+        display: block;
+        height: auto;
+        padding:20px;
+}
+
+
 
 .prodFormContainer {
     width: 90%;

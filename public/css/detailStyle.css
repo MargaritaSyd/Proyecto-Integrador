@@ -90,6 +90,10 @@ main{
     padding:1%;
     border: 1px solid red;
     background-color: #FFEDEB;
+    width: 10%;
+    height: auto;
+    position: relative;
+    left:40%;
     
 
 }
