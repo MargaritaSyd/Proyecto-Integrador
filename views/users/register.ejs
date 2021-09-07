@@ -63,14 +63,14 @@
             <%}%> 
         <%}%> 
 
-        
+        <ul class="mensajeError"></ul>
         <main id="main">
             <div id="contenedor-general">
                 <div id="div-icono">
                     <i id="icono" class="fas fa-user"></i>
                 </div>
                 <label id="bienvenida" class="labels-formulario">Registrate</label>
-                <form class='loginform' action="/users/register" method="POST" enctype="multipart/form-data">
+                <form class='loginform ' action="/users/register" method="POST" enctype="multipart/form-data">
                     <div class="div">
                         <label id="contraseña" class="labels-formulario">Nombre</label>
                         <input type="text" name="user" id="input-usuario" class="inputName" value= <%= locals.old ? old.user : null %>  > 

@@ -3,7 +3,8 @@ window.addEventListener("load", function(){
     let mensajeError = document.querySelector('.mensajeError')
     mensajeError.style.display = 'none'
 
-    let form = document.querySelector('.form');
+    let form = document.querySelector('.loginform');
+    if(form){
     form.addEventListener('submit' , function(e){
         
         let error = [];
@@ -48,6 +49,7 @@ window.addEventListener("load", function(){
     
 
 })
+}
 
 // let formLog = document.querySelector('.formLog');
 // formLog.addEventListener('submit' , function(e){
