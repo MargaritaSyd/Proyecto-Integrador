@@ -24,49 +24,62 @@
                 <div  class="ProductFormFirstLine">
                     <div class="prodFormName">
                         <label class="prodFormLabel" for="">Nombre</label>
-                        <input class="prodFormInput" type="text" name="name">
+                        <input id="product_name_input" class="prodFormInput" type="text" name="name" value= <%=locals.old? old.name: null%>>
+                        <small style="color:red;"><%=locals.mensajeError&&mensajeError.name?mensajeError.name.msg:null%></small> 
+                        <small id="name_error" style="color: blue;"></small>
                     </div>
                     <div class="prodFormCategory">
                         <label class="prodFormLabel" for="">Categoría</label>
-                        
-                        <select name="category" id="category">
-                          
-
-                             <% for(let i=0; i<category.length; i++){ %>
-                            
-                                <option value="<%=category[i].id%>"><%=category[i].name%></option>
-                                <%}%> 
+                        <select name="category" id="category">                          
+                            <option value="" disabled selected>Seleccione una categoría</option>
+                            <% for(let i=0; i<category.length; i++){ %>
+                                <% if (locals.old && old.category && old.category==category[i].id) { %>
+                                    <option value="<%=category[i].id%>" selected><%=category[i].name%></option>
+                                <% } else { %>
+                                    <option value="<%=category[i].id%>"><%=category[i].name%></option>
+                                <%}%>     
+                            <%}%> 
                         </select>
+                        <small style="color:red;"><%=locals.mensajeError&&mensajeError.category?mensajeError.category.msg:null%></small>
+                        <small id="category_error" style="color: blue;"></small>
                     </div>
                 </div>
                 
                 <div class="ProductFormSecondLine">
                     <div class="prodFormPrice">
                         <label class="prodFormLabel" for="">Precio</label>
-                        <input class="prodFormInput" type="text" name="price">
+                        <input id="product_price_input" class="prodFormInput" type="number" name="price" value= <%=locals.old? old.price: null%>>
+                        <small style="color:red;"><%=locals.mensajeError&&mensajeError.price?mensajeError.price.msg:null%></small>
+                        <small id="price_error" style="color: blue;"></small>
                     </div>
                 </div>
                 <div class="ProductFormThirdLine">
                     <div class="prodFormPrice">
                         <label class="prodFormLabel" for="">Stock disponible</label>
-                        <input class="prodFormInput" type="text" name="stock">
+                        <input id="product_stock_input" class="prodFormInput" type="number" name="stock" value= <%=locals.old && old.stock? old.stock: null%>>
+                        <small style="color:red;"><%=locals.mensajeError&&mensajeError.stock?mensajeError.stock.msg:null%></small>
+                        <small id="stock_error" style="color: blue;"></small>
                     </div>
                 </div>
-                
                 
                 <div class="textArea-description">
                     <!-- <label class="prodFormLabel" for="">Descripción</label> -->
                     <label style="margin:auto" class="prodFormLabel" for="">Descripción</label>
-                    <textarea class="prodFormInputInterest" name="description" id="" cols="30" rows="10"></textarea>
+                    <textarea class="prodFormInputInterest" name="description" id="" cols="30" rows="10"><%=locals.old && old.description? old.description: null%></textarea>
                 </div>
 
                 <div class="new-product-button-add-image-div-container">   
                     <label class="new-product-button-add-image-name">Agregar imágenes</label>
-                    <input type="file" name="productImage" accept=".jpg" class="new-product-button-add-image-input">
+                    <input id="product_image_input" type="file" name="productImage" accept=".gif,.png,.jpeg,.bmp,.webp,.jpg" class="new-product-button-add-image-input">
+                   
                 </div>
-                
+                <div style="text-align: center;"> 
+                    <small style="color:red;"><%=locals.mensajeError&&mensajeError.productImage?mensajeError.productImage.msg:null%></small>
+                    <small id="image_error" style="color: blue;"></small>
+                </div>
                 <div class="productFormFourthLine">
-                    <button class="prodFormButton">Vista previa</button>
+                    <label for="">En exhibición</label>
+                    <input type="checkbox" name="showing">
                     <button class="prodFormButton" type="submit">Confirmar</button>
                 </div>
             </form> 
@@ -77,5 +90,9 @@
     <%- include('../partials/footer') %>
     <script src="https://kit.fontawesome.com/17464b966e.js" crossorigin="anonymous"></script>
 
+    <script src="/javascript/forms_product.js"></script>
+
 </body>
 </html>
+
+
