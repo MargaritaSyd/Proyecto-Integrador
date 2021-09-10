@@ -5,127 +5,316 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Carrito</title>
-    
-        <link rel="stylesheet" href="./css/shop.css">
+        <!-- <link rel="stylesheet" href="/css/shop.css"> -->
+        <style>  
+        
+        * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+}
+
+header {
+    background-color: #f3f3f3;
+    border-bottom: solid 1px rgba(54, 46, 46, 0.534);
+    display: flex;
+    align-items: center;     
+    width: 100vw; 
+}
+
+.left-menu {
+    display: inline-block;
+    background-color: #f3f3f3;
+    text-align: center;
+    padding: 5px;
+    width: 23.5%;
+    display: inline-flex;
+    justify-content: space-evenly;
+}
+
+.cont-logo {
+    display: inline-block;
+    background-color: #f3f3f3;
+    text-align: center;
+    padding: 5px;
+    width: 50%;
+}
+
+.logo { 
+    width: 90px;
+    height: 75px;
+}
+
+.right-menu {
+    display: inline-block;
+    background-color: #f3f3f3;
+    text-align: center;
+    padding: 5px;
+    width: 23.5%;
+    display: inline-flex;
+    justify-content: space-between;
+    margin-right: 7%;
+}
+
+.iconos {
+    color: rgb(68, 196, 132);
+}
+        
+            /* -------------------------------------------------------------------------------- */
+
+            /* main */
+
+            #main-carrito {
+                width: 95vw; 
+                margin: auto;
+            }
+
+            .producto-seleccionado {
+                padding: 5px 0;
+            }
+
+            .nombre-producto-seleccionado {
+            
+                display: block;
+                text-align: center;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                margin-right: 20px;
+                font-weight: 500;
+                
+            
+            }
+
+            .contenedor-imagen-producto-seleccionado {
+                display: block;
+                text-align: center;
+            }
+
+            .imagen-producto-seleccionado {
+                width: 142px;
+                height: 262px;
+                border: 1px solid rgba(54, 46, 46, 0.3);
+            }
+
+            .detalle-compra-padre {
+                margin-top: 5px;
+                margin-bottom: 2px;
+            }
+
+            .detalle-compra-hijo {
+                width: 160px;
+                margin: auto;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .detalle-compra-hijo-2 {
+                width: 160px;
+                margin: auto;
+                margin-top: 10px;
+                margin-bottom: 18px;
+                display: flex;
+                justify-content: center;
+                margin-top: 10px;
+            }
+
+            .cantidad-producto-seleccionado {
+                width: 18px;
+            }
+
+            .cantidad-producto-seleccionado { 
+                width: 30px;
+            }
+
+            .descartar-compra {   
+                margin-left: 23px; 
+            }
+
+            .confirmar-compra {
+                margin-right: 60px;
+            }
+
+            /* ---------------- */
+
+            .total-compra {
+                margin: 20px 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+            }
+
+            #texto-importe-total {
+                font-weight: bold;
+                font-size: 15px;
+                margin-left: 10px;
+            }
+
+            #importe-total {
+                font-size: 20px;
+                margin-right: 50px;
+
+            }
+
+            .main-buttons {
+                margin: 20px 0;
+                display: flex;
+                justify-content: space-evenly;
+            }
+
+            #cancel-button {
+                background-color: rgb(43, 35, 35);
+                color: #f3f3f3;
+                font-size: 12px;
+                padding: 10px 2.0075px;
+                border-radius: 7px;
+                
+            }
+
+            #more-products-button,
+            #confirm-button {
+                background-color: rgb(68, 196, 132);
+                color: #f3f3f3;
+                font-size: 12px;
+                padding: 10px 7px;
+                border-radius: 7px;
+            }
+
+            .main-separador {
+                background-color: rgba(54, 46, 46, 0.534);
+                width: 70%;
+                height: 2px;
+                margin: auto;
+                margin-top: 30px;
+                margin-bottom: 30px;
+            }
+
+            .main-separador2 {
+                display: none;
+                background-color: rgba(54, 46, 46, 0.534);
+                width: 70%;
+                height: 2px;
+                margin: auto;
+                margin-top: 30px;
+                margin-bottom: 30px;
+            }
+
+            .main-separador3 {
+                display: none;
+                background-color: rgba(54, 46, 46, 0.534);
+                width: 70%;
+                height: 2px;
+                margin: auto;
+                margin-top: 30px;
+                margin-bottom: 30px;
+            }
+
+            /* ------------------------------------------- */
+
+            /* footer */
+
+            footer {
+                background-color: rgba(54, 46, 46, 0.534);
+                border-top: 1px solid rgb(43, 35, 35);
+                font-size: 12px;
+                padding: 20px 10px;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+            }
+
+            footer img {
+                width: 72px;
+                height: 60px;
+                margin-right: 5px;
+                border: 1px solid rgb(43, 35, 35);
+                border-radius: 100%;
+
+            }
+
+            footer label {
+                display: block;
+            }
+
+
+            .contacto {
+                text-align: center;
+                font-weight: bold;   
+            }
+
+            .redes {
+                text-align: center;
+            }
+
+            .footer-titulos {
+                font-size: 14px;
+                font-weight: bold;
+                margin-bottom: 15px;
+            }
+
+            .footer-items {
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            @media (min-width: 780px) {
+                
+                #productos-seleccionados {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+
+                .producto-seleccionado {                   
+                        width: 50%;
+                }
+
+                .main-separador {
+                    display: none;
+                }
+
+                .main-separador2 {
+                    display: block;
+                }
+
+            }
+
+            
+            @media (min-width: 1170px) {
+
+                .producto-seleccionado {                      
+                        width: 33%;
+                }
+
+                .main-separador1,
+                .main-separador2 {
+                    display: none;
+                }
+                
+                .main-separador3 {
+                    display: block;
+                }
+            } 
+    </style>
     </head>
     <body>
-
         <%- include('./partials/header') %>
-
         <main id="main-carrito">
-
             <div id="productos-seleccionados">
-
-            <!-- 1er. producto -->
-                <div class="producto-seleccionado">
-                    <label class="nombre-producto-seleccionado"><strong>Seleccionaste:</strong> Maceta Terracota Bemba</label>
-                    <span class="contenedor-imagen-producto-seleccionado">
-                        <img class="imagen-producto-seleccionado" src="./imagenes/maceta-terracota-bemba.jpg" alt="maceta-terracota-bemba">
-                    </span>
-                    <div class="detalle-compra-padre"> 
-                        <div class="detalle-compra-hijo">
-                            <label>Precio unitario:</label>
-                            <label class="precio-producto-seleccionado">$2500</label>                
-                        </div>
-                    </div>
-                    <div class="detalle-compra-padre"> 
-                        <div class="detalle-compra-hijo">
-                            <label>Cantidad:</label>
-                            <input class="cantidad-producto-seleccionado" type="number" value="1">
-                            <label class="importe-total-producto-seleccionado">$2500</label>   
-
-                        </div>
-                    </div>
-                    <div class="detalle-compra-padre"> 
-                        <div class="detalle-compra-hijo-2">
-                            <i class="fas fa-trash-alt descartar-compra"></i>  
-                        </div>
-                    </div>
-                </div>
-
-                <div class="main-separador"></div>
-
-                <!-- 2do. producto -->
-
-                <div class="producto-seleccionado">
-                    <label class="nombre-producto-seleccionado"><strong>Seleccionaste:</strong> Stand de madera G alto con maceta de terracota</label>
-                    <span class="contenedor-imagen-producto-seleccionado">
-                        <img class="imagen-producto-seleccionado" src="./imagenes/stand-madera-G-alto-con-maceta-de-terracota.jpg" alt="maceta-terracota-bemba">               
-                    </span>
-                    <div class="detalle-compra-padre"> 
-                        <div class="detalle-compra-hijo">
-                            <label>Precio unitario:</label>
-                            <label class="precio-producto-seleccionado">$2850</label>                
-                        </div>
-                    </div>
-                    <div class="detalle-compra-padre"> 
-                        <div class="detalle-compra-hijo">
-                            <label>Cantidad:</label>
-                            <input class="cantidad-producto-seleccionado" type="number" value="1">
-                            <label class="importe-total-producto-seleccionado">$2850</label>   
-                        </div>
-                    </div>
-                    <div class="detalle-compra-padre"> 
-                        <div class="detalle-compra-hijo-2">
-                            <i class="fas fa-trash-alt descartar-compra"></i>  
-                        </div>
-                    </div>
-                </div>
-
-                <div class="main-separador"></div>
-                <div class="main-separador2"></div>
-
-                <!-- 3er. producto -->
-
-                <div class="producto-seleccionado">
-                    <label class="nombre-producto-seleccionado"><strong>Seleccionaste:</strong> Maceta Adoquín</label>
-                    <span class="contenedor-imagen-producto-seleccionado">
-                        <img class="imagen-producto-seleccionado" src="./imagenes/maceta-adoquin.jpg" alt="Maceta adoquin">
-                    </span>
-                    <div class="detalle-compra-padre"> 
-                        <div class="detalle-compra-hijo">
-                            <label>Precio unitario:</label>
-                            <label class="precio-producto-seleccionado">$3400</label>                
-                        </div>
-                    </div>
-                    <div class="detalle-compra-padre"> 
-                        <div class="detalle-compra-hijo">
-                            <label>Cantidad:</label>
-                            <input class="cantidad-producto-seleccionado" type="number" value="1">
-                            <label class="importe-total-producto-seleccionado">$3400</label>   
-
-                        </div>
-                    </div>
-                    <div class="detalle-compra-padre"> 
-                        <div class="detalle-compra-hijo-2">
-                            <i class="fas fa-trash-alt descartar-compra"></i>  
-                        </div>
-                    </div>
-                </div>
-
             </div>
-
-            <div class="main-separador"></div>
-            <div class="main-separador2"></div>
-            <div class="main-separador3"></div>
-
             <div class="total-compra">
                 <label id="texto-importe-total">El total de tu compra es de</label>
                 <label id="importe-total">$8750</label>
             </div>
-
             <div class="main-buttons">
                 <button id="cancel-button">Cancelar</button>
                 <button id="more-products-button">Ver más</button>        
                 <button id="confirm-button">Confirmar</button>
             </div>
-
-            <div id="main-linea-final"></div>            
+            <div id="main-linea-final"></div> 
         </main>
-
         <%- include('./partials/footer') %>
-
         <script src="https://kit.fontawesome.com/17464b966e.js" crossorigin="anonymous"></script>
-
+        <script src="/javaScript/cart.js"></script>  
     </body>
-</html>
+</html> 

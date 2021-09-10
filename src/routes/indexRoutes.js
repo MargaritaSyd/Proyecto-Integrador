@@ -4,7 +4,7 @@ const indexController = require('../controllers/indexController');
 
 router.get('/' , indexController.index);
 
-router.get('/cart' , indexController.cart);
+router.get('/cart/:id' , indexController.cart);
 
 router.get('/faqs' , indexController.faqs);
 

@@ -39,7 +39,7 @@
             </div>
             <div class='div'>
                 <label id="label-usuario" class="labels-formulario">Tu carrito de compras</label>
-                <a href="/cart" <i class="fas fa-shopping-cart iconos"></i></a>
+                <a href="/cart/<%=user.id%>" <i class="fas fa-shopping-cart iconos"></i></a>
             </div>
             <%}%>
             <%if(user.admin == 1){%>
@@ -59,7 +59,7 @@
         <%- include('../partials/footer') %>
 
         <script src="https://kit.fontawesome.com/17464b966e.js" crossorigin="anonymous"></script>
-          
+        <script src="/javaScript/profile.js"></script>
     </body>
 
 </html>

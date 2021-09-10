@@ -180,7 +180,7 @@ let userController = {
 
     logout: function(req , res){
         //res.clearCookie('userEmail');
-        req.session.destroy()
+        req.session.destroy();
         res.redirect('/')
     }   
     
