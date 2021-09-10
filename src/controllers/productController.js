@@ -74,12 +74,12 @@ let productController = {
                     res.render('products/productDetail', {productD , relatedProduct , user:req.session.userLogged})
                 }
                 else {
-                    let msjNotFound = "El producto no existe, maldito."
+                    let msjNotFound = "El producto no existe."
                     res.redirect("/error")
                 }
             }
             else {
-                let msjNotFound = "El producto no existe, maldito."
+                let msjNotFound = "El producto no existe."
                 res.redirect("/error")
             }
         

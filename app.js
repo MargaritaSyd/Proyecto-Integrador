@@ -51,3 +51,7 @@ app.use('/' , indexRoutes);
 app.use('/product' , productRoutes);
 
 app.use('/users' , userRoutes);
+
+app.get("*", (req,res) => {
+	res.redirect("/error")
+})
