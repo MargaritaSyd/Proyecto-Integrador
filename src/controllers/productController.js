@@ -121,6 +121,7 @@ let productController = {
             }
         })
         .then(function(productsStockOn){
+            productsStockOn.sort((a,b)=> (a.id_category > b.id_category ? 1 : -1))
             
             return res.render("products/productList", {productsStockOn});
 
