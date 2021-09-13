@@ -8,27 +8,27 @@ if (sessionStorage.getItem("productInformation")!=null){
 
     let arrayProducts=[];
 
-    if (localStorage.getItem(userFounded)==null){
+    if (sessionStorage.getItem(userFounded)==null){
         arrayProducts.push(productSelected)
-        localStorage.setItem(userFounded,JSON.stringify(arrayProducts));  
+        sessionStorage.setItem(userFounded,JSON.stringify(arrayProducts));  
     }
     else {
-        arrayProducts=JSON.parse(localStorage.getItem(userFounded))
-        localStorage.removeItem(userFounded)
+        arrayProducts=JSON.parse(sessionStorage.getItem(userFounded))
+        sessionStorage.removeItem(userFounded)
         arrayProducts.push(productSelected)
-        localStorage.setItem(userFounded,JSON.stringify(arrayProducts));  
+        sessionStorage.setItem(userFounded,JSON.stringify(arrayProducts));  
     }
 }
 
 //-----------------------------------------------
 
-let localStorageProducts= JSON.parse(localStorage.getItem(userFounded));
+let sessionStorageProducts= JSON.parse(sessionStorage.getItem(userFounded));
 let productos_seleccionados= document.querySelector("#productos-seleccionados"); 
 
 const fragment= document.createDocumentFragment();
 
-if(localStorageProducts!=null){
-    for (const product of localStorageProducts){
+if(sessionStorageProducts!=null){
+    for (const product of sessionStorageProducts){
         // estructura HTML
         // div padre de toda la estructura de cada producto
         const div_productoSeleccionado= document.createElement("div");
