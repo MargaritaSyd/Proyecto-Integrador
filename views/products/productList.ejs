@@ -126,6 +126,7 @@
                     </div>
                     <div class="products-list-container">
                     <%for(let i=0;i<productsStockOn.length;i++){%>
+                        <%if(productsStockOn[i].id_category == 1){%>
                             <div class="product-container">
                                 <!-- aca ira a el detail correspondiente al ID -->
                                 <a class="productList-anchor" href="/product/detail/<%=productsStockOn[i].id%>">
@@ -138,7 +139,68 @@
                                         <img src="/imagenes/logo.JPG">
                                     <%}%>        
                                 </a>  
-                            </div>          
+                            </div>
+                        <%}%>
+                        <%if(productsStockOn[i].id_category == 2){%>
+                          <div class="product-container">
+                              <!-- aca ira a el detail correspondiente al ID -->
+                              <a class="productList-anchor" href="/product/detail/<%=productsStockOn[i].id%>">
+                                  <!-- aca ira el nombre e imagen correspondientes al i del OL -->
+                                  <%=productsStockOn[i].name%>
+                                  <br>
+                                  <%if(productsStockOn[i].image_product){%>
+                                      <img src="/imagenes/productImages/<%=productsStockOn[i].image_product%>"> 
+                                  <%} else{%>
+                                      <img src="/imagenes/logo.JPG">
+                                  <%}%>        
+                              </a>  
+                          </div>
+                        <%}%>    
+                        <%if(productsStockOn[i].id_category == 3){%>
+                          <div class="product-container">
+                              <!-- aca ira a el detail correspondiente al ID -->
+                              <a class="productList-anchor" href="/product/detail/<%=productsStockOn[i].id%>">
+                                  <!-- aca ira el nombre e imagen correspondientes al i del OL -->
+                                  <%=productsStockOn[i].name%>
+                                  <br>
+                                  <%if(productsStockOn[i].image_product){%>
+                                      <img src="/imagenes/productImages/<%=productsStockOn[i].image_product%>"> 
+                                  <%} else{%>
+                                      <img src="/imagenes/logo.JPG">
+                                  <%}%>        
+                              </a>  
+                          </div>
+                        <%}%>   
+                        <%if(productsStockOn[i].id_category == 4){%>
+                          <div class="product-container">
+                              <!-- aca ira a el detail correspondiente al ID -->
+                              <a class="productList-anchor" href="/product/detail/<%=productsStockOn[i].id%>">
+                                  <!-- aca ira el nombre e imagen correspondientes al i del OL -->
+                                  <%=productsStockOn[i].name%>
+                                  <br>
+                                  <%if(productsStockOn[i].image_product){%>
+                                      <img src="/imagenes/productImages/<%=productsStockOn[i].image_product%>"> 
+                                  <%} else{%>
+                                      <img src="/imagenes/logo.JPG">
+                                  <%}%>        
+                              </a>  
+                          </div>
+                        <%}%> 
+                        <%if(productsStockOn[i].id_category == 5){%>
+                          <div class="product-container">
+                              <!-- aca ira a el detail correspondiente al ID -->
+                              <a class="productList-anchor" href="/product/detail/<%=productsStockOn[i].id%>">
+                                  <!-- aca ira el nombre e imagen correspondientes al i del OL -->
+                                  <%=productsStockOn[i].name%>
+                                  <br>
+                                  <%if(productsStockOn[i].image_product){%>
+                                      <img src="/imagenes/productImages/<%=productsStockOn[i].image_product%>"> 
+                                  <%} else{%>
+                                      <img src="/imagenes/logo.JPG">
+                                  <%}%>        
+                              </a>  
+                          </div>
+                        <%}%>
                     <%}%>               
                 </div>
             <%}%> 
