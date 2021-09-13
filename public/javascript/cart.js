@@ -28,6 +28,7 @@ let productos_seleccionados= document.querySelector("#productos-seleccionados");
 const fragment= document.createDocumentFragment();
 
 if(sessionStorageProducts!=null){
+    let texto_importe_total= document.getElementById("texto-importe-total");
     let importe_total= document.getElementById("importe-total");
     let total_account=0; 
     for (const product of sessionStorageProducts){
@@ -61,7 +62,6 @@ if(sessionStorageProducts!=null){
                     div_detalleCompraHijo.appendChild(label_precioProductoSeleccionado);
                 div_detalleCompraPadre.appendChild(div_detalleCompraHijo) 
                 
-
             const div_detalleCompraPadre2= document.createElement("div");
             div_detalleCompraPadre2.classList.add("detalle-compra-padre");
                 const div_detalleCompraHijo2= document.createElement("div");
@@ -76,9 +76,6 @@ if(sessionStorageProducts!=null){
                     const label_importeTotalProductoSeleccionado= document.createElement("label");
                     label_importeTotalProductoSeleccionado.classList.add("importe-total-producto-seleccionado")
                     label_importeTotalProductoSeleccionado.textContent= `$${product.priceProduct*input_cantidadProductoSeleccionado.value}`;
-
-                    //total_account+= parseInt(label_importeTotalProductoSeleccionado.textContent.substr(1));
-
                     div_detalleCompraHijo2.appendChild(label_totalProducts);
                     div_detalleCompraHijo2.appendChild(input_cantidadProductoSeleccionado);
                     div_detalleCompraHijo2.appendChild(label_importeTotalProductoSeleccionado);
@@ -94,6 +91,8 @@ if(sessionStorageProducts!=null){
                 div_detalleCompraPadre3.appendChild(div_detalleCompraHijo3)                
         // estructura HTML    
 
+        total_account+= parseInt(label_importeTotalProductoSeleccionado.textContent.substr(1));
+
         div_productoSeleccionado.appendChild(label_nombreProductoSeleccionado)
         div_productoSeleccionado.appendChild(span_contenedorImagenProductoSeleccionado)
         div_productoSeleccionado.appendChild(div_detalleCompraPadre)
@@ -102,35 +101,24 @@ if(sessionStorageProducts!=null){
 
         fragment.appendChild(div_productoSeleccionado);
 
-        //let importe_total= document.getElementById("importe-total");
-
         input_cantidadProductoSeleccionado.addEventListener("click", function(){
+            total_account= 0;
             label_importeTotalProductoSeleccionado.textContent= `$${product.priceProduct*input_cantidadProductoSeleccionado.value}`;
-            
-            
-        })
-        total_account+= parseInt(label_importeTotalProductoSeleccionado.textContent.substr(1));
-        
-        //importe_total.textContent= `$${total_account}`
-
-        
-        
+            let price_products = document.querySelectorAll(".importe-total-producto-seleccionado")
+            for( let i=0; i<price_products.length; i++){
+                total_account+=parseInt(price_products[i].textContent.substr(1));
+                importe_total.textContent= `$${total_account}`;
+            }
+            console.log(total_account);
+        })  
     }  
-    
-    importe_total.textContent= `$${total_account}`
 
-
-      
+    texto_importe_total.style.display= "inline";
+    importe_total.textContent= `$${total_account}`;     
 }
 else {
     productos_seleccionados.innerHTML="<h1>Aún no has agregado ningún producto a tu carrito</h1>"
 }
-
-
-
-
-
-
 
 productos_seleccionados.appendChild(fragment)
 
