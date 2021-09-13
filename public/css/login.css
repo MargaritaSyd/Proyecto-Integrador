@@ -8,23 +8,65 @@
     border: 0;
     font-size: 15px;
 } 
-
-.profileImg{
-    width: 60%; 
-    height: auto;
+#infoUser{
+    display: flex;
+    justify-content: space-between;
     
-    
+    padding: 2%;
 }
 
+.imgPerfil{
+    width: 20%; 
+    height: auto;
+    border: solid 1px #386641;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    background-color: red;
+    
+}
+.userDatos{
+    background-color: white;
+    
+    justify-content: space-around;
+    width: 75%;
+}
+.nombrePro{
+    display: block;
+    
+}
+.emailPro{
+    display: block;
+    
+}
+.favs{
+    background-color: yellow;
+}
+.carrillo{
+    background-color: pink;
+}
+
+#button {
+    font: bold 11px Arial;
+    text-decoration: none;
+    background-color: #EEEEEE;
+    color: #333333;
+    padding: 2px 6px 2px 6px;
+    border-radius: 5px solid black;
+    
+  }
+
+.borrar{
+    background-color: springgreen;
+}
 #contenedor-general {
     width: 90%; 
     max-width: 580px;
-    height: 90%;
+    height: 100%;
     margin: auto;
     margin-top: 50px;
     margin-bottom: 50px;
     border: solid 1px #386641;
-    border-radius: 10px;
+    box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.2);
+    
 }
 
 #div-icono {
@@ -61,15 +103,12 @@
     padding: 20px;
     border-radius: 100%;
 }
-
-#bienvenida {
-    font-size: 21px;
-    display: block;
-    margin: auto;
-    width: 100%;
-    text-align: center;
-    margin-bottom: 20px;
+.labels-formulario {
+    width: 90%;
+    margin-left: 6%;
 }
+
+
 
 .loginform {   
     height: 200px;
@@ -77,10 +116,7 @@
     margin-top: 10px;   
 }
 
-.labels-formulario {
-    width: 90%;
-    margin-left: 6%;
-}
+
 
 #label-usuario{
     font-size:small;
@@ -107,7 +143,7 @@
     font-size: small;
     font-style: italic;
     font-weight: normal;
-}
+} 
 
 #ingresar {
     color:#386641;
@@ -123,6 +159,7 @@
 }
 
 #ingresar:hover{
+    background-color: #386641 ;
     color: white;
 }
 
