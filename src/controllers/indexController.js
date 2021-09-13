@@ -21,8 +21,12 @@ let indexController = {
             }
         })
         .then(function(productsStockOn){
-            
-            return res.render("index", {productsStockOn});
+            let user;
+            if(req.session.userLogged){
+                user= req.session.userLogged.id;
+            }
+            return res.render("index", {productsStockOn, user});
+            //return res.render("index", {productsStockOn});
 
         })
         
