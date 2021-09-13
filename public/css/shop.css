@@ -164,6 +164,13 @@
     border-radius: 7px;
 }
 
+#more-products-button a,
+#confirm-button a {
+    color: #f3f3f3;
+    text-decoration: none;
+}
+
+
 .main-separador {
     background-color: rgba(54, 46, 46, 0.534);
     width: 70%;

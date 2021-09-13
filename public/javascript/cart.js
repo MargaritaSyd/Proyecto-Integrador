@@ -109,18 +109,86 @@ if(sessionStorageProducts!=null){
                 total_account+=parseInt(price_products[i].textContent.substr(1));
                 importe_total.textContent= `$${total_account}`;
             }
-            console.log(total_account);
+            //console.log(total_account);
         })  
     }  
 
     texto_importe_total.style.display= "inline";
-    importe_total.textContent= `$${total_account}`;     
+    importe_total.textContent= `$${total_account}`;    
+    
+
+
 }
 else {
     productos_seleccionados.innerHTML="<h1>Aún no has agregado ningún producto a tu carrito</h1>"
 }
 
 productos_seleccionados.appendChild(fragment)
+
+    // bottom buttons (Cancelar/ Ver más / Confirmar)
+
+    let more_products_button= document.getElementById('more-products-button');
+    more_products_button.addEventListener("click", function(){
+        productArray_generator()
+    })
+    
+    // bottom buttons (Cancelar/ Ver más / Confirmar)
+
+
+// funcion para generar el array de productos en sessionStorage, que se renderizara en la vista cart.ejs
+
+function productArray_generator(){
+
+    //let idUser=  window.location.pathname.slice(6); // almaceno el id del usuario desde la URL
+    //let userFounded= "user"+idUser;
+
+    //let productSelected= JSON.parse(sessionStorage.getItem("productInformation"));
+    //sessionStorage.removeItem("productInformation")
+
+    let arrayProducts=[];
+
+    /* if (sessionStorage.getItem(userFounded)==null){
+        arrayProducts.push(productSelected)
+        sessionStorage.setItem(userFounded,JSON.stringify(arrayProducts));  
+    }
+    else { */
+        console.log(userFounded);
+        arrayProducts=JSON.parse(sessionStorage.getItem(userFounded))
+        //sessionStorage.removeItem(userFounded)
+
+        console.log(arrayProducts);
+        //arrayProducts.push(productSelected)
+        //sessionStorage.setItem(userFounded,JSON.stringify(arrayProducts));  
+    //}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
