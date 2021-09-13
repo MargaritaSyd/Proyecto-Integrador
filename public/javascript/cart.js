@@ -28,6 +28,8 @@ let productos_seleccionados= document.querySelector("#productos-seleccionados");
 const fragment= document.createDocumentFragment();
 
 if(sessionStorageProducts!=null){
+    let importe_total= document.getElementById("importe-total");
+    let total_account=0; 
     for (const product of sessionStorageProducts){
         // estructura HTML
         // div padre de toda la estructura de cada producto
@@ -54,7 +56,7 @@ if(sessionStorageProducts!=null){
                     label_unitaryPrice.textContent= "Precio unitario"
                     const label_precioProductoSeleccionado= document.createElement("label");
                     label_precioProductoSeleccionado.classList.add("precio-producto-seleccionado");
-                    label_precioProductoSeleccionado.textContent= product.priceProduct;
+                    label_precioProductoSeleccionado.textContent= `$${product.priceProduct}`;
                     div_detalleCompraHijo.appendChild(label_unitaryPrice);
                     div_detalleCompraHijo.appendChild(label_precioProductoSeleccionado);
                 div_detalleCompraPadre.appendChild(div_detalleCompraHijo) 
@@ -68,10 +70,15 @@ if(sessionStorageProducts!=null){
                     label_totalProducts.textContent= "Cantidad"
                     const input_cantidadProductoSeleccionado= document.createElement("input");
                     input_cantidadProductoSeleccionado.classList.add("cantidad-producto-seleccionado");
+                    input_cantidadProductoSeleccionado.setAttribute("type", "number");
                     input_cantidadProductoSeleccionado.setAttribute("value", 1);
+                    input_cantidadProductoSeleccionado.setAttribute("min", 1);
                     const label_importeTotalProductoSeleccionado= document.createElement("label");
                     label_importeTotalProductoSeleccionado.classList.add("importe-total-producto-seleccionado")
-                    label_importeTotalProductoSeleccionado.textContent= (product.priceProduct*2);
+                    label_importeTotalProductoSeleccionado.textContent= `$${product.priceProduct*input_cantidadProductoSeleccionado.value}`;
+
+                    //total_account+= parseInt(label_importeTotalProductoSeleccionado.textContent.substr(1));
+
                     div_detalleCompraHijo2.appendChild(label_totalProducts);
                     div_detalleCompraHijo2.appendChild(input_cantidadProductoSeleccionado);
                     div_detalleCompraHijo2.appendChild(label_importeTotalProductoSeleccionado);
@@ -94,11 +101,36 @@ if(sessionStorageProducts!=null){
         div_productoSeleccionado.appendChild(div_detalleCompraPadre3)
 
         fragment.appendChild(div_productoSeleccionado);
-    }    
+
+        //let importe_total= document.getElementById("importe-total");
+
+        input_cantidadProductoSeleccionado.addEventListener("click", function(){
+            label_importeTotalProductoSeleccionado.textContent= `$${product.priceProduct*input_cantidadProductoSeleccionado.value}`;
+            
+            
+        })
+        total_account+= parseInt(label_importeTotalProductoSeleccionado.textContent.substr(1));
+        
+        //importe_total.textContent= `$${total_account}`
+
+        
+        
+    }  
+    
+    importe_total.textContent= `$${total_account}`
+
+
+      
 }
 else {
     productos_seleccionados.innerHTML="<h1>Aún no has agregado ningún producto a tu carrito</h1>"
 }
+
+
+
+
+
+
 
 productos_seleccionados.appendChild(fragment)
 
