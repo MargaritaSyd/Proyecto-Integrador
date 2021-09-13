@@ -1,6 +1,5 @@
 /node_modules
 /.DS_Store
 /public/imagenes/.DS_Store
-/public/imagenes/productImages
-/public/imagenes/userImages
-
+/public/.DS_Store
+/public/imagenes/productImages/.DS_Store
