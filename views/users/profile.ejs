@@ -78,10 +78,20 @@
                     <%}%> 
                 </label>
             <div class="div userDatos">
+                <h4>Nombre:</h4>
                 <label  class=" nombrePro"><%=user.user_name%> <%=user.lastName_user%></label>
+                <h4>Email:</h4>
                 <label  class=" emailPro"><%= user.email %></label>
             </div>
             </div>
+            <%if(user.admin == 1){%>
+                <div class='div crear'>
+                    <a href="/product/create" id="button"> Crear nuevo producto</a>
+                </div>
+                <%}%>
+                <div class='div crear'>
+                    <a href="/" id="button">Editar Perfil</a>
+                </div>
             <%if(user.admin == 0){%>
             <div class="div favs">
                 <label  class="labels-formulario">Tus favoritos <i class="far fa-heart"></i></label>
@@ -92,14 +102,7 @@
                 <a href="/cart/<%=user.id%>" <i class="fas fa-shopping-cart iconos"></i></a>
             </div>
             <%}%>
-            <%if(user.admin == 1){%>
-            <div class='div crear'>
-                    <label id="label-usuario" class="labels-formulario">
-                    
-                    <a href="/product/create" id="button"> Crear nuevo producto</a>
-                    </label>
-            </div>
-            <%}%>
+            
             <div class="cerrar">
             <form action="/users/logout" method="GET">           
                 <button id="ingresar" type="submit">Cerrar sesión</button>

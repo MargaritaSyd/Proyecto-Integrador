@@ -14,27 +14,41 @@
     
     padding: 2%;
 }
+.profileImg{
+    width: 100%; 
+    height: auto;
 
+}
 .imgPerfil{
     width: 20%; 
-    height: auto;
+    height: 20%;
     border: solid 1px #386641;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     background-color: red;
+    margin-top: 1%;
     
 }
 .userDatos{
     background-color: white;
-    
-    justify-content: space-around;
+    margin-top: 1%;
+    justify-self: center;
     width: 75%;
+    border: 1px solid black;
+    padding-bottom: 2%;
+    padding-left:1%;
 }
 .nombrePro{
-    display: block;
+    display: line;
+    margin-left: 10%;
+   
+    color: #ae76a6
     
 }
 .emailPro{
-    display: block;
+    display: line;
+    margin-left: 10%;
+    color: #ae76a6
+    
     
 }
 .favs{
@@ -44,15 +58,34 @@
     background-color: pink;
 }
 
+.cerrar{
+    margin-bottom:5% ;
+}
+
 #button {
-    font: bold 11px Arial;
+    font: bold 11px;
     text-decoration: none;
     background-color: #EEEEEE;
     color: #333333;
     padding: 2px 6px 2px 6px;
-    border-radius: 5px solid black;
+    color:#386641;
+    width: 30%;
+    margin: auto;
+    display: block;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding: 5px 0;
+    border: solid 1px #386641;
+    text-align: center;
     
   }
+.crear{
+    display:flex;
+    justify-content: center;
+    
+}
 
 .borrar{
     background-color: springgreen;
@@ -152,8 +185,8 @@
     display: block;
     border-radius: 20px;
     font-size: 14px;
-    margin-top: 25px;
-    margin-bottom: 10px;
+   margin-top: 1%;
+   margin-bottom: 1%;
     padding: 5px 0;
     border: solid 1px #386641;
 }
@@ -162,7 +195,10 @@
     background-color: #386641 ;
     color: white;
 }
-
+#button:hover{
+    background-color: #386641 ;
+    color: white;
+}
 #restablecer {
     background-color:transparent;
     width: 78%;
