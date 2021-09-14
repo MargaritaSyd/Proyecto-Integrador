@@ -84,11 +84,15 @@ if(sessionStorageProducts!=null){
             const div_detalleCompraPadre3= document.createElement("div");
             div_detalleCompraPadre3.classList.add("detalle-compra-padre");
                 const div_detalleCompraHijo3= document.createElement("div");
-                div_detalleCompraHijo3.classList.add("detalle-compra-hijo-2");    
-                    const icon= document.createElement("i");
-                    icon.classList.add("fas", "fa-trash-alt", "descartar-compra");
-                    div_detalleCompraHijo3.appendChild(icon);
-                div_detalleCompraPadre3.appendChild(div_detalleCompraHijo3)                
+                div_detalleCompraHijo3.classList.add("detalle-compra-hijo-2"); 
+                    const anchor= document.createElement("a");
+                    anchor.classList.add("descartar-compra");
+                    anchor.setAttribute("href",`/cart/${idUser}`);
+                        const icon= document.createElement("i");
+                        icon.classList.add("fas", "fa-trash-alt");
+                    anchor.appendChild(icon);
+                div_detalleCompraHijo3.appendChild(anchor);
+            div_detalleCompraPadre3.appendChild(div_detalleCompraHijo3)                
         // estructura HTML    
 
         total_account+= parseInt(label_importeTotalProductoSeleccionado.textContent.substr(1));
@@ -101,6 +105,7 @@ if(sessionStorageProducts!=null){
 
         fragment.appendChild(div_productoSeleccionado);
 
+        // evento que aumenta o disminuye la cantidad de unidades de un producto en el carrito
         input_cantidadProductoSeleccionado.addEventListener("click", function(){
             productArray_generator()
             total_account= 0;
@@ -110,7 +115,20 @@ if(sessionStorageProducts!=null){
                 total_account+=parseInt(price_products[i].textContent.substr(1));
                 importe_total.textContent= `$${total_account}`;
             }
-        })  
+        }) 
+        // evento que aumenta o disminuye la cantidad de unidades de un producto en el carrito 
+
+        // evento que elimina un producto del carrito
+        anchor.addEventListener("click", function(e){
+            e.preventDefault()
+            let answer= confirm("Seguro quieres eliminar este producto de tu carrito de compras?");
+            if(answer){
+                console.log(anchor);
+                let a=sessionStorage.getItem(userFounded);
+                console.log(a);
+            }
+        }) 
+        // evento que elimina un producto del carrito
     }  
     texto_importe_total.style.display= "inline";
     importe_total.textContent= `$${total_account}`;    
@@ -120,6 +138,16 @@ else {
 }
 
 productos_seleccionados.appendChild(fragment)
+
+/* let descartar_compra= document.querySelectorAll('.descartar-compra');
+console.log(descartar_compra);
+descartar_compra.addEventListener("click", function(e){
+    e.preventDefault()
+    let answer= confirm("Seguro quieres eliminar este producto de tu carrito de compras?");
+    if(answer){
+        console.log(sessionStorage);
+    }
+}) */
 
 function productArray_generator(){
     let arrayProducts=[];
