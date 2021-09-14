@@ -102,6 +102,7 @@ if(sessionStorageProducts!=null){
         fragment.appendChild(div_productoSeleccionado);
 
         input_cantidadProductoSeleccionado.addEventListener("click", function(){
+            productArray_generator()
             total_account= 0;
             label_importeTotalProductoSeleccionado.textContent= `$${product.priceProduct*input_cantidadProductoSeleccionado.value}`;
             let price_products = document.querySelectorAll(".importe-total-producto-seleccionado")
@@ -120,7 +121,7 @@ else {
 
 productos_seleccionados.appendChild(fragment)
 
-// bottom buttons (Cancelar/ Ver más / Confirmar)
+/* // bottom buttons (Cancelar/ Ver más / Confirmar)
 let more_products_button= document.getElementById('more-products-button');
 more_products_button.addEventListener("click", function(){
     productArray_generator()
@@ -130,12 +131,10 @@ let confirm_button= document.getElementById('confirm-button');
 confirm_button.addEventListener("click", function(){
     productArray_generator()
 })
-// bottom buttons (Cancelar/ Ver más / Confirmar)
+// bottom buttons (Cancelar/ Ver más / Confirmar) */
 
 // funcion para generar el array de productos en sessionStorage, que se renderizara en la vista cart.ejs
 function productArray_generator(){
-    //let b= sessionStorage.getItem(userFounded);
-    //console.log(b);
     let arrayProducts=[];
     arrayProducts=JSON.parse(sessionStorage.getItem(userFounded));
     let products= document.querySelectorAll(".producto-seleccionado");
@@ -151,8 +150,6 @@ function productArray_generator(){
         newArrayProducts.push(objectProduct);
     }
     sessionStorage.setItem(userFounded,JSON.stringify(newArrayProducts))
-    //let a= sessionStorage.getItem(userFounded);
-    //console.log(a);
     return true;
 }
 
