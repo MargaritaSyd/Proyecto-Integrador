@@ -120,7 +120,6 @@ if(sessionStorageProducts!=null){
 
         // evento que elimina un producto del carrito
         anchor.addEventListener("click", function(e){
-            e.preventDefault()
             let answer= confirm("Seguro quieres eliminar este producto de tu carrito de compras?");
             if(answer){
                 let product_list=JSON.parse(sessionStorage.getItem(userFounded));
@@ -132,7 +131,11 @@ if(sessionStorageProducts!=null){
                 let new_array=product_list.filter(function(product){
                     return product.nameProduct!=product_to_delete;
                 });
-                console.log(new_array);
+                sessionStorage.setItem(userFounded,JSON.stringify(new_array));
+                console.log(sessionStorage.user2);
+            }
+            else {
+                e.preventDefault()
             }
         }) 
         // evento que elimina un producto del carrito
