@@ -71,7 +71,7 @@ if(sessionStorageProducts!=null){
                     const input_cantidadProductoSeleccionado= document.createElement("input");
                     input_cantidadProductoSeleccionado.classList.add("cantidad-producto-seleccionado");
                     input_cantidadProductoSeleccionado.setAttribute("type", "number");
-                    input_cantidadProductoSeleccionado.setAttribute("value", 1);
+                    input_cantidadProductoSeleccionado.setAttribute("value", product.quantityProduct);
                     input_cantidadProductoSeleccionado.setAttribute("min", 1);
                     const label_importeTotalProductoSeleccionado= document.createElement("label");
                     label_importeTotalProductoSeleccionado.classList.add("importe-total-producto-seleccionado")
@@ -109,15 +109,10 @@ if(sessionStorageProducts!=null){
                 total_account+=parseInt(price_products[i].textContent.substr(1));
                 importe_total.textContent= `$${total_account}`;
             }
-            //console.log(total_account);
         })  
     }  
-
     texto_importe_total.style.display= "inline";
     importe_total.textContent= `$${total_account}`;    
-    
-
-
 }
 else {
     productos_seleccionados.innerHTML="<h1>Aún no has agregado ningún producto a tu carrito</h1>"
@@ -125,56 +120,40 @@ else {
 
 productos_seleccionados.appendChild(fragment)
 
-    // bottom buttons (Cancelar/ Ver más / Confirmar)
+// bottom buttons (Cancelar/ Ver más / Confirmar)
+let more_products_button= document.getElementById('more-products-button');
+more_products_button.addEventListener("click", function(){
+    productArray_generator()
+})
 
-    let more_products_button= document.getElementById('more-products-button');
-    more_products_button.addEventListener("click", function(){
-        productArray_generator()
-    })
-    
-    // bottom buttons (Cancelar/ Ver más / Confirmar)
-
+let confirm_button= document.getElementById('confirm-button');
+confirm_button.addEventListener("click", function(){
+    productArray_generator()
+})
+// bottom buttons (Cancelar/ Ver más / Confirmar)
 
 // funcion para generar el array de productos en sessionStorage, que se renderizara en la vista cart.ejs
-
 function productArray_generator(){
-
+    //let b= sessionStorage.getItem(userFounded);
+    //console.log(b);
     let arrayProducts=[];
-    arrayProducts=JSON.parse(sessionStorage.getItem(userFounded))
-    console.log(arrayProducts); 
-    let products= document.querySelectorAll(".producto-seleccionado")
-
+    arrayProducts=JSON.parse(sessionStorage.getItem(userFounded));
+    let products= document.querySelectorAll(".producto-seleccionado");
+    let newArrayProducts=[];
     for (let i=0; i<products.length; i++){
-        console.log(arrayProducts[i].idProduct);
-        console.log(products[i].childNodes[0].textContent);
-        console.log(products[i].childNodes[1].childNodes[0].attributes[1].value);
-        console.log(products[i].childNodes[2].childNodes[0].childNodes[1].outerText);
-        console.log(products[i].childNodes[3].childNodes[0].childNodes[1].value);
-        /* let objectProduct= {
-            idProduct: product.idProduct,
-            nameProduct: product.nameProduct,
-            pathImageProduct: product.pathImageProduct,
-            priceProduct: product.priceProduct
-        } */
-    }
-
-    /* //alert("Hola")
-    let arrayProducts=[];
-    //console.log(userFounded);
-    arrayProducts=JSON.parse(sessionStorage.getItem(userFounded))
-    console.log(arrayProducts); 
-
-    for (product of arrayProducts){
         let objectProduct= {
-            idProduct: product.idProduct,
-            nameProduct: product.nameProduct,
-            pathImageProduct: product.pathImageProduct,
-            priceProduct: product.priceProduct
-        }
-
-    } */
-    
-
+            idProduct: arrayProducts[i].idProduct,
+            nameProduct: products[i].childNodes[0].textContent.slice(14),
+            pathImageProduct: products[i].childNodes[1].childNodes[0].attributes[1].value,
+            priceProduct: products[i].childNodes[2].childNodes[0].childNodes[1].outerText.substr(1),
+            quantityProduct: products[i].childNodes[3].childNodes[0].childNodes[1].value
+        }    
+        newArrayProducts.push(objectProduct);
+    }
+    sessionStorage.setItem(userFounded,JSON.stringify(newArrayProducts))
+    //let a= sessionStorage.getItem(userFounded);
+    //console.log(a);
+    return true;
 }
 
 
