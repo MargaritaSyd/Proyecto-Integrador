@@ -121,19 +121,6 @@ else {
 
 productos_seleccionados.appendChild(fragment)
 
-/* // bottom buttons (Cancelar/ Ver más / Confirmar)
-let more_products_button= document.getElementById('more-products-button');
-more_products_button.addEventListener("click", function(){
-    productArray_generator()
-})
-
-let confirm_button= document.getElementById('confirm-button');
-confirm_button.addEventListener("click", function(){
-    productArray_generator()
-})
-// bottom buttons (Cancelar/ Ver más / Confirmar) */
-
-// funcion para generar el array de productos en sessionStorage, que se renderizara en la vista cart.ejs
 function productArray_generator(){
     let arrayProducts=[];
     arrayProducts=JSON.parse(sessionStorage.getItem(userFounded));
@@ -153,34 +140,19 @@ function productArray_generator(){
     return true;
 }
 
+/* // bottom buttons (Cancelar/ Ver más / Confirmar)
+let more_products_button= document.getElementById('more-products-button');
+more_products_button.addEventListener("click", function(){
+    productArray_generator()
+})
 
+let confirm_button= document.getElementById('confirm-button');
+confirm_button.addEventListener("click", function(){
+    productArray_generator()
+})
+// bottom buttons (Cancelar/ Ver más / Confirmar) */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// funcion para generar el array de productos en sessionStorage, que se renderizara en la vista cart.ejs
 
 /* let localStorageProducts= JSON.parse(localStorage.getItem(userFounded));
 
