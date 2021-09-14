@@ -123,9 +123,16 @@ if(sessionStorageProducts!=null){
             e.preventDefault()
             let answer= confirm("Seguro quieres eliminar este producto de tu carrito de compras?");
             if(answer){
-                console.log(anchor);
-                let a=sessionStorage.getItem(userFounded);
-                console.log(a);
+                let product_list=JSON.parse(sessionStorage.getItem(userFounded));
+                let product_to_delete= e.path[4].childNodes[0].outerText.slice(14); 
+
+                console.log(product_list);
+                console.log(product_to_delete);
+
+                let new_array=product_list.filter(function(product){
+                    return product.nameProduct!=product_to_delete;
+                });
+                console.log(new_array);
             }
         }) 
         // evento que elimina un producto del carrito
