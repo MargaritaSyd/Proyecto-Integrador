@@ -139,27 +139,41 @@ productos_seleccionados.appendChild(fragment)
 
 function productArray_generator(){
 
-    //let idUser=  window.location.pathname.slice(6); // almaceno el id del usuario desde la URL
-    //let userFounded= "user"+idUser;
-
-    //let productSelected= JSON.parse(sessionStorage.getItem("productInformation"));
-    //sessionStorage.removeItem("productInformation")
-
     let arrayProducts=[];
+    arrayProducts=JSON.parse(sessionStorage.getItem(userFounded))
+    console.log(arrayProducts); 
+    let products= document.querySelectorAll(".producto-seleccionado")
 
-    /* if (sessionStorage.getItem(userFounded)==null){
-        arrayProducts.push(productSelected)
-        sessionStorage.setItem(userFounded,JSON.stringify(arrayProducts));  
+    for (let i=0; i<products.length; i++){
+        console.log(arrayProducts[i].idProduct);
+        console.log(products[i].childNodes[0].textContent);
+        console.log(products[i].childNodes[1].childNodes[0].attributes[1].value);
+        console.log(products[i].childNodes[2].childNodes[0].childNodes[1].outerText);
+        console.log(products[i].childNodes[3].childNodes[0].childNodes[1].value);
+        /* let objectProduct= {
+            idProduct: product.idProduct,
+            nameProduct: product.nameProduct,
+            pathImageProduct: product.pathImageProduct,
+            priceProduct: product.priceProduct
+        } */
     }
-    else { */
-        console.log(userFounded);
-        arrayProducts=JSON.parse(sessionStorage.getItem(userFounded))
-        //sessionStorage.removeItem(userFounded)
 
-        console.log(arrayProducts);
-        //arrayProducts.push(productSelected)
-        //sessionStorage.setItem(userFounded,JSON.stringify(arrayProducts));  
-    //}
+    /* //alert("Hola")
+    let arrayProducts=[];
+    //console.log(userFounded);
+    arrayProducts=JSON.parse(sessionStorage.getItem(userFounded))
+    console.log(arrayProducts); 
+
+    for (product of arrayProducts){
+        let objectProduct= {
+            idProduct: product.idProduct,
+            nameProduct: product.nameProduct,
+            pathImageProduct: product.pathImageProduct,
+            priceProduct: product.priceProduct
+        }
+
+    } */
+    
 
 }
 
