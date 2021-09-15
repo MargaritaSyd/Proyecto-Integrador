@@ -1,8 +1,10 @@
+let texto_importe_total= document.getElementById("texto-importe-total");
+let importe_total= document.getElementById("importe-total");
+
 let idUser=  window.location.pathname.slice(6); // almaceno el id del usuario desde la URL
 let userFounded= "user"+idUser;
 
 if (sessionStorage.getItem("productInformation")!=null){
-
     let productSelected= JSON.parse(sessionStorage.getItem("productInformation"));
     sessionStorage.removeItem("productInformation")
 
@@ -14,9 +16,17 @@ if (sessionStorage.getItem("productInformation")!=null){
     }
     else {
         arrayProducts=JSON.parse(sessionStorage.getItem(userFounded))
-        sessionStorage.removeItem(userFounded)
-        arrayProducts.push(productSelected)
-        sessionStorage.setItem(userFounded,JSON.stringify(arrayProducts));  
+        //sessionStorage.removeItem(userFounded)
+        let duplicate= false;
+        for(let i=0; i<arrayProducts.length; i++){
+            if(arrayProducts[i].idProduct==productSelected.idProduct){
+                duplicate= true;
+            }
+        }
+        if (!duplicate){
+            arrayProducts.push(productSelected)
+            sessionStorage.setItem(userFounded,JSON.stringify(arrayProducts));  
+        }
     }
 }
 
@@ -27,9 +37,9 @@ let productos_seleccionados= document.querySelector("#productos-seleccionados");
 
 const fragment= document.createDocumentFragment();
 
-if(sessionStorageProducts!=null){
-    let texto_importe_total= document.getElementById("texto-importe-total");
-    let importe_total= document.getElementById("importe-total");
+if(sessionStorageProducts!=null && sessionStorageProducts.length>0){
+    //let texto_importe_total= document.getElementById("texto-importe-total");
+    //let importe_total= document.getElementById("importe-total");
     let total_account=0; 
     for (const product of sessionStorageProducts){
         // estructura HTML
@@ -128,11 +138,18 @@ if(sessionStorageProducts!=null){
                 console.log(product_list);
                 console.log(product_to_delete);
 
-                let new_array=product_list.filter(function(product){
+                let new_array=[]
+                for( let i=0; i<product_list.length; i++){
+                    if(product_list[i].nameProduct!=product_to_delete){
+                        new_array.push(product_list[i])
+                    }
+                }
+
+                /* let new_array=product_list.filter(function(product){
                     return product.nameProduct!=product_to_delete;
-                });
+                }); */
+
                 sessionStorage.setItem(userFounded,JSON.stringify(new_array));
-                console.log(sessionStorage.user2);
             }
             else {
                 e.preventDefault()
