@@ -12,4 +12,7 @@ router.get('/nosotros' , indexController.nosotros);
 
 router.get('/error', indexController.error);
 
+router.get('/transaction', function(req,res){ return res.render("transaction")});
+
+
 module.exports = router;

@@ -28,6 +28,9 @@ let productos_seleccionados= document.querySelector("#productos-seleccionados");
 const fragment= document.createDocumentFragment();
 
 if(sessionStorageProducts!=null){
+    let texto_importe_total= document.getElementById("texto-importe-total");
+    let importe_total= document.getElementById("importe-total");
+    let total_account=0; 
     for (const product of sessionStorageProducts){
         // estructura HTML
         // div padre de toda la estructura de cada producto
@@ -54,12 +57,11 @@ if(sessionStorageProducts!=null){
                     label_unitaryPrice.textContent= "Precio unitario"
                     const label_precioProductoSeleccionado= document.createElement("label");
                     label_precioProductoSeleccionado.classList.add("precio-producto-seleccionado");
-                    label_precioProductoSeleccionado.textContent= product.priceProduct;
+                    label_precioProductoSeleccionado.textContent= `$${product.priceProduct}`;
                     div_detalleCompraHijo.appendChild(label_unitaryPrice);
                     div_detalleCompraHijo.appendChild(label_precioProductoSeleccionado);
                 div_detalleCompraPadre.appendChild(div_detalleCompraHijo) 
                 
-
             const div_detalleCompraPadre2= document.createElement("div");
             div_detalleCompraPadre2.classList.add("detalle-compra-padre");
                 const div_detalleCompraHijo2= document.createElement("div");
@@ -68,10 +70,12 @@ if(sessionStorageProducts!=null){
                     label_totalProducts.textContent= "Cantidad"
                     const input_cantidadProductoSeleccionado= document.createElement("input");
                     input_cantidadProductoSeleccionado.classList.add("cantidad-producto-seleccionado");
-                    input_cantidadProductoSeleccionado.setAttribute("value", 1);
+                    input_cantidadProductoSeleccionado.setAttribute("type", "number");
+                    input_cantidadProductoSeleccionado.setAttribute("value", product.quantityProduct);
+                    input_cantidadProductoSeleccionado.setAttribute("min", 1);
                     const label_importeTotalProductoSeleccionado= document.createElement("label");
                     label_importeTotalProductoSeleccionado.classList.add("importe-total-producto-seleccionado")
-                    label_importeTotalProductoSeleccionado.textContent= (product.priceProduct*2);
+                    label_importeTotalProductoSeleccionado.textContent= `$${product.priceProduct*input_cantidadProductoSeleccionado.value}`;
                     div_detalleCompraHijo2.appendChild(label_totalProducts);
                     div_detalleCompraHijo2.appendChild(input_cantidadProductoSeleccionado);
                     div_detalleCompraHijo2.appendChild(label_importeTotalProductoSeleccionado);
@@ -80,12 +84,18 @@ if(sessionStorageProducts!=null){
             const div_detalleCompraPadre3= document.createElement("div");
             div_detalleCompraPadre3.classList.add("detalle-compra-padre");
                 const div_detalleCompraHijo3= document.createElement("div");
-                div_detalleCompraHijo3.classList.add("detalle-compra-hijo-2");    
-                    const icon= document.createElement("i");
-                    icon.classList.add("fas", "fa-trash-alt", "descartar-compra");
-                    div_detalleCompraHijo3.appendChild(icon);
-                div_detalleCompraPadre3.appendChild(div_detalleCompraHijo3)                
+                div_detalleCompraHijo3.classList.add("detalle-compra-hijo-2"); 
+                    const anchor= document.createElement("a");
+                    anchor.classList.add("descartar-compra");
+                    anchor.setAttribute("href",`/cart/${idUser}`);
+                        const icon= document.createElement("i");
+                        icon.classList.add("fas", "fa-trash-alt");
+                    anchor.appendChild(icon);
+                div_detalleCompraHijo3.appendChild(anchor);
+            div_detalleCompraPadre3.appendChild(div_detalleCompraHijo3)                
         // estructura HTML    
+
+        total_account+= parseInt(label_importeTotalProductoSeleccionado.textContent.substr(1));
 
         div_productoSeleccionado.appendChild(label_nombreProductoSeleccionado)
         div_productoSeleccionado.appendChild(span_contenedorImagenProductoSeleccionado)
@@ -94,7 +104,44 @@ if(sessionStorageProducts!=null){
         div_productoSeleccionado.appendChild(div_detalleCompraPadre3)
 
         fragment.appendChild(div_productoSeleccionado);
-    }    
+
+        // evento que aumenta o disminuye la cantidad de unidades de un producto en el carrito
+        input_cantidadProductoSeleccionado.addEventListener("click", function(){
+            productArray_generator()
+            total_account= 0;
+            label_importeTotalProductoSeleccionado.textContent= `$${product.priceProduct*input_cantidadProductoSeleccionado.value}`;
+            let price_products = document.querySelectorAll(".importe-total-producto-seleccionado")
+            for( let i=0; i<price_products.length; i++){
+                total_account+=parseInt(price_products[i].textContent.substr(1));
+                importe_total.textContent= `$${total_account}`;
+            }
+        }) 
+        // evento que aumenta o disminuye la cantidad de unidades de un producto en el carrito 
+
+        // evento que elimina un producto del carrito
+        anchor.addEventListener("click", function(e){
+            let answer= confirm("Seguro quieres eliminar este producto de tu carrito de compras?");
+            if(answer){
+                let product_list=JSON.parse(sessionStorage.getItem(userFounded));
+                let product_to_delete= e.path[4].childNodes[0].outerText.slice(14); 
+
+                console.log(product_list);
+                console.log(product_to_delete);
+
+                let new_array=product_list.filter(function(product){
+                    return product.nameProduct!=product_to_delete;
+                });
+                sessionStorage.setItem(userFounded,JSON.stringify(new_array));
+                console.log(sessionStorage.user2);
+            }
+            else {
+                e.preventDefault()
+            }
+        }) 
+        // evento que elimina un producto del carrito
+    }  
+    texto_importe_total.style.display= "inline";
+    importe_total.textContent= `$${total_account}`;    
 }
 else {
     productos_seleccionados.innerHTML="<h1>Aún no has agregado ningún producto a tu carrito</h1>"
@@ -102,7 +149,48 @@ else {
 
 productos_seleccionados.appendChild(fragment)
 
+/* let descartar_compra= document.querySelectorAll('.descartar-compra');
+console.log(descartar_compra);
+descartar_compra.addEventListener("click", function(e){
+    e.preventDefault()
+    let answer= confirm("Seguro quieres eliminar este producto de tu carrito de compras?");
+    if(answer){
+        console.log(sessionStorage);
+    }
+}) */
 
+function productArray_generator(){
+    let arrayProducts=[];
+    arrayProducts=JSON.parse(sessionStorage.getItem(userFounded));
+    let products= document.querySelectorAll(".producto-seleccionado");
+    let newArrayProducts=[];
+    for (let i=0; i<products.length; i++){
+        let objectProduct= {
+            idProduct: arrayProducts[i].idProduct,
+            nameProduct: products[i].childNodes[0].textContent.slice(14),
+            pathImageProduct: products[i].childNodes[1].childNodes[0].attributes[1].value,
+            priceProduct: products[i].childNodes[2].childNodes[0].childNodes[1].outerText.substr(1),
+            quantityProduct: products[i].childNodes[3].childNodes[0].childNodes[1].value
+        }    
+        newArrayProducts.push(objectProduct);
+    }
+    sessionStorage.setItem(userFounded,JSON.stringify(newArrayProducts))
+    return true;
+}
+
+/* // bottom buttons (Cancelar/ Ver más / Confirmar)
+let more_products_button= document.getElementById('more-products-button');
+more_products_button.addEventListener("click", function(){
+    productArray_generator()
+})
+
+let confirm_button= document.getElementById('confirm-button');
+confirm_button.addEventListener("click", function(){
+    productArray_generator()
+})
+// bottom buttons (Cancelar/ Ver más / Confirmar) */
+
+// funcion para generar el array de productos en sessionStorage, que se renderizara en la vista cart.ejs
 
 /* let localStorageProducts= JSON.parse(localStorage.getItem(userFounded));
 
