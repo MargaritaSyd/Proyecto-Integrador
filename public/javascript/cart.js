@@ -186,7 +186,7 @@ function productArray_generator(){
             idProduct: arrayProducts[i].idProduct,
             nameProduct: products[i].childNodes[0].textContent.slice(14),
             pathImageProduct: products[i].childNodes[1].childNodes[0].attributes[1].value,
-            priceProduct: products[i].childNodes[2].childNodes[0].childNodes[1].outerText.substr(1),
+            priceProduct: products[i].childNodes[2].childNodes[0].childNodes[1].textContent.substr(1),
             quantityProduct: products[i].childNodes[3].childNodes[0].childNodes[1].value
         }    
         newArrayProducts.push(objectProduct);
