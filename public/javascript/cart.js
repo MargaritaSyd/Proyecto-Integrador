@@ -133,22 +133,11 @@ if(sessionStorageProducts!=null && sessionStorageProducts.length>0){
             let answer= confirm("Seguro quieres eliminar este producto de tu carrito de compras?");
             if(answer){
                 let product_list=JSON.parse(sessionStorage.getItem(userFounded));
-                let product_to_delete= e.path[4].childNodes[0].outerText.slice(14); 
+                let product_to_delete= e.target.parentNode.parentNode.parentNode.parentNode.childNodes[0].textContent.slice(14);
 
-                console.log(product_list);
-                console.log(product_to_delete);
-
-                let new_array=[]
-                for( let i=0; i<product_list.length; i++){
-                    if(product_list[i].nameProduct!=product_to_delete){
-                        new_array.push(product_list[i])
-                    }
-                }
-
-                /* let new_array=product_list.filter(function(product){
+                let new_array=product_list.filter(function(product){
                     return product.nameProduct!=product_to_delete;
-                }); */
-
+                });
                 sessionStorage.setItem(userFounded,JSON.stringify(new_array));
             }
             else {
