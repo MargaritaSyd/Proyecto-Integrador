@@ -32,11 +32,14 @@ let indexController = {
         
     },
     cart: function(req,res){
-        let user;
-        if(req.session.userLogged){
-            user= req.session.userLogged.id;
+        let user= req.session.userLogged.id;
+        if(req.params.id==user){
+            res.render('cart', {user});
         }
-        res.render('cart', {user});
+        else {
+            res.redirect(user);
+        }
+        
     },
     faqs: function(req,res){
         res.render('faqs');
