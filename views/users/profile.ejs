@@ -89,19 +89,33 @@
                     <a href="/product/create" id="button"> Crear nuevo producto</a>
                 </div>
                 <%}%>
+            <%if(user.admin == 0){%>
+                <div class="tusElementos">
+                    <div class="div favs">
+                    <a href="/>"><div class="item1">
+                        <img class="cartImg" src="/imagenes/favs.PNG">
+                    </div></a>
+                    <div class="item2">
+                         <h4 class="texto">Tus favoritos</h4>
+                    </div>
+                        <!-- tags de js para vista de favoritos -->
+                    </div>
+                    
+                    <div class='div carrillo'>
+                        <a href="/cart/<%=user.id%>"> <div class="item1">
+                            <img class="cartImg" src="/imagenes/carrito.PNG">
+                        </div>
+                        </a>
+                        <div class="item2">
+                            <h4 class="texto">Tu carrito de compras</h4>
+                        </div>
+                    </div>
+                </div>
+                    <%}%>
                 <div class='div crear'>
                     <a href="/" id="button">Editar Perfil</a>
                 </div>
-            <%if(user.admin == 0){%>
-            <div class="div favs">
-                <label  class="labels-formulario">Tus favoritos <i class="far fa-heart"></i></label>
-                <!-- tags de js para vista de favoritos -->
-            </div>
-            <div class='div carrillo'>
-                <label id="label-usuario" class="labels-formulario">Tu carrito de compras</label>
-                <a href="/cart/<%=user.id%>" <i class="fas fa-shopping-cart iconos"></i></a>
-            </div>
-            <%}%>
+            
             
             <div class="cerrar">
             <form action="/users/logout" method="GET">           
