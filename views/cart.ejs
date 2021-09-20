@@ -6,30 +6,80 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Carrito</title>
         <link rel="stylesheet" href="/css/shop.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
+        <link rel="stylesheet" href="gallery-grid.css">
+        <link rel="stylesheet" href="/css/login.css">
+        <link rel="stylesheet" href="/css/indexstylesheet.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     </head>
     <body>
-        <%- include('./partials/header') %>
+        <div class="fixed-top">
+            <header class="newHeader">
+              <div class="container">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                  <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+                  </a>
+                  <span>
+                      <a href="/"> <img class="logo" src="/imagenes/logo.png" alt="logo"></a> 
+                  </span>
+                  <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="/" class="nav-link px-2 text-white botonHeader">Inicio</a></li>
+                    <li><a href="/users/login" class="nav-link px-2 text-white botonHeader">Perfil</a></li>
+                    <li><a href="/product" class="nav-link px-2 text-white botonHeader">Productos</a></li>
+                    <li><a href="/faqs" class="nav-link px-2 text-white botonHeader">FAQs</a></li>
+                    <li><a href="/nosotros" class="nav-link px-2 text-white botonHeader">Nosotros</a></li>
+                    <li><a href="/cart" <i class="fas fa-shopping-cart botonHeader"></i></a></li>
+                  </ul>
+                  <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                    <input type="search" class="form-control form-control-dark" placeholder="Buscar producto.." aria-label="Search">
+                  </form>
+                  <div class="text-end">
+                    <!-- <a href="/users/login" <button type="button" class="btn btn-outline-light me-2" >Ingresá!</button> </a> -->
+                    <!-- <a href="/users/register" <button type="button" class="btn btn-warning" >Creá tu cuenta</button> </a> -->
+                  </div>
+                </div>
+              </div>
+            </header>
+          </div>
+          <div class="space"></div>
+          <div class="space"></div>
+          <div class="space"></div>
+          <div class="space"></div>
+          <div class="space"></div>
+          <div class="space"></div>
+        
+        
         <main id="main-carrito">
             <div id="productos-seleccionados">
             </div>
-
-            <div class="main-separador"></div>
+          
+    
+        
+        <div class="sticky">
+            
             
             <div class="total-compra">
-                <label id="texto-importe-total">El total de tu compra es de</label>
+                <label id="texto-importe-total">Tu total hasta ahora:</label>
                 <label id="importe-total"></label>
             </div>
             <div class="main-buttons">
                 <!-- <button id="cancel-button">Cancelar</button> -->
                 <!-- <button id="more-products-button">Ver más</button>   -->
-                <button id="more-products-button"><a href="/product">Ver más</a></button>   
+                <a href="/product"<button  class="btn btn-outline-success" id="ingresar">Seguir mirando</button></a>   
                 <!-- <button id="confirm-button">Confirmar</button> -->
-                <button id="confirm-button"><a href="/transaction">Confirmar</a></button>
+                <a href="/transaction"<button class="btn btn-outline-success" id="button">Confirmar compra</button></a>
             </div>
-            <div id="main-linea-final"></div> 
+        </div>
         </main>
+        
+        
         <%- include('./partials/footer') %>
+        
         <script src="https://kit.fontawesome.com/17464b966e.js" crossorigin="anonymous"></script>
         <script src="/javascript/cart.js"></script>  
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     </body>
 </html> 
