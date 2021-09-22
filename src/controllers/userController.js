@@ -253,7 +253,7 @@ let userController = {
     allUsersApi: (req , res) => {
         db.user.findAll()
         .then (users => {
-            let usersArray = []
+            let usersArray = [];
             for(let i=0; i<users.length; i++){
                 let oneUser = {
                     id: users[i].id,
@@ -267,7 +267,7 @@ let userController = {
             }
             
             return res.status(200).json({
-                total: users.length,
+                count: users.length,
                 data: usersArray,
                 status: 200
             })

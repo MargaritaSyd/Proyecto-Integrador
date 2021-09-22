@@ -25,7 +25,7 @@ router.delete('/:id', productController.destroy);
 
 router.get('/api/all_products', productController.allProducts);
 
-router.get('api/one_product/:id' , productController.oneProduct);
+router.get('/api/one_product/:id' , productController.oneProduct);
 
 
 

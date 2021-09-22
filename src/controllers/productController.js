@@ -349,16 +349,47 @@ let productController = {
     allProducts: (req , res) => {
     db.product.findAll()
         .then (products => {
-            return res.status(200).json({
+            let productArray = [];
+            for(let i=0; i<products.length; i++){
+                let oneProduct ={
+                    id: products[i].id,
+                    name: products[i].name,
+                    id_category: products[i].id_category,
+                    description: products[i].description,
+                    stock: products[i].stock,
+                    image_product: "https://mameli.herokuapp.com/imagenes/productImages/" + products[i].image_product,
+                    price: products[i].price,
+                    showing: products[i].showing
+                }
+                productArray.push(oneProduct)
+            }
+                return res.status(200).json({
                 total: products.length,
-                data: products,
+                data: productArray,
                 status: 200
             })
         })
     },
-
+   
     oneProduct: (req , res) => {
         db.product.findByPk(req.params.id)
+            .then( oneProduct => {
+                let theProduct = {
+                    id: oneProduct.id,
+                    name: oneProduct.name,
+                    id_category: oneProduct.id_category,
+                    description: oneProduct.description,
+                    stock: oneProduct.stock,
+                    image_product: "https://mameli.herokuapp.com/imagenes/productImages/" + oneProduct.image_product,
+                    price: oneProduct.price,
+                    showing: oneProduct.showing
+                }
+                return res.status(200).json({
+                    data: theProduct,
+                    status: 200
+                })
+            })
+        
     }
     // function(req,res){
     //     let id= req.params.id;
