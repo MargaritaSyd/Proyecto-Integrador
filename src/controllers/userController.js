@@ -182,7 +182,73 @@ let userController = {
         //res.clearCookie('userEmail');
         req.session.destroy();
         res.redirect('/')
-    }   
+    },
+    
+    editProfile: function(req,res){
+        let userToLog = req.session.userLogged;
+        db.user.findByPk(userToLog.id)
+            .then(function(user){
+                return res.render('users/editProfile',{user});
+            })       
+    },
+
+    updateProfile: function(req,res){
+        let userToLog = req.session.userLogged;
+        db.user.findByPk(userToLog.id)
+            .then(function(user){
+                let userImages_path= path.join(__dirname+'../../../public/imagenes/userImages/');
+                let errors = [];
+                if(!errors.isEmpty()){
+                    return res.render('users/editProfile', {user, mensajeError: errors.array()})    
+                }
+                else if(req.files){
+                    const objNewImage= req.files.userImage;
+                    let imageUser_name= Date.now() + path.extname(objNewImage.name);
+                    objNewImage.mv(userImages_path + imageUser_name,(err)=>{
+                        if (err) {
+                            // aqui deberia redirigir a la pagina de error
+                            return res.render("error");
+                        }
+                    });
+                    db.user.update({
+                        email: req.body.email,
+                        password: bcryptjs.hashSync(req.body.password , 10),
+                        user_name: req.body.user,
+                        lastName_user: req.body.lastNameUser,
+                        user_image: imageUser_name,             
+                    },{
+                        where: {id:user.id}
+                    })
+                }    
+                else if (req.body.deleteImage) {
+                    let imageToDelete_path= userImages_path + user.user_image;
+                    fs.unlinkSync(imageToDelete_path); 
+                    db.user.update({ 
+                        email: req.body.email,
+                        password: bcryptjs.hashSync(req.body.password , 10),
+                        user_name: req.body.user,
+                        lastName_user: req.body.lastNameUser,
+                        user_image: "",
+                        },
+                        {
+                            where: {id:user.id}
+                        })                            
+                }
+                else  {
+                    db.user.update({ 
+                        email: req.body.email,
+                        password: bcryptjs.hashSync(req.body.password , 10),
+                        user_name: req.body.user,
+                        lastName_user: req.body.lastNameUser,
+                    },
+                    {
+                        where: {id:user.id}
+                    })                               
+                }   
+                req.session.destroy()
+                return res.redirect('/users/login');    
+            })       
+    }
     
 }
 
