@@ -23,6 +23,10 @@ router.put('/:id' , fileUpload.single ("productImage"), validationProduct, produ
 // accion de eliminar un producto
 router.delete('/:id', productController.destroy); 
 
+router.get('/api/all_products', productController.allProducts);
+
+router.get('api/one_product/:id' , productController.oneProduct);
+
 
 
 

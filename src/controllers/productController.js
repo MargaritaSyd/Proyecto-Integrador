@@ -344,7 +344,22 @@ let productController = {
 
     })
     res.redirect('/product');
-}   
+    },
+    
+    allProducts: (req , res) => {
+    db.product.findAll()
+        .then (products => {
+            return res.status(200).json({
+                total: products.length,
+                data: products,
+                status: 200
+            })
+        })
+    },
+
+    oneProduct: (req , res) => {
+        db.product.findByPk(req.params.id)
+    }
     // function(req,res){
     //     let id= req.params.id;
     //     for(let i=0; i<productListOl.length; i++){
@@ -372,6 +387,7 @@ let productController = {
     //     res.redirect('/product');   
     // }
 }
+
 module.exports = productController;
 
 

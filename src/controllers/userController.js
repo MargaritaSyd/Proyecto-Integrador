@@ -248,6 +248,47 @@ let userController = {
                 req.session.destroy()
                 return res.redirect('/users/login');    
             })       
+    },
+
+    allUsersApi: (req , res) => {
+        db.user.findAll()
+        .then (users => {
+            let usersArray = []
+            for(let i=0; i<users.length; i++){
+                let oneUser = {
+                    id: users[i].id,
+                    email: users[i].email,
+                    user_name: users[i].user_name,
+                    lastName_user: users[i].lastName_user,
+                    user_image: "https://mameli.herokuapp.com/imagenes/userImages/" + users[i].user_image
+                }    
+
+                usersArray.push(oneUser);
+            }
+            
+            return res.status(200).json({
+                total: users.length,
+                data: usersArray,
+                status: 200
+            })
+        })
+    },
+
+    userById: (req,res) => {
+        db.user.findByPk(req.params.id)
+        .then( oneUser => {
+            let theUser = {
+                id: oneUser.id,
+                email: oneUser.email,
+                user_name: oneUser.user_name,
+                lastName_user: oneUser.lastName_user,
+                user_image: "https://mameli.herokuapp.com/imagenes/userImages/" + oneUser.user_image
+            }
+            return res.status(200).json({
+                data: theUser,
+                status: 200
+            })
+        })
     }
     
 }
