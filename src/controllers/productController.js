@@ -135,7 +135,7 @@ let productController = {
                 image_product: imageProduct,
                 showing: showing
             });
-            res.redirect("/product")
+            res.redirect("/product/panel")
         }
         /*
         let imageProduct;
