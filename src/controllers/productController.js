@@ -169,8 +169,7 @@ let productController = {
         let category = db.category.findAll(); 
         Promise.all([product, category])
             .then(function([product, category]){ 
-                //console.log(path.join(__dirname+'/../../public/imagenes/productImages/'+ product.image_product));
-                //let productImages_path= path.join(__dirname+'/../../public/imagenes/productImages/');
+                let showing= req.body.showing;
                 let errors = validationResult(req);
                 if(!errors.isEmpty()){ 
                     return res.render('products/editProduct', {product, category, mensajeError: errors.mapped(), old: req.body})                
@@ -196,6 +195,7 @@ let productController = {
                         stock: req.body.stock,
                         price: req.body.price,
                         image_product: req.file.filename,
+                        showing: showing
                         }, {
                             where: {id:req.params.id}
                         })               
@@ -209,6 +209,7 @@ let productController = {
                         stock: req.body.stock,
                         price: req.body.price,
                         image_product: "",
+                        showing: showing
                         },
                         {
                             where: {id:req.params.id}
@@ -221,6 +222,7 @@ let productController = {
                     description: req.body.description,
                     stock: req.body.stock,
                     price: req.body.price,
+                    showing: showing
                     },
                     {
                         where: {id:req.params.id}
@@ -307,6 +309,50 @@ let productController = {
     //     fs.writeFileSync(productListPath, productListOlupdated)
     //     res.redirect('/product');
     // },
+
+    controlPanel: function(req,res){
+        db.product.findAll()
+        .then(function(products){
+            //return res.send(products)
+            let accesorios=[];
+            let combos=[];
+            let macetas=[];
+            let plantas=[];
+            let terrarios=[];
+            for (product of products){
+                let item={
+                    id: product.id,
+                    name: product.name,
+                    image: product.image_product,
+                    showing: product.showing
+                }
+                switch (product.id_category){
+                    case 1:
+                        plantas.push(item);
+                        break;
+                    case 2:
+                        combos.push(item);
+                        break;
+                    case 3:
+                        macetas.push(item);
+                        break;
+                    case 4:
+                        terrarios.push(item);
+                        break;
+                    case 5:
+                        accesorios.push(item);
+                        break;
+                }
+            } 
+            return res.render("products/panel", {accesorios, combos, macetas, plantas, terrarios});
+        })
+    },
+
+
+
+
+
+
     destroy: function(req,res){
     db.product.update({
         showing: 0

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MaMeLi - Panel administrador de productos</title>
+        <link rel="stylesheet" href="/css/productForm.css">
+        <link rel="stylesheet" href="/css/shop.css">
+        <link rel="stylesheet" href="/css/login.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
+        <link rel="stylesheet" href="gallery-grid.css">
+        <link rel="stylesheet" href="/css/indexstylesheet.css">
+        <link href="styles/ihover.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <div class="fixed-top">
+            <header class="newHeader">
+                <div class="container">
+                    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                            <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+                        </a>
+                        <span>
+                            <a href="/"> <img class="logo" src="/imagenes/logo.png" alt="logo"></a> 
+                        </span>
+                        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                            <li><a href="/" class="nav-link px-2 text-white botonHeader">Inicio</a></li>
+                            <li><a href="/users/login" class="nav-link px-2 text-white botonHeader">Perfil</a></li>
+                            <li><a href="/product" class="nav-link px-2 text-white botonHeader">Productos</a></li>
+                            <li><a href="/faqs" class="nav-link px-2 text-white botonHeader">FAQs</a></li>
+                            <li><a href="/nosotros" class="nav-link px-2 text-white botonHeader">Nosotros</a></li>
+                            <li><a href="/cart" <i class="fas fa-shopping-cart botonHeader"></i></a></li>
+                        </ul>
+                        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                            <input type="search" class="form-control form-control-dark" placeholder="Buscar producto.." aria-label="Search">
+                        </form>
+                        <div class="text-end">
+                            <a href="/users/login" <button type="button" class="btn btn-outline-light me-2" >Ingresá!</button> </a>
+                            <a href="/users/register" <button type="button" class="btn btn-warning" >Creá tu cuenta</button> </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="space"></div>
+        <div class="space"></div>
+        <div class="space"></div>
+        <div class="space"></div>
+        <div class="space" ></div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb" style="margin-bottom: 0;">
+                <!-- <li class="breadcrumb-item breadmenu"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active breadmenu" aria-current="page">Products</li> -->
+            </ol>
+        </nav>
+        <main>
+            <nav style="
+                    background-color: rgb(238, 238, 95);
+                    position:fixed;
+                    right: 0;
+                    left: 0;
+                ">
+                
+                <ul type="none" 
+                    style=" 
+                    display: flex;
+                    justify-content: space-around;
+                ">
+                    <li><a href="#accesorios" style="text-decoration: none; color: rgb(37, 36, 36); font-size: 20px;">Accesorios</a></li>
+                    <li><a href="#combos" style="text-decoration: none; color: rgb(37, 36, 36); font-size: 20px;">Combos</a></li>
+                    <li><a href="#macetas" style="text-decoration: none; color: rgb(37, 36, 36); font-size: 20px;">Macetas</a></li>
+                    <li><a href="#plantas" style="text-decoration: none; color: rgb(37, 36, 36); font-size: 20px;">Plantas</a></li>
+                    <li><a href="#terrarios" style="text-decoration: none; color: rgb(37, 36, 36); font-size: 20px;">Terrarios</a></li>
+                </ul>
+                
+            </nav>
+            <div id="accesorios"></div>
+            <div style="height: 50px;"></div>
+
+            <!-- Accesorios -->
+            <section>
+                <h2 style="
+                        width: 33%; 
+                        background-color: #B4CBB2; 
+                        color: white; 
+                        text-align: center; 
+                        margin: auto;
+                        padding: 5px 0;
+                        margin-top: 10px;"
+                        >Accesorios</h2>
+                <div style="
+                        display: flex;
+                        justify-content: space-around;
+                        padding: 25px 0;
+                        border: 2px solid #5ea058;
+                ">
+                    <% accesorios.forEach(product => { %>
+                        <article style="text-align: center;">
+                            <% if (product.showing==1) { %>
+                                <h3 style="font-size: 12px; font-weight: 900;"><%=product.name%><br><small style="visibility: hidden;">(en exhibición)</small></h3>
+                                <div style="padding-bottom: 15px;">
+                                    <img style="border: 1px solid black;" src="/imagenes/productImages/<%=product.image%>" width="100" height="100"> 
+                                </div>
+                            <% } else { %>
+                                <h3 style="font-size: 12px; font-weight: 900; color: red;"><%=product.name%><br><small style="color: red; font-size:12px">(no exhibido)</small></h3>
+                                <div style="padding-bottom: 15px;">
+                                    <img style="border: 1px solid black; opacity: 0.2;" src="/imagenes/productImages/<%=product.image%>" width="100" height="100"> 
+                                </div>
+                            <% } %>   
+                            <a href="/product/edit/<%=product.id%>" style="color: black;"><button style="padding: 5px; font-size: 12px;">Editar producto</button></a> 
+                        </article>
+                    <% }) %>
+                    <div id="combos"></div>
+                </div>
+            </section>
+            <!-- end of accesorios -->
+
+            <!-- Combos -->
+            <section>
+                <h2 style="
+                        width: 33%; 
+                        background-color: #B4CBB2; 
+                        color: white; 
+                        text-align: center; 
+                        margin: auto;
+                        padding: 5px 0;
+                        margin-top: 10px;"
+                        >Combos</h2>
+                <div style="
+                        display: flex;
+                        justify-content: space-around;
+                        padding: 25px 0;
+                        border: 2px solid #198754;
+                ">
+                    <% combos.forEach(product => { %>
+                        <article style="text-align: center;">
+                            <% if (product.showing==1) { %>
+                                <h3 style="font-size: 12px; font-weight: 900;"><%=product.name%><br><small style="visibility: hidden;">(en exhibición)</small></h3>
+                                <div style="padding-bottom: 15px;">
+                                    <img style="border: 1px solid black;" src="/imagenes/productImages/<%=product.image%>" width="100" height="100"> 
+                                </div>
+                            <% } else { %>
+                                <h3 style="font-size: 12px; font-weight: 900; color: red;"><%=product.name%><br><small style="color: red; font-size:12px">(no exhibido)</small></h3>
+                                <div style="padding-bottom: 15px;">
+                                    <img style="border: 1px solid black; opacity: 0.2;" src="/imagenes/productImages/<%=product.image%>" width="100" height="100"> 
+                                </div>
+                            <% } %>  
+                            <a href="/product/edit/<%=product.id%>" style="color: black;"><button style="padding: 5px; font-size: 12px;">Editar producto</button></a> 
+                        </article>
+                    <% }) %>
+                    <div id="macetas"></div>
+                </div>
+            </section>
+            <!-- end of combos -->
+
+            <!-- Macetas -->
+            <div id="macetas"></div>
+            <section>
+                <h2 style="
+                        width: 33%; 
+                        background-color: #B4CBB2; 
+                        color: white; 
+                        text-align: center; 
+                        margin: auto;
+                        padding: 5px 0;
+                        margin-top: 10px;"
+                        >Macetas</h2>
+                <div style="
+                        display: flex;
+                        justify-content: space-around;
+                        padding: 25px 0;
+                        border: 2px solid #198754;
+                ">
+                    <% macetas.forEach(product => { %>
+                        <article style="text-align: center;">
+                            <% if (product.showing==1) { %>
+                                <h3 style="font-size: 12px; font-weight: 900;"><%=product.name%><br><small style="visibility: hidden;">(en exhibición)</small></h3>
+                                <div style="padding-bottom: 15px;">
+                                    <img style="border: 1px solid black;" src="/imagenes/productImages/<%=product.image%>" width="100" height="100"> 
+                                </div>
+                            <% } else { %>
+                                <h3 style="font-size: 12px; font-weight: 900; color: red;"><%=product.name%><br><small style="color: red; font-size:12px">(no exhibido)</small></h3>
+                                <div style="padding-bottom: 15px;">
+                                    <img style="border: 1px solid black; opacity: 0.2;" src="/imagenes/productImages/<%=product.image%>" width="100" height="100"> 
+                                </div>
+                            <% } %>                             
+                            <a href="/product/edit/<%=product.id%>" style="color: black;"><button style="padding: 5px; font-size: 12px;">Editar producto</button></a> 
+                        </article>
+                    <% }) %>
+                    <div id="plantas"></div>
+                </div>
+            </section>
+            <!-- end of Macetas -->
+
+            <!-- Plantas -->
+            <section>
+                <h2 style="
+                        width: 33%; 
+                        background-color: #B4CBB2; 
+                        color: white; 
+                        text-align: center; 
+                        margin: auto;
+                        padding: 5px 0;
+                        margin-top: 10px;"
+                        >Plantas</h2>
+                <div style="
+                        display: flex;
+                        justify-content: space-around;
+                        padding: 25px 0;
+                        border: 2px solid #198754;
+                ">
+                    <% plantas.forEach(product => { %>
+                        <article style="text-align: center;">
+                            <% if (product.showing==1) { %>
+                                <h3 style="font-size: 12px; font-weight: 900;"><%=product.name%><br><small style="visibility: hidden;">(en exhibición)</small></h3>
+                                <div style="padding-bottom: 15px;">
+                                    <img style="border: 1px solid black;" src="/imagenes/productImages/<%=product.image%>" width="100" height="100"> 
+                                </div>
+                            <% } else { %>
+                                <h3 style="font-size: 12px; font-weight: 900; color: red;"><%=product.name%><br><small style="color: red; font-size:12px">(no exhibido)</small></h3>
+                                <div style="padding-bottom: 15px;">
+                                    <img style="border: 1px solid black; opacity: 0.2;" src="/imagenes/productImages/<%=product.image%>" width="100" height="100"> 
+                                </div>
+                            <% } %>  
+                            <a href="/product/edit/<%=product.id%>" style="color: black;"><button style="padding: 5px; font-size: 12px;">Editar producto</button></a> 
+                        </article>
+                    <% }) %>
+                    <div id="terrarios"></div>
+                </div>
+            </section>
+            <!-- end of Plantas -->
+
+            <!-- Terrarios -->
+            <section style="margin-bottom: 25px;">
+                <h2 style="
+                        width: 33%; 
+                        background-color: #B4CBB2; 
+                        color: white; 
+                        text-align: center; 
+                        margin: auto;
+                        padding: 5px 0;
+                        margin-top: 10px;
+                        ">Terrarios</h2>
+                <div style="
+                        display: flex;
+                        justify-content: space-around;
+                        padding: 25px 0;
+                        border: 2px solid #198754;
+                ">
+                    <% terrarios.forEach(product => { %>
+                        <article style="text-align: center;">
+                            <% if (product.showing==1) { %>
+                                <h3 style="font-size: 12px; font-weight: 900;"><%=product.name%><br><small style="visibility: hidden;">(en exhibición)</small></h3>
+                                <div style="padding-bottom: 15px;">
+                                    <img style="border: 1px solid black;" src="/imagenes/productImages/<%=product.image%>" width="100" height="100"> 
+                                </div>
+                            <% } else { %>
+                                <h3 style="font-size: 12px; font-weight: 900; color: red;"><%=product.name%><br><small style="color: red; font-size:12px">(no exhibido)</small></h3>
+                                <div style="padding-bottom: 15px;">
+                                    <img style="border: 1px solid black; opacity: 0.2;" src="/imagenes/productImages/<%=product.image%>" width="100" height="100"> 
+                                </div>
+                            <% } %>  
+                            <a href="/product/edit/<%=product.id%>" style="color: black;"><button style="padding: 5px; font-size: 12px;">Editar producto</button></a> 
+                        </article>
+                    <% }) %>
+                </div>
+            </section>
+            <!-- end of Terrarios -->
+        </main>
+
+
+
+        <%- include('../partials/footer') %>
+        <script src="https://kit.fontawesome.com/17464b966e.js" crossorigin="anonymous"></script>
+        <script src="/javaScript/cart.js"></script>  
+    </body>
+</html>

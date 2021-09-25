@@ -15,6 +15,8 @@ router.get('/create' , adminUser , productController.create);
 
 router.get('/detail/:id' , productController.detail);
 
+router.get('/panel', adminUser, productController.controlPanel);
+
 router.get('/edit/:id' , adminUser , productController.edit);
 
 // accion de editar un producto
@@ -22,6 +24,7 @@ router.put('/:id' , fileUpload.single ("productImage"), validationProduct, produ
 
 // accion de eliminar un producto
 router.delete('/:id', productController.destroy); 
+
 
 router.get('/api/all_products', productController.allProducts);
 

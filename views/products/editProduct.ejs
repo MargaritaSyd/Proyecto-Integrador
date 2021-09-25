@@ -101,6 +101,19 @@
                     <%}%> 
                 </div>
 
+                <div style="text-align: center; margin-top: 20px;">
+                    <select class="product_showing_select" name="showing" id="">
+                        <% if (product.showing==1) { %>
+                            <option value="1" selected>Producto en exhibición</option>
+                            <option value="0" >Producto no exhibido</option>
+                        <% } else {%>
+                            <option value="1">Producto en exhibición</option>
+                            <option value="0" selected>Producto no exhibido</option>
+                        <% } %> 
+                    </select>
+                </div>
+
+
                 <div class="new-product-button-add-image-div-container">   
                     <label class="new-product-button-add-image-name">Agregar imágenes</label>
                     <input id="product_image_input" type="file" name="productImage" accept=".gif,.png,.jpeg,.bmp,.webp,.jpg" class="new-product-button-add-image-input">
