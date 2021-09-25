@@ -165,23 +165,20 @@ let productController = {
         */
     },
     update:(req,res)=>{
-
         let product = db.product.findByPk(req.params.id);
         let category = db.category.findAll(); 
         Promise.all([product, category])
             .then(function([product, category]){ 
-                //let productImages_path= path.join(__dirname+'../../../public/imagenes/productImages/');
+                //console.log(path.join(__dirname+'/../../public/imagenes/productImages/'+ product.image_product));
+                //let productImages_path= path.join(__dirname+'/../../public/imagenes/productImages/');
                 let errors = validationResult(req);
                 if(!errors.isEmpty()){ 
                     return res.render('products/editProduct', {product, category, mensajeError: errors.mapped(), old: req.body})                
                 }
                 else if(req.file){
-                    /* 
-                    if(product.image_product!=""){
-                        let imageToDelete_path= productImages_path + product.image_product;
-                        fs.unlinkSync(imageToDelete_path);  
+                    if(product.image_product!=""){ 
+                        fs.unlinkSync(path.join(__dirname+'/../../public/imagenes/productImages/'+ product.image_product));  
                     }
-                    */
                     /*
                     const objNewImage= req.files.productImage;
                     let imageProduct_name= Date.now() + path.extname(objNewImage.name);
@@ -204,12 +201,7 @@ let productController = {
                         })               
                 }      
                 else if (req.body.deleteImage) {
-                    /*
-                    if(product.image_product!=""){
-                        let imageToDelete_path= productImages_path + product.image_product;
-                        fs.unlinkSync(imageToDelete_path);  
-                    }
-                    */
+                    fs.unlinkSync(path.join(__dirname+'/../../public/imagenes/productImages/'+ product.image_product));  
                     db.product.update({ 
                         name: req.body.name,
                         id_category: req.body.category,
@@ -235,13 +227,7 @@ let productController = {
                     })          
                 }
                 res.redirect('/product')
-                })
-
-
-
-
-
-
+            })
         /*
         let imageProduct;
         if(req.file){
@@ -286,7 +272,7 @@ let productController = {
         }
         res.redirect('/product')
         */
-        },
+    },
     //     idProduct= req.params.id;
     //     let productToMidyfy= productListOl.find(element=>element.id==idProduct);
     //     let modifiedProduct={

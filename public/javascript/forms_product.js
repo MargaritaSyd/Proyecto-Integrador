@@ -47,7 +47,7 @@ function validations(){
             image_error.innerHTML= ('El archivo tiene que ser de formato imagen'); 
             errors= true;   
             product_image_input.value= "";
-        } else if (product_image_input.files[0].size > /*512000*/ 30720){
+        } else if (product_image_input.files[0].size > 512000 /* 30720 */){
             image_error.innerHTML= "El tamaño del archivo supera el máximo permitido. Puedes intentar nuevamente. Recuerda que la imagen de perfil no es obligatoria."; 
             errors= true; 
             product_image_input.value= "";
