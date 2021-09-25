@@ -28,64 +28,49 @@ let productController = {
         .then(function(product){
             let validUrl= false;
             if(req.params.id>=1 && req.params.id<=product.length){
-                validUrl=true
-                
+                validUrl=true    
             }
-            
             if(validUrl==true){
                 let productD = product.find(products=>
                     products.id==req.params.id,
                     );
-                let related_product_list = product.filter(products => {return products.id_category == productD.id_category})
                 if(productD.showing==1){
-
-
-
-
-                    let related_product_list_less_productD = related_product_list.filter(products => {return products.id != productD.id})
-                let relatedProduct=[];
-                if(related_product_list_less_productD.length>=3){               
-                    for (let i=0; i<3;i++){
-                        let relatedProduct_random_position= Math.floor(Math.random()*related_product_list_less_productD.length);
-                        if(relatedProduct.length==0){
-                            relatedProduct.push(related_product_list_less_productD[relatedProduct_random_position]);
-                        } else {
-                            let is_inside= relatedProduct.find(product_founded=>
-                                product_founded.id==related_product_list_less_productD[relatedProduct_random_position].id
-                            )
-                            if(is_inside){
-                                i--
+                    let related_product_list = product.filter(products => {
+                        if(products.id!=productD.id && products.showing==1){
+                            return products.id_category == productD.id_category
+                        }
+                    })
+                    let relatedProduct=[];
+                    if(related_product_list.length>=3){
+                        let length= related_product_list.length;              
+                        for (let i=0; i<3;i++){
+                            let relatedProduct_random_position= Math.floor(Math.random()*length /* related_product_list.length */);
+                            if(relatedProduct.length==0){
+                                relatedProduct.push(related_product_list[relatedProduct_random_position]);
                             } else {
-                                relatedProduct.push(related_product_list_less_productD[relatedProduct_random_position]);
+                                let is_inside= relatedProduct.find(product_founded=>
+                                    product_founded.id==related_product_list[relatedProduct_random_position].id)
+                                    if(is_inside){
+                                        i--
+                                    } else {
+                                        relatedProduct.push(related_product_list[relatedProduct_random_position]);
+                                    }
                             }
                         }
+                    } else {
+                        relatedProduct= related_product_list;  
                     }
-                } else {
-                    relatedProduct= related_product_list_less_productD;  
-                }
-
-
-
-
-
-                    //console.log(productD);
-                    //return res.send(relatedProduct)
-
                     res.render('products/productDetail', {productD , relatedProduct , user:req.session.userLogged})
                 }
                 else {
-                    let msjNotFound = "El producto no existe."
                     res.redirect("/error")
                 }
             }
             else {
-                let msjNotFound = "El producto no existe."
                 res.redirect("/error")
-            }
-        
+            }     
         })    
-    },
-    
+    },    
          // let idProd = req.params.id
         // let productD = ''
 
@@ -98,7 +83,6 @@ let productController = {
         //     let relatedProduct = productListOl.filter((e)=>{
         //         return e.category == productD.category
         // })
-
     edit: function(req,res){
         let product = db.product.findByPk(req.params.id);
         let category = db.category.findAll(); 
