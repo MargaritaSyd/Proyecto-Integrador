@@ -106,9 +106,7 @@ let productController = {
         })
         .then(function(productsStockOn){
             productsStockOn.sort((a,b)=> (a.id_category > b.id_category ? 1 : -1))
-            
             return res.render("products/productList", {productsStockOn});
-
         })
     },
     processForm: function(req,res){  
@@ -120,17 +118,12 @@ let productController = {
             })
         }
         else {
+            let showing= req.body.showing;
             let imageProduct;
             if(req.file){
                 imageProduct=req.file.filename;
             } else{
                 imageProduct='';
-            }
-            let showing;
-            if(req.body.showing=='on'){
-                showing= 1;
-            } else{
-                showing= 0;
             }
             db.product.create(
                 {
@@ -228,7 +221,7 @@ let productController = {
                         where: {id:req.params.id}
                     })          
                 }
-                res.redirect('/product')
+                res.redirect('/product/panel')
             })
         /*
         let imageProduct;

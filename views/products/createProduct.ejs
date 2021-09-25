@@ -68,6 +68,19 @@
                     <textarea class="prodFormInputInterest" name="description" id="" cols="30" rows="10"><%=locals.old && old.description? old.description: null%></textarea>
                 </div>
 
+
+
+                <div style="text-align: center; margin-top: 20px;">
+                    <select class="product_showing_select" name="showing" id="">
+                            <option value="1" selected>Producto en exhibición</option>
+                            <option value="0" >Producto no exhibido</option>
+                    </select>
+                </div>
+
+
+
+
+
                 <div class="new-product-button-add-image-div-container">   
                     <label class="new-product-button-add-image-name">Agregar imágenes</label>
                     <input id="product_image_input" type="file" name="productImage" accept=".gif,.png,.jpeg,.bmp,.webp,.jpg" class="new-product-button-add-image-input">
@@ -78,8 +91,8 @@
                     <small id="image_error" style="color: blue;"></small>
                 </div>
                 <div class="productFormFourthLine">
-                    <label for="">En exhibición</label>
-                    <input type="checkbox" name="showing">
+                    <!-- <label for="">En exhibición</label>
+                    <input type="checkbox" name="showing"> -->
                     <button class="prodFormButton" type="submit">Confirmar</button>
                 </div>
             </form> 
