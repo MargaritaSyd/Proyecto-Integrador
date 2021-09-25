@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="/css/productForm.css">
         <link rel="stylesheet" href="/css/shop.css">
         <link rel="stylesheet" href="/css/login.css">
+        <link rel="stylesheet" href="/css/panel.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
@@ -60,61 +61,37 @@
             </ol>
         </nav>
         <main>
-            <nav style="
-                    background-color: rgb(238, 238, 95);
-                    position:fixed;
-                    right: 0;
-                    left: 0;
-                ">
-                
-                <ul type="none" 
-                    style=" 
-                    display: flex;
-                    justify-content: space-around;
-                ">
-                    <li><a href="#accesorios" style="text-decoration: none; color: rgb(37, 36, 36); font-size: 20px;">Accesorios</a></li>
-                    <li><a href="#combos" style="text-decoration: none; color: rgb(37, 36, 36); font-size: 20px;">Combos</a></li>
-                    <li><a href="#macetas" style="text-decoration: none; color: rgb(37, 36, 36); font-size: 20px;">Macetas</a></li>
-                    <li><a href="#plantas" style="text-decoration: none; color: rgb(37, 36, 36); font-size: 20px;">Plantas</a></li>
-                    <li><a href="#terrarios" style="text-decoration: none; color: rgb(37, 36, 36); font-size: 20px;">Terrarios</a></li>
-                    <li><a href="/product/create" style="text-decoration: none; color: rgb(81, 165, 235); font-size: 20px;">Nuevo producto</a></li>
+            <nav class="panel-top_nav">
+                <ul class="panel-top_nav_ul" type="none">
+                    <li><a class="panel-top_nav_ul_li" href="#accesorios">Accesorios</a></li>
+                    <li><a class="panel-top_nav_ul_li" href="#combos">Combos</a></li>
+                    <li><a class="panel-top_nav_ul_li" href="#macetas">Macetas</a></li>
+                    <li><a class="panel-top_nav_ul_li" href="#plantas">Plantas</a></li>
+                    <li><a class="panel-top_nav_ul_li" href="#terrarios">Terrarios</a></li>
+                    <li><a class="panel-top_nav_ul_li new_product" href="/product/create">Nuevo producto</a></li>
                 </ul>
-                
             </nav>
             <div id="accesorios"></div>
-            <div style="height: 50px;"></div>
+            <div class="div_under_nav"></div>
 
             <!-- Accesorios -->
             <section>
-                <h2 style="
-                        width: 33%; 
-                        background-color: #B4CBB2; 
-                        color: white; 
-                        text-align: center; 
-                        margin: auto;
-                        padding: 5px 0;
-                        margin-top: 10px;"
-                        >Accesorios</h2>
-                <div style="
-                        display: flex;
-                        justify-content: space-around;
-                        padding: 25px 0;
-                        border: 2px solid #5ea058;
-                ">
+                <h2 class="panel-section-h2">Accesorios</h2>
+                <div class="panel_section_div">
                     <% accesorios.forEach(product => { %>
-                        <article style="text-align: center;">
+                        <article class="text_align_center">
                             <% if (product.showing==1) { %>
-                                <h3 style="font-size: 12px; font-weight: 900;"><%=product.name%><br><small style="visibility: hidden;">(en exhibición)</small></h3>
-                                <div style="padding-bottom: 15px;">
-                                    <img style="border: 1px solid black;" src="/imagenes/productImages/<%=product.image%>" width="100" height="100"> 
+                                <h3 class="panel_section_div_article_h3"><%=product.name%><br><small class="showing_small_msg">(en exhibición)</small></h3>
+                                <div class="div_container_image">
+                                    <img class="image" src="/imagenes/productImages/<%=product.image%>"> 
                                 </div>
                             <% } else { %>
-                                <h3 style="font-size: 12px; font-weight: 900; color: red;"><%=product.name%><br><small style="color: red; font-size:12px">(no exhibido)</small></h3>
-                                <div style="padding-bottom: 15px;">
-                                    <img style="border: 1px solid black; opacity: 0.2;" src="/imagenes/productImages/<%=product.image%>" width="100" height="100"> 
+                                <h3 class="panel_section_div_article_h3 noshowing"><%=product.name%><br><small class="noshowing no_showing_small_msg">(no exhibido)</small></h3>
+                                <div class="div_container_image">
+                                    <img class="image image_no_showing" src="/imagenes/productImages/<%=product.image%>"> 
                                 </div>
                             <% } %>   
-                            <a href="/product/edit/<%=product.id%>" style="color: black;"><button style="padding: 5px; font-size: 12px;">Editar producto</button></a> 
+                            <a href="/product/edit/<%=product.id%>"><button class="edit_product_button">Editar producto</button></a> 
                         </article>
                     <% }) %>
                     <div id="combos"></div>
@@ -124,35 +101,22 @@
 
             <!-- Combos -->
             <section>
-                <h2 style="
-                        width: 33%; 
-                        background-color: #B4CBB2; 
-                        color: white; 
-                        text-align: center; 
-                        margin: auto;
-                        padding: 5px 0;
-                        margin-top: 10px;"
-                        >Combos</h2>
-                <div style="
-                        display: flex;
-                        justify-content: space-around;
-                        padding: 25px 0;
-                        border: 2px solid #198754;
-                ">
+                <h2 class="panel-section-h2">Combos</h2>
+                <div class="panel_section_div">
                     <% combos.forEach(product => { %>
-                        <article style="text-align: center;">
+                        <article class="text_align_center">
                             <% if (product.showing==1) { %>
-                                <h3 style="font-size: 12px; font-weight: 900;"><%=product.name%><br><small style="visibility: hidden;">(en exhibición)</small></h3>
-                                <div style="padding-bottom: 15px;">
-                                    <img style="border: 1px solid black;" src="/imagenes/productImages/<%=product.image%>" width="100" height="100"> 
+                                <h3 class="panel_section_div_article_h3"><%=product.name%><br><small class="showing_small_msg">(en exhibición)</small></h3>
+                                <div class="div_container_image">
+                                    <img class="image" src="/imagenes/productImages/<%=product.image%>"> 
                                 </div>
                             <% } else { %>
-                                <h3 style="font-size: 12px; font-weight: 900; color: red;"><%=product.name%><br><small style="color: red; font-size:12px">(no exhibido)</small></h3>
-                                <div style="padding-bottom: 15px;">
-                                    <img style="border: 1px solid black; opacity: 0.2;" src="/imagenes/productImages/<%=product.image%>" width="100" height="100"> 
+                                <h3 class="panel_section_div_article_h3 noshowing"><%=product.name%><br><small class="noshowing no_showing_small_msg">(no exhibido)</small></h3>
+                                <div class="div_container_image">
+                                    <img class="image image_no_showing" src="/imagenes/productImages/<%=product.image%>"> 
                                 </div>
-                            <% } %>  
-                            <a href="/product/edit/<%=product.id%>" style="color: black;"><button style="padding: 5px; font-size: 12px;">Editar producto</button></a> 
+                            <% } %>   
+                            <a href="/product/edit/<%=product.id%>"><button class="edit_product_button">Editar producto</button></a> 
                         </article>
                     <% }) %>
                     <div id="macetas"></div>
@@ -161,37 +125,23 @@
             <!-- end of combos -->
 
             <!-- Macetas -->
-            <div id="macetas"></div>
             <section>
-                <h2 style="
-                        width: 33%; 
-                        background-color: #B4CBB2; 
-                        color: white; 
-                        text-align: center; 
-                        margin: auto;
-                        padding: 5px 0;
-                        margin-top: 10px;"
-                        >Macetas</h2>
-                <div style="
-                        display: flex;
-                        justify-content: space-around;
-                        padding: 25px 0;
-                        border: 2px solid #198754;
-                ">
+                <h2 class="panel-section-h2">Macetas</h2>
+                <div class="panel_section_div">
                     <% macetas.forEach(product => { %>
-                        <article style="text-align: center;">
+                        <article class="text_align_center">
                             <% if (product.showing==1) { %>
-                                <h3 style="font-size: 12px; font-weight: 900;"><%=product.name%><br><small style="visibility: hidden;">(en exhibición)</small></h3>
-                                <div style="padding-bottom: 15px;">
-                                    <img style="border: 1px solid black;" src="/imagenes/productImages/<%=product.image%>" width="100" height="100"> 
+                                <h3 class="panel_section_div_article_h3"><%=product.name%><br><small class="showing_small_msg">(en exhibición)</small></h3>
+                                <div class="div_container_image">
+                                    <img class="image" src="/imagenes/productImages/<%=product.image%>"> 
                                 </div>
                             <% } else { %>
-                                <h3 style="font-size: 12px; font-weight: 900; color: red;"><%=product.name%><br><small style="color: red; font-size:12px">(no exhibido)</small></h3>
-                                <div style="padding-bottom: 15px;">
-                                    <img style="border: 1px solid black; opacity: 0.2;" src="/imagenes/productImages/<%=product.image%>" width="100" height="100"> 
+                                <h3 class="panel_section_div_article_h3 noshowing"><%=product.name%><br><small class="noshowing no_showing_small_msg">(no exhibido)</small></h3>
+                                <div class="div_container_image">
+                                    <img class="image image_no_showing" src="/imagenes/productImages/<%=product.image%>"> 
                                 </div>
-                            <% } %>                             
-                            <a href="/product/edit/<%=product.id%>" style="color: black;"><button style="padding: 5px; font-size: 12px;">Editar producto</button></a> 
+                            <% } %>   
+                            <a href="/product/edit/<%=product.id%>"><button class="edit_product_button">Editar producto</button></a> 
                         </article>
                     <% }) %>
                     <div id="plantas"></div>
@@ -201,35 +151,22 @@
 
             <!-- Plantas -->
             <section>
-                <h2 style="
-                        width: 33%; 
-                        background-color: #B4CBB2; 
-                        color: white; 
-                        text-align: center; 
-                        margin: auto;
-                        padding: 5px 0;
-                        margin-top: 10px;"
-                        >Plantas</h2>
-                <div style="
-                        display: flex;
-                        justify-content: space-around;
-                        padding: 25px 0;
-                        border: 2px solid #198754;
-                ">
+                <h2 class="panel-section-h2">Plantas</h2>
+                <div class="panel_section_div">
                     <% plantas.forEach(product => { %>
-                        <article style="text-align: center;">
+                        <article class="text_align_center">
                             <% if (product.showing==1) { %>
-                                <h3 style="font-size: 12px; font-weight: 900;"><%=product.name%><br><small style="visibility: hidden;">(en exhibición)</small></h3>
-                                <div style="padding-bottom: 15px;">
-                                    <img style="border: 1px solid black;" src="/imagenes/productImages/<%=product.image%>" width="100" height="100"> 
+                                <h3 class="panel_section_div_article_h3"><%=product.name%><br><small class="showing_small_msg">(en exhibición)</small></h3>
+                                <div class="div_container_image">
+                                    <img class="image" src="/imagenes/productImages/<%=product.image%>"> 
                                 </div>
                             <% } else { %>
-                                <h3 style="font-size: 12px; font-weight: 900; color: red;"><%=product.name%><br><small style="color: red; font-size:12px">(no exhibido)</small></h3>
-                                <div style="padding-bottom: 15px;">
-                                    <img style="border: 1px solid black; opacity: 0.2;" src="/imagenes/productImages/<%=product.image%>" width="100" height="100"> 
+                                <h3 class="panel_section_div_article_h3 noshowing"><%=product.name%><br><small class="noshowing no_showing_small_msg">(no exhibido)</small></h3>
+                                <div class="div_container_image">
+                                    <img class="image image_no_showing" src="/imagenes/productImages/<%=product.image%>"> 
                                 </div>
-                            <% } %>  
-                            <a href="/product/edit/<%=product.id%>" style="color: black;"><button style="padding: 5px; font-size: 12px;">Editar producto</button></a> 
+                            <% } %>   
+                            <a href="/product/edit/<%=product.id%>"><button class="edit_product_button">Editar producto</button></a> 
                         </article>
                     <% }) %>
                     <div id="terrarios"></div>
@@ -238,47 +175,33 @@
             <!-- end of Plantas -->
 
             <!-- Terrarios -->
-            <section style="margin-bottom: 25px;">
-                <h2 style="
-                        width: 33%; 
-                        background-color: #B4CBB2; 
-                        color: white; 
-                        text-align: center; 
-                        margin: auto;
-                        padding: 5px 0;
-                        margin-top: 10px;
-                        ">Terrarios</h2>
-                <div style="
-                        display: flex;
-                        justify-content: space-around;
-                        padding: 25px 0;
-                        border: 2px solid #198754;
-                ">
+            <section class="section_terrarios">
+                <h2 class="panel-section-h2">Terrarios</h2>
+                <div class="panel_section_div">
                     <% terrarios.forEach(product => { %>
-                        <article style="text-align: center;">
+                        <article class="text_align_center">
                             <% if (product.showing==1) { %>
-                                <h3 style="font-size: 12px; font-weight: 900;"><%=product.name%><br><small style="visibility: hidden;">(en exhibición)</small></h3>
-                                <div style="padding-bottom: 15px;">
-                                    <img style="border: 1px solid black;" src="/imagenes/productImages/<%=product.image%>" width="100" height="100"> 
+                                <h3 class="panel_section_div_article_h3"><%=product.name%><br><small class="showing_small_msg">(en exhibición)</small></h3>
+                                <div class="div_container_image">
+                                    <img class="image" src="/imagenes/productImages/<%=product.image%>"> 
                                 </div>
                             <% } else { %>
-                                <h3 style="font-size: 12px; font-weight: 900; color: red;"><%=product.name%><br><small style="color: red; font-size:12px">(no exhibido)</small></h3>
-                                <div style="padding-bottom: 15px;">
-                                    <img style="border: 1px solid black; opacity: 0.2;" src="/imagenes/productImages/<%=product.image%>" width="100" height="100"> 
+                                <h3 class="panel_section_div_article_h3 noshowing"><%=product.name%><br><small class="noshowing no_showing_small_msg">(no exhibido)</small></h3>
+                                <div class="div_container_image">
+                                    <img class="image image_no_showing" src="/imagenes/productImages/<%=product.image%>"> 
                                 </div>
-                            <% } %>  
-                            <a href="/product/edit/<%=product.id%>" style="color: black;"><button style="padding: 5px; font-size: 12px;">Editar producto</button></a> 
+                            <% } %>   
+                            <a href="/product/edit/<%=product.id%>"><button class="edit_product_button">Editar producto</button></a> 
                         </article>
                     <% }) %>
                 </div>
             </section>
             <!-- end of Terrarios -->
-        </main>
 
-
+        </main>        
 
         <%- include('../partials/footer') %>
         <script src="https://kit.fontawesome.com/17464b966e.js" crossorigin="anonymous"></script>
-        <script src="/javaScript/cart.js"></script>  
+        <!-- <script src="/javaScript/cart.js"></script>   -->
     </body>
 </html>
