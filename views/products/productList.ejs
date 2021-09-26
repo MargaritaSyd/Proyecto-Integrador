@@ -73,7 +73,7 @@
         <div class= "menuCategorias">
   
             <div class="categoria-listado">
-                <a class="lightbox" href="./product">
+                <a class="lightbox" href="#combos">
                     <img src="../imagenes/combo-categoria.png" alt="combos" class="imagenCategoria">
                     <div class="overlayList">
                       <div class="text">Combos</div>
@@ -82,7 +82,7 @@
                
             </div>
             <div class="categoria-listado">
-                <a class="lightbox" href="./product">
+                <a class="lightbox" href="#macetas">
                     <img src="../imagenes/maceta-categoria.png" alt="macetas" class="imagenCategoria">
                     <div class="overlayList">
                       <div class="text">Macetas</div>
@@ -90,7 +90,7 @@
                 </a>
             </div>
             <div class="categoria-listado">
-                <a class="lightbox" href="./product">
+                <a class="lightbox" href="#plantas">
                     <img src="../imagenes/planta-categoria.png" alt="plantas" class="imagenCategoria">
                     <div class="overlayList">
                       <div class="text">Plantas</div>
@@ -98,7 +98,7 @@
                 </a>
             </div>
             <div class="categoria-listado">
-                <a class="lightbox" href="./product">
+                <a class="lightbox" href="#terrarios">
                     <img src="../imagenes/terrario-categoria.png" alt="terrarios" class="imagenCategoria listImg">
                     <div class="overlayList">
                       <div class="text">Terrarios</div>
@@ -106,7 +106,7 @@
                 </a>
             </div>
             <div class="categoria-listado">
-                <a class="lightbox" href="./product">
+                <a class="lightbox" href="#accesorios">
                     <img src="../imagenes/accesorio-categoria.png" alt="accesorios" class="imagenCategoria">
                     <div class="overlayList">
                       <div class="text">Accesorios</div>
@@ -127,16 +127,23 @@
                     <div class="products-list-container">
                     <%for(let i=0;i<productsStockOn.length;i++){%>
                             <div class="product-container">
-                                <!-- aca ira a el detail correspondiente al ID -->
-                                <a class="productList-anchor" href="/product/detail/<%=productsStockOn[i].id%>">
-                                    <!-- aca ira el nombre e imagen correspondientes al i del OL -->
-                                    <%=productsStockOn[i].name%>
-                                    <br>
+                           
+                                
+                                  <a class="productList-anchor" href="/product/detail/<%=productsStockOn[i].id%>">
+                  
+                                    <div class="listImage">
                                     <%if(productsStockOn[i].image_product){%>
-                                        <img src="/imagenes/productImages/<%=productsStockOn[i].image_product%>"> 
+                                       
+                                        <img src="/imagenes/productImages/<%=productsStockOn[i].image_product%>" > 
+                                        
                                     <%} else{%>
                                         <img src="/imagenes/logo.JPG">
-                                    <%}%>        
+                                    <%}%>
+                                    <div class="over">
+                                    <div class="centered"><%=productsStockOn[i].name%></div>
+                                    </div>
+                  
+                                  </div>        
                                 </a>  
                             </div>  
                     <%}%>               

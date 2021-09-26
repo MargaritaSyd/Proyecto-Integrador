@@ -24,7 +24,7 @@
     height: 20%;
     border: solid 1px #386641;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-    background-color: red;
+    
     margin-top: 1%;
     
 }
@@ -111,18 +111,18 @@
     
 }
 
-.borrar{
-    background-color: springgreen;
-}
+
 #contenedor-general {
     width: 90%; 
     max-width: 580px;
     height: 100%;
     margin: auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 10%;
+    margin-bottom: 5%;
+    padding-bottom: 5%;
     border: solid 1px #386641;
     box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.2);
+    
     
 }
 

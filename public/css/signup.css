@@ -15,8 +15,9 @@ main {
     height: 490px; 
     max-width: 580px;
     margin: auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    padding-bottom: 35%;
     border: solid 1px rgb(43, 35, 35);
     border-radius: 10px;
 }
@@ -29,7 +30,7 @@ main {
 }
 
 #icono {  
-    background-color: rgb(68, 196, 132);
+    background-color: #B4CBB2;
     color: #f3f3f3;
     border:rgb(43, 35, 35) 1px solid;
     font-size: 25px;
