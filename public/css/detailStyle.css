@@ -35,7 +35,8 @@ main{
 
 .prodDetailImg{
     width: 40vh;
-    height: auto;
+    height: 45vh;
+    padding-left: 2%;
 
 }
 .productInfo{
@@ -125,6 +126,7 @@ main{
     justify-content: space-around;
     text-align: center;
     font-weight: bold;
+    margin-bottom: 5%;
 }
 
 .titulo{
