@@ -22,7 +22,7 @@ let userController = {
         res.render('users/register');
     },
     profile: function(req,res){
-        
+        let userToLog = req.session.userLogged
         //comprobacion de como funcionan las cookies
        // if(req.cookies.userEmail){
        //     console.log(req.cookies.userEmail);
@@ -30,7 +30,7 @@ let userController = {
        //     console.log('No hay cookie');
        // }
         //comprobacion de como funcionan las cookies
-        res.render('users/profile',{user:req.session.userLogged}); 
+        res.render('users/profile',{user:userToLog}); 
     },
 
     login: function(req,res){
@@ -193,61 +193,50 @@ let userController = {
     },
 
     updateProfile: function(req,res){
+        let errorMessage= 'La contraseña es inválida';
         let userToLog = req.session.userLogged;
-        db.user.findByPk(userToLog.id)
-            .then(function(user){
-                let userImages_path= path.join(__dirname+'../../../public/imagenes/userImages/');
-                let errors = [];
-                if(!errors.isEmpty()){
-                    return res.render('users/editProfile', {user, mensajeError: errors.array()})    
+        let userImage;
+
+        let passwordOk= bcryptjs.compareSync(req.body.password , userToLog.password)
+        if(!passwordOk){
+            res.render('users/editProfile',{errorMessage})
+        }else{
+            if(req.file){
+            userImage=req.file.filename;
+            db.user.update({
+                user_name: req.body.user,
+                lastName_user: req.body.lastNameUser,
+                user_image: userImage 
+            },{
+                where: {
+                    id: userToLog.id
                 }
-                else if(req.files){
-                    const objNewImage= req.files.userImage;
-                    let imageUser_name= Date.now() + path.extname(objNewImage.name);
-                    objNewImage.mv(userImages_path + imageUser_name,(err)=>{
-                        if (err) {
-                            // aqui deberia redirigir a la pagina de error
-                            return res.render("error");
-                        }
-                    });
-                    db.user.update({
-                        email: req.body.email,
-                        password: bcryptjs.hashSync(req.body.password , 10),
-                        user_name: req.body.user,
-                        lastName_user: req.body.lastNameUser,
-                        user_image: imageUser_name,             
-                    },{
-                        where: {id:user.id}
-                    })
-                }    
-                else if (req.body.deleteImage) {
-                    let imageToDelete_path= userImages_path + user.user_image;
-                    fs.unlinkSync(imageToDelete_path); 
-                    db.user.update({ 
-                        email: req.body.email,
-                        password: bcryptjs.hashSync(req.body.password , 10),
-                        user_name: req.body.user,
-                        lastName_user: req.body.lastNameUser,
-                        user_image: "",
-                        },
-                        {
-                            where: {id:user.id}
-                        })                            
+            })
+            .then(function(){
+                res.redirect('/index')
+                .catch(function(e){
+                    return res.render('/index',{errorMessage})
+                })
+            }) 
+            } else {
+            db.user.update({
+                user_name: req.body.user,
+                lastName_user: req.body.lastNameUser,
+            },{
+                where: {
+                    id: userToLog.id
                 }
-                else  {
-                    db.user.update({ 
-                        email: req.body.email,
-                        password: bcryptjs.hashSync(req.body.password , 10),
-                        user_name: req.body.user,
-                        lastName_user: req.body.lastNameUser,
-                    },
-                    {
-                        where: {id:user.id}
-                    })                               
-                }   
-                req.session.destroy()
-                return res.redirect('/users/login');    
-            })       
+            })
+            .then(function(){
+                res.redirect('/index')
+            }) 
+            .catch(function(e){
+                return res.render('index',{errorMessage})
+            })
+            }
+            res.render('users/profile')
+        }
+        
     },
 
     allUsersApi: (req , res) => {

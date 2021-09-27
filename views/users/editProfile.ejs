@@ -55,25 +55,16 @@
         <div class="space"></div>
         <div class="space"></div>
 
-        <div id="front_validations_box" class="cajaMensajeError">
-            <div id="user_error_message"></div>
-        </div>
-        
-        <% if(locals.mensajeError){%>
-            <%for(let i=0; i<mensajeError.length; i++){%>
-            <div id="more_validations" class="cajaMensajeError">
-                <div class="mensajeError"><p>   <%= mensajeError[i].msg %> </p></div>
-            </div>
-            <%}%> 
-        <%}%> 
-
+        <% if(locals.errorMessage != undefined){%>
+        <div class="mensajeError"><p>   <%= errorMessage %> </p></div>
+        <%}%>
         <main id="main">
             <div id="contenedor-general">
                 <div id="div-icono">
                     <i id="icono" class="fas fa-user"></i>
                 </div>
                 <label id="bienvenida" class="labels-formulario">Editá tu perfil</label>
-                <form class='loginform' action="/users/register" method="POST" enctype="multipart/form-data">
+                <form class='editform' method="POST" enctype="multipart/form-data"> 
                     <div class="div">
                         <label id="contraseña" class="labels-formulario">Nombre</label>
                         <input type="text" name="user" id="input-usuario" class="inputName" value= <%= user.user_name %>  > 
@@ -84,40 +75,22 @@
                     </div>
                     <div class="div">
                         <label id="contraseña" class="labels-formulario">e-mail</label>
-                        <input type="text" name="email" id="input-usuario" class="inputMail" value= <%= user.email %> > 
-                    </div>
-                    <div class="div">
-                        <label id="contraseña" class="labels-formulario">Contraseña</label>
-                        <input type="password" name="password" id="password" class="inputPassword">
-                    </div>
-                    <div class="div">
-                        <label id="contraseña" class="labels-formulario">Confirmar contraseña</label>
-                        <input type="password" id="password" class="inputPassword2">
+                        <input type="text" readonly id="input-usuario" class="inputMail" value= <%= user.email %> > 
                     </div>
                     <div class="new-product-button-add-image-div-container"> 
                         <label class="new-product-button-add-image-name">Agregar imágenes</label>
                         <input id="image_user_input" type="file" name="userImage" accept=".jpg" class="new-product-button-add-image-input">
                     </div>
-                    <button type="submit" class="btn btn-outline-success" id="ingresar">Registrar</button>
+                    <div class="div">
+                        <label id="contraseña" class="labels-formulario">Contraseña</label>
+                        <input type="password" name="password" id="password" class="inputPassword">
+                    </div>
+                    <button type="submit" class="btn btn-outline-success" id="ingresar">Editar perfil</button>
                     
                 </form> 
-                <!-- <div class="space"></div>
-                <div class="space"></div>
-                <div class="space"></div>
-                <div class="space"></div>
-                <div class="space"></div>
-                <div class="space"></div>
-                <div class="space"></div>
-                <div class="space"></div>
-                <div class="space"></div>
-                <div class="space"></div>
-                <div class="space"></div>
-                <div class="space"></div>  -->
             </div>
         </main>
         <%- include('../partials/footer') %>
         <script src="https://kit.fontawesome.com/17464b966e.js" crossorigin="anonymous"></script>
-    
-        </script>
     </body>
 </html>

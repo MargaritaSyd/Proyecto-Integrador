@@ -22,7 +22,7 @@ router.get('/logout' , guestUser , userController.logout);
 
 router.get('/profile/edit', userController.editProfile);
 
-router.put('/profile/edit/:id', fileUpload.single('userImage') , validationUser , userController.updateProfile);
+router.post('/profile/edit', fileUpload.single('userImage') , userController.updateProfile);
 
 router.get ('/api/all_users' , userController.allUsersApi);
 
