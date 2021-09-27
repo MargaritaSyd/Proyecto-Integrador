@@ -213,9 +213,10 @@ let userController = {
                 }
             })
             .then(function(){
-                res.redirect('/index')
+                req.session.destroy()
+                res.redirect('/users/login')
                 .catch(function(e){
-                    return res.render('/index',{errorMessage})
+                    res.redirect('/error')
                 })
             }) 
             } else {
@@ -228,13 +229,13 @@ let userController = {
                 }
             })
             .then(function(){
-                res.redirect('/index')
+                req.session.destroy()
+                res.redirect('/users/login')
             }) 
             .catch(function(e){
-                return res.render('index',{errorMessage})
+                res.redirect('/error')
             })
             }
-            res.render('users/profile')
         }
         
     },
