@@ -50,7 +50,7 @@ if(sessionStorageProducts!=null && sessionStorageProducts.length>0){
             // hijos del div padre anterior
             const label_nombreProductoSeleccionado= document.createElement("label");
             label_nombreProductoSeleccionado.classList.add("nombre-producto-seleccionado");
-                label_nombreProductoSeleccionado.innerHTML= `<strong>Estas llevando</strong> ${product.nameProduct}`
+                label_nombreProductoSeleccionado.innerHTML= `<strong>Seleccionaste</strong> ${product.nameProduct}`
 
             const span_contenedorImagenProductoSeleccionado= document.createElement("span");
             span_contenedorImagenProductoSeleccionado.classList.add("contenedor-imagen-producto-seleccionado");
