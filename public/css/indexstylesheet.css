@@ -1,5 +1,6 @@
 *{
     font-family: Trebuchet MS, sans-serif;
+    font-size: 14px;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -80,14 +81,23 @@ main {
 .carrousel{
     margin-top: 10%;
     display:flex;
-    max-width:100%;
-    max-height: auto;
+    width:100%;
+    height: auto;
     justify-content: space-around;
     
 }
 .imgcarrousel{
-    max-width:100%;
-    max-height:auto;
+    width:100%;
+    height:auto;
+}
+
+/* .carfix{
+    width:12%;
+    height: auto;
+} */
+
+.carrousel-mobil{
+    display:none;
 }
 .subtitulo{
     margin-top: 3%;
@@ -425,8 +435,18 @@ footer label {
         display: none;
     }
     .carrousel{
-        margin-top: 55%;
+        display:none;
         
+    }
+
+    .carousel-item{
+        width: 100%;
+        height:auto;
+    }
+
+    .carrousel-mobil{
+        margin-top: 60%;
+        display:block;
     }
 
 }
