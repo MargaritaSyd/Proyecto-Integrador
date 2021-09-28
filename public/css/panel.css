@@ -4,80 +4,190 @@
 }
 /* Estilos genéricos */
 
-/* Barra de navegacion */
-.panel-top_nav {
-	background-color: rgb(238, 238, 95);
-    position:fixed;
-    right: 0;
-    left: 0;
-}
-.panel-top_nav_ul {
-	display: flex;
-    justify-content: space-around;
-}
-.panel-top_nav_ul_li {
-	text-decoration: none; 
-	color: rgb(37, 36, 36); 
-	font-size: 20px;
-} 
-.new_product {
-	color: rgb(81, 165, 235);
-}
-/* Barra de navegacion */
 
-/* Sección de productos por categoría */
+/* barra de navegavion */
+.panel-top_nav {
+	display: none;
+}
+/* barra de navegavion */
+
+/* estilos de elementos en particular */
+.section_accesorios {
+	margin-top: 150px;
+}
+/* estilos de elementos en particular */
+
+/* seccion categoria */
 .panel-section-h2 {
-	width: 33%; 
+	width: 80%; 
 	background-color: #B4CBB2; 
 	color: white; 
 	text-align: center; 
 	margin: auto;
 	padding: 5px 0;
 	margin-top: 10px;
+	border-top: 2px solid #5ea058;
+	border-left: 2px solid #5ea058;
+	border-right: 2px solid #5ea058;
 }
+
 .panel_section_div {
-	display: flex;
-	justify-content: space-around;
-	padding: 25px 0;
+	width: 80%;
+	margin: auto;
 	border: 2px solid #5ea058;
+	display: flex;
+    flex-wrap: wrap;
+	margin-bottom: 30px;
+	
 }
+
+.article_product {
+	width: 100%;
+	
+	/* border: blue solid 2px; */
+}
+
 .panel_section_div_article_h3 {
 	font-size: 12px; 
 	font-weight: 900;
+	margin-top: 20px;
 }
-.noshowing {
-	color: red;
-}
+
 .showing_small_msg {
 	visibility: hidden;
 }
+
+.div_container_image {
+	width: 70%;
+	/* border: red solid 2px; */
+	margin: auto;
+}
+
+.image {
+	/* width: 100%; */
+	width: 150px;
+	border: 1px solid black;
+	height: 150px
+
+}
+
+.noshowing {
+	color: red;
+}
+
 .no_showing_small_msg {
 	font-size:12px;
 }
-.div_container_image {
-	padding-bottom: 15px;
-}
-.image {
-	border: 1px solid black;
-	width: 100px; 
-	height: 100px
-}
+
 .image_no_showing {
-	opacity: 0.2;
+	opacity: 0.5;
 }
+
 .edit_product_button {
 	color: black;
 	padding: 5px; 
 	font-size: 12px;
+	margin: 20px 0 20px 0;
 }
+/* seccion categoria */
 
-	/* estilos de elementos en particular */
+
+@media (min-width: 500px) {
+
+	.section_accesorios {
+		margin-top: 120px;
+	}
+
+    .panel_section_div {
+        width: 90%;
+		justify-content: space-evenly;
+    }
+
+    .article_product {
+        width: 50%;
+    }
+
+	.panel-section-h2 {
+		width: 90%; 
+	}
+
+} 
+
+@media (min-width: 700px) {
+    
+    /* .section_accesorios {
+		margin-top: 120px;
+	} */
+
+    .panel_section_div {
+        width: 95%;
+		justify-content: space-evenly;
+    }
+
+    .article_product {
+        width: 33%;
+    }
+
+	.panel-section-h2 {
+		width: 95%; 
+	}
+    
+} 
+
+@media (min-width: 900px) {
+
+	.panel-top_nav {
+		display: block;
+		background-color: rgb(238, 238, 95);
+		position:fixed;
+		right: 0;
+		left: 0;
+	}
+	.panel-top_nav_ul {
+		display: flex;
+		justify-content: space-around;
+	}
+	.panel-top_nav_ul_li {
+		text-decoration: none; 
+		color: rgb(37, 36, 36); 
+		font-size: 20px;
+	} 
+	.new_product {
+		color: rgb(81, 165, 235);
+	}
+
 	.div_under_nav {
-		height: 50px;
+		height: 86.2px;
 	}
-	.section_terrarios {
-		margin-bottom: 25px;
-	}
-	/* estilos de elementos en particular */
 
-/* Sección de productos por categoría */
+	.section_accesorios {
+		margin-top: 70px;
+	} 
+
+    .panel_section_div {
+        width: 95%;
+		justify-content: space-evenly;
+    }
+
+    .article_product {
+        width: 25%;
+    }
+
+	.panel-section-h2 {
+		width: 95%; 
+	}
+    
+} 
+
+@media (min-width: 992px) {
+    
+    .div_under_nav {
+		display: none;
+	}
+
+	.article_product {
+		/* max-width: 178.25px; */
+        width: 20%;
+    }
+    
+} 

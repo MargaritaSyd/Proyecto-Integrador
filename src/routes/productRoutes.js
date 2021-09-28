@@ -28,6 +28,8 @@ router.delete('/:id', productController.destroy);
 
 router.get('/api/all_products', productController.allProducts);
 
+router.get('/api/total_categories' , productController.totalCategories);
+
 router.get('/api/one_product/:id' , productController.oneProduct);
 
 

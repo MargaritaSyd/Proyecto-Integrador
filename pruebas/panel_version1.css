@@ -1,0 +1,83 @@
+/* Estilos genéricos */
+.text_align_center {
+	text-align: center;
+}
+/* Estilos genéricos */
+
+/* Barra de navegacion */
+.panel-top_nav {
+	background-color: rgb(238, 238, 95);
+    position:fixed;
+    right: 0;
+    left: 0;
+}
+.panel-top_nav_ul {
+	display: flex;
+    justify-content: space-around;
+}
+.panel-top_nav_ul_li {
+	text-decoration: none; 
+	color: rgb(37, 36, 36); 
+	font-size: 20px;
+} 
+.new_product {
+	color: rgb(81, 165, 235);
+}
+/* Barra de navegacion */
+
+/* Sección de productos por categoría */
+.panel-section-h2 {
+	width: 33%; 
+	background-color: #B4CBB2; 
+	color: white; 
+	text-align: center; 
+	margin: auto;
+	padding: 5px 0;
+	margin-top: 10px;
+}
+.panel_section_div {
+	display: flex;
+	justify-content: space-around;
+	padding: 25px 0;
+	border: 2px solid #5ea058;
+}
+.panel_section_div_article_h3 {
+	font-size: 12px; 
+	font-weight: 900;
+}
+.noshowing {
+	color: red;
+}
+.showing_small_msg {
+	visibility: hidden;
+}
+.no_showing_small_msg {
+	font-size:12px;
+}
+.div_container_image {
+	padding-bottom: 15px;
+}
+.image {
+	border: 1px solid black;
+	width: 100px; 
+	height: 100px
+}
+.image_no_showing {
+	opacity: 0.2;
+}
+.edit_product_button {
+	color: black;
+	padding: 5px; 
+	font-size: 12px;
+}
+
+	/* estilos de elementos en particular */
+	.div_under_nav {
+		height: 50px;
+	}
+	.section_terrarios {
+		margin-bottom: 25px;
+	}
+	/* estilos de elementos en particular */
+
+/* Sección de productos por categoría */

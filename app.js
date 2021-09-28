@@ -6,6 +6,14 @@ const productRoutes = require('./src/routes/productRoutes');
 const userRoutes = require('./src/routes/userRoutes');
 const methodOverride= require('method-override');
 const session = require('express-session');
+
+const cors = require('cors');
+
+// implementando cors
+app.use(cors())
+// implementando cors
+
+
 //const session = require('cookie-session');
 
 //const cookies= require('cookie-parser');

@@ -6,7 +6,6 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>MaMeLi - Panel administrador de productos</title>
-        <link rel="shortcut icon" href="/imagenes/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="/css/productForm.css">
         <link rel="stylesheet" href="/css/shop.css">
         <link rel="stylesheet" href="/css/login.css">
@@ -61,9 +60,7 @@
                 <li class="breadcrumb-item active breadmenu" aria-current="page">Products</li> -->
             </ol>
         </nav>
-
         <main>
-            <div class="div_under_nav"></div>
             <nav class="panel-top_nav">
                 <ul class="panel-top_nav_ul" type="none">
                     <li><a class="panel-top_nav_ul_li" href="#accesorios">Accesorios</a></li>
@@ -75,21 +72,21 @@
                 </ul>
             </nav>
             <div id="accesorios"></div>
-            <!-- <div class="div_under_nav"></div> -->
+            <div class="div_under_nav"></div>
 
             <!-- Accesorios -->
-            <section class="section_category section_accesorios">
+            <section>
                 <h2 class="panel-section-h2">Accesorios</h2>
                 <div class="panel_section_div">
                     <% accesorios.forEach(product => { %>
-                        <article class="text_align_center article_product">
+                        <article class="text_align_center">
                             <% if (product.showing==1) { %>
                                 <h3 class="panel_section_div_article_h3"><%=product.name%><br><small class="showing_small_msg">(en exhibición)</small></h3>
                                 <div class="div_container_image">
                                     <img class="image" src="/imagenes/productImages/<%=product.image%>"> 
                                 </div>
                             <% } else { %>
-                                <h3 class="panel_section_div_article_h3 noshowing"><%=product.name%><br><small class="noshowing no_showing_small_msg">(no exhibido)</small></h3> 
+                                <h3 class="panel_section_div_article_h3 noshowing"><%=product.name%><br><small class="noshowing no_showing_small_msg">(no exhibido)</small></h3>
                                 <div class="div_container_image">
                                     <img class="image image_no_showing" src="/imagenes/productImages/<%=product.image%>"> 
                                 </div>
@@ -103,11 +100,11 @@
             <!-- end of accesorios -->
 
             <!-- Combos -->
-            <section class="section_category">
+            <section>
                 <h2 class="panel-section-h2">Combos</h2>
                 <div class="panel_section_div">
                     <% combos.forEach(product => { %>
-                        <article class="text_align_center article_product">
+                        <article class="text_align_center">
                             <% if (product.showing==1) { %>
                                 <h3 class="panel_section_div_article_h3"><%=product.name%><br><small class="showing_small_msg">(en exhibición)</small></h3>
                                 <div class="div_container_image">
@@ -128,11 +125,11 @@
             <!-- end of combos -->
 
             <!-- Macetas -->
-            <section class="section_category">
+            <section>
                 <h2 class="panel-section-h2">Macetas</h2>
                 <div class="panel_section_div">
                     <% macetas.forEach(product => { %>
-                        <article class="text_align_center article_product">
+                        <article class="text_align_center">
                             <% if (product.showing==1) { %>
                                 <h3 class="panel_section_div_article_h3"><%=product.name%><br><small class="showing_small_msg">(en exhibición)</small></h3>
                                 <div class="div_container_image">
@@ -153,11 +150,11 @@
             <!-- end of Macetas -->
 
             <!-- Plantas -->
-            <section class="section_category">
+            <section>
                 <h2 class="panel-section-h2">Plantas</h2>
                 <div class="panel_section_div">
                     <% plantas.forEach(product => { %>
-                        <article class="text_align_center article_product">
+                        <article class="text_align_center">
                             <% if (product.showing==1) { %>
                                 <h3 class="panel_section_div_article_h3"><%=product.name%><br><small class="showing_small_msg">(en exhibición)</small></h3>
                                 <div class="div_container_image">
@@ -178,11 +175,11 @@
             <!-- end of Plantas -->
 
             <!-- Terrarios -->
-            <section  class="section_category section_terrarios">
+            <section class="section_terrarios">
                 <h2 class="panel-section-h2">Terrarios</h2>
                 <div class="panel_section_div">
                     <% terrarios.forEach(product => { %>
-                        <article class="text_align_center article_product">
+                        <article class="text_align_center">
                             <% if (product.showing==1) { %>
                                 <h3 class="panel_section_div_article_h3"><%=product.name%><br><small class="showing_small_msg">(en exhibición)</small></h3>
                                 <div class="div_container_image">
@@ -208,3 +205,12 @@
         <!-- <script src="/javaScript/cart.js"></script>   -->
     </body>
 </html>
+
+
+
+
+
+
+
+
+

@@ -354,7 +354,111 @@ let productController = {
     })
     res.redirect('/product');
     },
+    allProducts: (req , res) => {
+        let products = db.product.findAll({include: [{association: 'category'}]})
+        let categories = db.category.findAll({ group: 'name' });
+
+        Promise.all([products, categories])
+            
+            .then(function([products, categories]){
+
+                let accesorios=0;
+                let combos=0;
+                let macetas=0;
+                let plantas=0;
+                let terrarios=0;
+                for (let i=0; i<products.length;i++){
+                    switch (products[i].id_category){
+                        case 1:
+                            plantas++;
+                            break;
+                        case 2:
+                            combos++;
+                            break;
+                        case 3:
+                            macetas++;
+                            break;
+                        case 4:
+                            terrarios++;
+                            break;
+                        case 5:
+                            accesorios++;
+                            break;
+                    }
+                }
+
+                let arrayCategories= [];
+                for (category of categories){
+                    arrayCategories.push({name:category.dataValues.name});
+                }
+                arrayCategories[0].totalProducts= accesorios;
+                arrayCategories[1].totalProducts= combos;
+                arrayCategories[2].totalProducts= macetas;
+                arrayCategories[3].totalProducts= plantas;
+                arrayCategories[4].totalProducts= terrarios;
+
+                let productArray = [];
+                for(let i=0; i<products.length; i++){
+                    let oneProduct ={
+                        id: products[i].id,
+                        name: products[i].name,
+                        id_category: products[i].id_category,
+                        description: products[i].description,
+                        stock: products[i].stock,
+                        image_product: "https://mameli.herokuapp.com/imagenes/productImages/" + products[i].image_product,
+                        price: products[i].price,
+                        showing: products[i].showing
+                    }
+                    productArray.push(oneProduct)
+                }
+                return res.status(200).json({
+                    count: productArray.length,
+                    countByCategory: arrayCategories,
+                    products: productArray,
+                    status: 200
+                })
+            })
+    },
+    totalCategories: (req , res) => {
+        db.category.count()
+            .then(totalCategories => {
+                return res.status(200).json({
+                    totalCategories: totalCategories,
+                    status: 200
+                })
+            })
+    },
+    oneProduct: (req , res) => {
+        db.product.findByPk(req.params.id,{include: [{association: 'category'}]})
+            .then( oneProduct => {
+                if(oneProduct==null){
+                    res.send("Product not found")
+                }
+                else {
+                    let theProduct = {
+                        id: oneProduct.id,
+                        name: oneProduct.name,
+                        //id_category: oneProduct.id_category,
+                        name_category: oneProduct.category.name,
+                        description: oneProduct.description,
+                        stock: oneProduct.stock,
+                        image_product: "https://mameli.herokuapp.com/imagenes/productImages/" + oneProduct.image_product,
+                        price: oneProduct.price,
+                        showing: oneProduct.showing
+                    }
+                    return res.status(200).json({
+                        data: theProduct,
+                        status: 200
+                    })
+                }
+            })    
+    }
+}
+
+module.exports = productController;
     
+    // Enpoints products evrsion I
+    /* 
     allProducts: (req , res) => {
     db.product.findAll()
         .then (products => {
@@ -397,9 +501,14 @@ let productController = {
                     data: theProduct,
                     status: 200
                 })
-            })
-        
+            })    
     }
+    */
+    // Enpoints products evrsion I
+
+
+    
+
     // function(req,res){
     //     let id= req.params.id;
     //     for(let i=0; i<productListOl.length; i++){
@@ -426,9 +535,7 @@ let productController = {
     //     fs.writeFileSync(productListPath,  JSON.stringify(productListOl, null, " "));
     //     res.redirect('/product');   
     // }
-}
 
-module.exports = productController;
 
 
 /*
