@@ -127,8 +127,8 @@
                     <div class="products-list-container">
                     <%for(let i=0;i<productsStockOn.length;i++){%>
                             <div class="product-container">
-                           
-                                
+                              <% if(productsStockOn[i].id_category == 1){%>
+                                <div id= "plantas">
                                   <a class="productList-anchor" href="/product/detail/<%=productsStockOn[i].id%>">
                   
                                     <div class="listImage">
@@ -144,7 +144,102 @@
                                     </div>
                   
                                   </div>        
-                                </a>  
+                                </a> 
+
+                                </div>
+
+                                <%}%>
+                                <%  if(productsStockOn[i].id_category == 2){%>
+                                  <div id= "combos">
+                                    <a class="productList-anchor" href="/product/detail/<%=productsStockOn[i].id%>">
+                    
+                                      <div class="listImage">
+                                      <%if(productsStockOn[i].image_product){%>
+                                         
+                                          <img src="/imagenes/productImages/<%=productsStockOn[i].image_product%>" > 
+                                          
+                                      <%} else{%>
+                                          <img src="/imagenes/logo.JPG">
+                                      <%}%>
+                                      <div class="over">
+                                      <div class="centered"><%=productsStockOn[i].name%></div>
+                                      </div>
+                    
+                                    </div>        
+                                  </a> 
+  
+                                  </div>
+  
+                                  <%}%>
+                                  <%  if(productsStockOn[i].id_category == 3){%>
+                                    <div id= "macetas">
+                                      <a class="productList-anchor" href="/product/detail/<%=productsStockOn[i].id%>">
+                      
+                                        <div class="listImage">
+                                        <%if(productsStockOn[i].image_product){%>
+                                           
+                                            <img src="/imagenes/productImages/<%=productsStockOn[i].image_product%>" > 
+                                            
+                                        <%} else{%>
+                                            <img src="/imagenes/logo.JPG">
+                                        <%}%>
+                                        <div class="over">
+                                        <div class="centered"><%=productsStockOn[i].name%></div>
+                                        </div>
+                      
+                                      </div>        
+                                    </a> 
+    
+                                    </div>
+    
+                                    <%}%>
+                                    <%  if(productsStockOn[i].id_category == 4){%>
+                                      <div id= "terrarios">
+                                        <a class="productList-anchor" href="/product/detail/<%=productsStockOn[i].id%>">
+                        
+                                          <div class="listImage">
+                                          <%if(productsStockOn[i].image_product){%>
+                                             
+                                              <img src="/imagenes/productImages/<%=productsStockOn[i].image_product%>" > 
+                                              
+                                          <%} else{%>
+                                              <img src="/imagenes/logo.JPG">
+                                          <%}%>
+                                          <div class="over">
+                                          <div class="centered"><%=productsStockOn[i].name%></div>
+                                          </div>
+                        
+                                        </div>        
+                                      </a> 
+      
+                                      </div>
+      
+                                      <%}%>
+                                      <%  if(productsStockOn[i].id_category == 5){%>
+                                        <div id= "accesorios">
+                                          <a class="productList-anchor" href="/product/detail/<%=productsStockOn[i].id%>">
+                          
+                                            <div class="listImage">
+                                            <%if(productsStockOn[i].image_product){%>
+                                               
+                                                <img src="/imagenes/productImages/<%=productsStockOn[i].image_product%>" > 
+                                                
+                                            <%} else{%>
+                                                <img src="/imagenes/logo.JPG">
+                                            <%}%>
+                                            <div class="over">
+                                            <div class="centered"><%=productsStockOn[i].name%></div>
+                                            </div>
+                          
+                                          </div>        
+                                        </a> 
+        
+                                        </div>
+        
+                                        <%}%>
+                           
+                                
+                                   
                             </div>  
                     <%}%>               
                 </div>
