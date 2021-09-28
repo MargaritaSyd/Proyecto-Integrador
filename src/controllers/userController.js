@@ -239,7 +239,6 @@ let userController = {
         }
         
     },
-
     allUsersApi: (req , res) => {
         db.user.findAll()
         .then (users => {
@@ -257,8 +256,8 @@ let userController = {
             }
             
             return res.status(200).json({
-                count: users.length,
-                data: usersArray,
+                count: usersArray.length,
+                users: usersArray,
                 status: 200
             })
         })
@@ -267,17 +266,22 @@ let userController = {
     userById: (req,res) => {
         db.user.findByPk(req.params.id)
         .then( oneUser => {
-            let theUser = {
-                id: oneUser.id,
-                email: oneUser.email,
-                user_name: oneUser.user_name,
-                lastName_user: oneUser.lastName_user,
-                user_image: "https://mameli.herokuapp.com/imagenes/userImages/" + oneUser.user_image
+            if(oneUser==null){
+                res.send("User not found")
             }
-            return res.status(200).json({
-                data: theUser,
-                status: 200
-            })
+            else {
+                let theUser = {
+                    id: oneUser.id,
+                    email: oneUser.email,
+                    user_name: oneUser.user_name,
+                    lastName_user: oneUser.lastName_user,
+                    user_image: "https://mameli.herokuapp.com/imagenes/userImages/" + oneUser.user_image
+                }
+                return res.status(200).json({
+                    data: theUser,
+                    status: 200
+                })
+            }
         })
     }
     

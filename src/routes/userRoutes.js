@@ -26,7 +26,7 @@ router.post('/profile/edit', fileUpload.single('userImage') , userController.upd
 
 router.get ('/api/all_users' , userController.allUsersApi);
 
-router.get ('/api/one_user/:id' , userController.userById)
+router.get ('/api/one_user/:id' , userController.userById);
 
 
 module.exports = router;
