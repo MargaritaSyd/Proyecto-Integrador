@@ -250,3 +250,33 @@ body {
     font-weight: bold;
     text-align: center;
 }
+
+
+@media (max-width:380px){
+    #contenedor-general{
+        width:80%;
+        height: 300px;
+        margin-top: 70%;
+        
+    }
+
+   #div-icono{
+       display:none;
+   }
+   #bienvenida{
+       margin-top: 5%;
+       color: #AE76A6;
+   }
+   .inputMailLog{
+       height: 5%;
+   }
+   .inputPasswordCheck{
+    height: 5%;
+   }
+   #contraseña{
+       font-size: small;
+   }
+   .fixed-bottom{
+       display:none;
+   }
+}

@@ -1,5 +1,6 @@
 *{
-    font-family: Trebuchet MS, sans-serif;
+    
+    font-family: 'Yaldevi', sans-serif;
     font-size: 14px;
     box-sizing: border-box;
     margin: 0;
@@ -83,7 +84,7 @@ main {
     display:flex;
     width:100%;
     height: auto;
-    justify-content: space-around;
+    justify-content: center;
     
 }
 .imgcarrousel{
@@ -91,10 +92,7 @@ main {
     height:auto;
 }
 
-/* .carfix{
-    width:12%;
-    height: auto;
-} */
+
 
 .carrousel-mobil{
     display:none;
@@ -153,7 +151,9 @@ main {
 }
 
 .menuCategorias{
-    
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
     display:flex;
     justify-content: space-around;
     align-items:baseline;
@@ -391,7 +391,7 @@ footer label {
     height: auto;
     position: relative;
     text-align: center;
-    color: #685044;
+    color: #000000;
 }
 
 .centered {
