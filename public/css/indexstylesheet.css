@@ -351,6 +351,22 @@ footer label {
     align-items: center;
 }
 
+/* estilos vista perfil*/
+
+#contenedor-general-profile {
+    width: 90%; 
+    max-width: 580px;
+    height: 80%;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 5%;
+    padding-bottom: 5%;
+    border: solid 1px #386641;
+    box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.2);
+    
+    
+}
+
 /* anchor dentro del for (redirige al detalle de un producto en particular) */
 .productList-anchor{
     
@@ -564,4 +580,15 @@ footer label {
 .container{
     padding-bottom: 2%;
 }
+}
+
+/* media queries profile  */
+@media (max-width:380px){
+    #contenedor-general-profile{
+      margin-top: 2%;
+      margin-bottom: 15%;
+    }
+    .bannerProfileMobil{
+        margin-top: 10%;
+    }
 }
