@@ -107,16 +107,7 @@ main{
 
 }
 
-@media (min-width: 600px){
-    .prod{
-        width: 40%;
-    }
-}
-@media (min-width: 800px){
-    .prod{
-        width: 25%;
-    }
-}
+
 
 
 #relacionados{
@@ -300,6 +291,16 @@ footer label {
     color: #AE76A6;
     text-align: center;
 }
+@media (min-width: 600px){
+    .prod{
+        width: 40%;
+    }
+}
+@media (min-width: 800px){
+    .prod{
+        width: 25%;
+    }
+}
 
 /* media queries formulario creacion producto  */
 @media (max-width:380px){
@@ -310,5 +311,29 @@ footer label {
     }
     .prodFormInputInterest{
         width: 70%;
+    }
+}
+/* media queries productDetail  */
+@media (max-width:380px){
+    .guardaDetail{
+        display:none;
+      
+    }
+    .logoDetail{
+        display:none;
+    }
+    .detailTittle{
+        margin-top: 70%;
+    }
+    .productDetaill{
+        width:80%;
+        justify-content: space-around;
+    }
+    #det{
+        width: 300px;
+    }
+    .prodDetailImg{
+        width: 300px;
+        margin-left: 10%;
     }
 }
