@@ -573,7 +573,7 @@ footer label {
     display:none;
 
 }
-#contenedor-general{
+#contenedor-general.contRegister{
     margin-top: 70%;
     height: 600px;
 }
@@ -593,3 +593,27 @@ footer label {
     }
 }
 
+/* media queries edit profile  */
+@media (max-width:380px){
+    #contenedor-general.editPCont{
+      margin-top: 60%;
+      margin-bottom: 15%;
+      height: 450px;
+    }
+    
+}
+
+/* media queries carrito  */
+@media (max-width:380px){
+    #main-carrito{
+      margin-top: 60%;
+      margin-bottom: 15%;
+      
+    }
+    #ingresar{
+        width: 122px;
+    }
+    #button{
+        width: 122px;
+    }
+}
