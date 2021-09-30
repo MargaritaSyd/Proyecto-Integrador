@@ -536,3 +536,17 @@ footer label {
     }
 
 }
+
+/* media queries vista error  */
+@media (max-width:380px){
+    .errorImage{
+        margin-top: 65%;
+        width: 100px;
+        height: auto;
+        display: flex;
+    }
+    .errorImg{
+        margin-left: 280px;
+        width: 400px;
+    }
+}
