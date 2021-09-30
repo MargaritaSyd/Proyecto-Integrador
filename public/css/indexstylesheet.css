@@ -284,6 +284,9 @@ footer label {
     
 
 }
+.banner-faqs-mobil{
+    display:none;
+}
 
 .banner-image{
     display: block;
@@ -307,6 +310,7 @@ footer label {
     border-style: solid;
     margin-left: 10%;
     margin-right: 10%;
+    padding: 5%;
     
 }
 .faqs-middle{
@@ -421,6 +425,9 @@ footer label {
 .productList-anchor:hover .overlayList{
     opacity: 0.5;
 }
+
+/* media queries index  */
+
 @media (max-width:380px){
     .productosSugeridos{
         display:block
@@ -450,6 +457,8 @@ footer label {
     }
 
 }
+/* media queries listado de productos  */
+
 @media (max-width:380px){
     .product-container{
         padding-bottom:2px;
@@ -488,4 +497,42 @@ footer label {
         height:20px;
     }
     
+}
+
+/* media queries faqs  */
+@media (max-width:380px){
+    .container-bannerfaqs{
+        margin-top: 50%;
+        width: 100%;
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+    .banner-image{
+        width: fit-content;
+        margin: 2px;
+    }
+
+    .faqs-middle{
+        display:none;
+    }
+    .container-faqs{
+        display: block;
+        width:90%;
+        padding-top: 2%;
+    }
+    .faqs{
+        margin: 2%;
+        margin-bottom: 4%;
+        padding: 5%;
+        
+    }
+
+    .banner-faqs{
+        display:none;
+    }
+    .banner-faqs-mobil{
+        display: flex;
+        justify-content: center;
+    }
+
 }
