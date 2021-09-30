@@ -110,7 +110,7 @@
               <% if(productD.stock>0){ %>
                 <div id="fav">
                   <% if(user) {%> 
-                    <a id="addToCart" href="/cart/<%=user.id%>"><i class="fas fa-shopping-cart detailIcon"></i> </a>
+                    <a id="addToCart" href="/cart/<%=user.id%>" data-products_user_in_session="user<%=user.id%>"><i class="fas fa-shopping-cart detailIcon"></i> </a>
                   <% } else {%> 
                     <a href="/users/login"><i class="fas fa-shopping-cart detailIcon"></i> </a>
                   <% } %> 
