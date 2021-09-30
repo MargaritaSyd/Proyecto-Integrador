@@ -42,7 +42,11 @@ let indexController = {
         
     },
     faqs: function(req,res){
-        res.render('faqs');
+        let user;
+        if(req.session.userLogged){
+            user= req.session.userLogged.id;
+        }
+        res.render('faqs', {user});
     },
     nosotros: function(req,res){
         res.render('nosotros');

@@ -105,8 +105,12 @@ let productController = {
             }
         })
         .then(function(productsStockOn){
+            let user;
+            if(req.session.userLogged){
+                user= req.session.userLogged.id;
+            }
             productsStockOn.sort((a,b)=> (a.id_category > b.id_category ? 1 : -1))
-            return res.render("products/productList", {productsStockOn});
+            return res.render("products/productList", {productsStockOn, user});
         })
     },
     processForm: function(req,res){  
