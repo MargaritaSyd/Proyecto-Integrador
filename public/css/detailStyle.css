@@ -284,3 +284,31 @@ footer label {
     margin-bottom: 10px;
 }
   
+/* estilo formulario creacion de producto */
+.prodCreateFormContainer{
+    width: 90%;
+    height: 800px;
+    max-width: 580px;
+    margin: auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    border: solid 1px rgb(43, 35, 35);
+    border-radius: 10px;
+}
+#bienvenidaF{
+    font-size: medium;
+    color: #AE76A6;
+    text-align: center;
+}
+
+/* media queries formulario creacion producto  */
+@media (max-width:380px){
+    .prodCreateFormContainer{
+      margin-top: 65%;
+      margin-bottom: 15%;
+      padding-top: 10%;
+    }
+    .prodFormInputInterest{
+        width: 70%;
+    }
+}
