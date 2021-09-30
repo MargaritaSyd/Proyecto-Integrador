@@ -550,3 +550,18 @@ footer label {
         width: 400px;
     }
 }
+
+/* media queries register  */
+@media (max-width:380px){
+.footer{
+    display:none;
+
+}
+#contenedor-general{
+    margin-top: 70%;
+    height: 600px;
+}
+.container{
+    padding-bottom: 2%;
+}
+}

@@ -8,6 +8,10 @@
     border: 0;
     font-size: 15px;
 } 
+#bienvenida{
+    font-size: medium;
+    color: #AE76A6;
+}
 #infoUser{
     display: flex;
     justify-content: space-between;
